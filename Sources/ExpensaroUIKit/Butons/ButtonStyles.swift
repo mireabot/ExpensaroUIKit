@@ -58,7 +58,7 @@ public struct SmallButtonStyle: ButtonStyle {
       configuration.label
         .foregroundColor(Colors.shared.primaryGreen)
         .padding(.vertical, 10)
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 12)
         .background(Colors.shared.backgroundGrey)
         .cornerRadius(10)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
