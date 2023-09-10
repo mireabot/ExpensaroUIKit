@@ -22,7 +22,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity)
         .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
-        .cornerRadius(10)
+        .cornerRadius(8)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -59,11 +59,11 @@ public struct SmallButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
+        .padding([.vertical], 7)
+        .padding([.horizontal], 20)
         .foregroundColor(.primaryGreen)
-        .padding(.vertical, 10)
-        .padding(.horizontal, 15)
         .background(Color.backgroundGrey)
-        .cornerRadius(10)
+        .cornerRadius(8)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
