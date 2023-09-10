@@ -17,10 +17,10 @@ public struct PrimaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled: Bool
     var body: some View {
       configuration.label
-        .foregroundColor(isEnabled ? .white : Colors.shared.darkGrey)
+        .foregroundColor(isEnabled ? .white : .darkGrey)
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity)
-        .background(isEnabled ? Colors.shared.primaryGreen : Colors.shared.backgroundGrey)
+        .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
         .cornerRadius(10)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
@@ -37,10 +37,10 @@ public struct SecondaryButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) private var isEnabled: Bool
     var body: some View {
       configuration.label
-        .foregroundColor(isEnabled ? Colors.shared.primaryGreen : Colors.shared.darkGrey)
+        .foregroundColor(isEnabled ? .primaryGreen : .darkGrey)
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity)
-        .background(isEnabled ? Colors.shared.secondaryYellow : Colors.shared.backgroundGrey)
+        .background(isEnabled ? Color.secondaryYellow : Color.backgroundGrey)
         .cornerRadius(8)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
@@ -56,10 +56,10 @@ public struct SmallButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
-        .foregroundColor(Colors.shared.primaryGreen)
+        .foregroundColor(.primaryGreen)
         .padding(.vertical, 10)
         .padding(.horizontal, 15)
-        .background(Colors.shared.backgroundGrey)
+        .background(Color.backgroundGrey)
         .cornerRadius(10)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
@@ -76,7 +76,7 @@ public struct TextButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
-        .foregroundColor(Colors.shared.primaryGreen)
+        .foregroundColor(.primaryGreen)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
