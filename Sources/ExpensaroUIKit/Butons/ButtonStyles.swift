@@ -41,7 +41,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
         .padding(.vertical, 10)
         .frame(maxWidth: .infinity)
         .background(isEnabled ? Colors.shared.secondaryYellow : Colors.shared.backgroundGrey)
-        .cornerRadius(10)
+        .cornerRadius(8)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -58,7 +58,7 @@ public struct SmallButtonStyle: ButtonStyle {
       configuration.label
         .foregroundColor(Colors.shared.primaryGreen)
         .padding(.vertical, 10)
-        .padding(.horizontal, 12)
+        .padding(.horizontal, 15)
         .background(Colors.shared.backgroundGrey)
         .cornerRadius(10)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
