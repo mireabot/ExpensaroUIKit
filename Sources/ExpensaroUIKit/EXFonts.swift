@@ -9,7 +9,7 @@ import SwiftUI
 
 public enum Mukta: String, CaseIterable {
   case regular = "Mukta-Regular"
-  case medium = "Mukta-medium"
+  case medium = "Mukta-Medium"
   case semibold = "Mukta-SemiBold"
   case bold = "Mukta-Bold"
 }
