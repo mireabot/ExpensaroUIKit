@@ -8,6 +8,7 @@
 import SwiftUI
 
 public struct PrimaryButtonStyle: ButtonStyle {
+  public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
   }
@@ -28,6 +29,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
 }
 
 public struct SecondaryButtonStyle: ButtonStyle {
+  public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
   }
@@ -48,6 +50,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
 }
 
 public struct SmallButtonStyle: ButtonStyle {
+  public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
   }
@@ -68,6 +71,7 @@ public struct SmallButtonStyle: ButtonStyle {
 
 
 public struct TextButtonStyle: ButtonStyle {
+  public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
   }
