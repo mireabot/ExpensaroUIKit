@@ -18,7 +18,7 @@ public struct RegularLabel: View {
   
   public var body: some View {
     Text(text)
-      .font(.system(size: fontSize, weight: .regular))
+      .font(.custom("Mukta-Regular", size: fontSize))
   }
 }
 
@@ -33,7 +33,7 @@ public struct MediumLabel: View {
   
   public var body: some View {
     Text(text)
-      .font(.system(size: fontSize, weight: .medium))
+      .font(.custom("Mukta-Medium", size: fontSize))
   }
 }
 
@@ -48,7 +48,7 @@ public struct SemiboldLabel: View {
   
   public var body: some View {
     Text(text)
-      .font(.system(size: fontSize, weight: .semibold))
+      .font(.custom("Mukta-SemiBold", size: fontSize))
   }
 }
 
@@ -63,6 +63,6 @@ public struct BoldLabel: View {
   
   public var body: some View {
     Text(text)
-      .font(.system(size: fontSize, weight: .bold))
+      .font(.custom("Mukta-Bold", size: fontSize))
   }
 }

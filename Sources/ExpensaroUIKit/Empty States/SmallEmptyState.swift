@@ -50,3 +50,9 @@ public struct SmallEmptyState: View {
     )
   }
 }
+
+struct SwiftUIView_Previews: PreviewProvider {
+  static var previews: some View {
+    SmallEmptyState(title: "Hello", text: "Hey", buttonText: "Add", action: {})
+  }
+}
