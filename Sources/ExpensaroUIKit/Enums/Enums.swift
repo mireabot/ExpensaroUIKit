@@ -88,3 +88,14 @@ public enum InfoCardType {
     }
   }
 }
+
+public enum AlertType {
+  case budgetAdded
+  
+  var title: String {
+    switch self {
+    case .budgetAdded:
+      return "Your budget was created"
+    }
+  }
+}
