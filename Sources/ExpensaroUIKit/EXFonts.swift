@@ -16,7 +16,7 @@ public enum Mukta: String, CaseIterable {
 
 extension Font {
   public static func mukta(_ mukta: Mukta, size: CGFloat) -> Font {
-    return .custom(mukta.rawValue, size: size, relativeTo: .body)
+    return .custom(mukta.rawValue, size: size)
   }
 }
 
