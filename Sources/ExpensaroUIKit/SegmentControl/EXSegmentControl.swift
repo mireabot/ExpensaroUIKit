@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct EXSegmentControl: View {
-  @State private var currentTab = ""
+  @Binding var currentTab: String
   @Namespace var animation
   var type: SegmentPickerType
   
-  public init(currentTab: String = "", type: SegmentPickerType) {
-    self.currentTab = currentTab
+  public init(currentTab: Binding<String>, type: SegmentPickerType) {
+    self._currentTab = currentTab
     self.type = type
     MuktaFont.registerFonts()
   }
