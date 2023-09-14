@@ -45,3 +45,46 @@ public enum EmptyStateType {
     }
   }
 }
+
+public enum SegmentPickerType {
+  case transactionType
+  
+  var firstTab: String {
+    switch self {
+    case .transactionType:
+      return "Debit"
+    }
+  }
+  
+  var secondTab: String {
+    switch self {
+    case .transactionType:
+      return "Credit"
+    }
+  }
+}
+
+public enum SmallSelectorType {
+  case date
+  case category
+  
+  var title: String {
+    switch self {
+    case .date:
+      return "Pay date"
+    case .category:
+      return "Category"
+    }
+  }
+}
+
+public enum InfoCardType {
+  case goalHint
+  
+  var title: String {
+    switch self {
+    case .goalHint:
+      return "How to close your goal faster?"
+    }
+  }
+}

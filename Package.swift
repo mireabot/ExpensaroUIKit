@@ -25,7 +25,7 @@ let package = Package(
       name: "ExpensaroUIKit",
       dependencies: [],
       resources: [
-        .process("Fonts")
+        .process("Resources/Fonts")
       ]),
     .testTarget(
       name: "ExpensaroUIKitTests",
