@@ -99,3 +99,25 @@ public enum AlertType {
     }
   }
 }
+
+public enum ToggleType {
+  case notifications
+  case analytics
+  
+  var title: String {
+    switch self {
+    case .notifications:
+      return "Push Notifications"
+    case .analytics:
+      return "Performance and Analytics"
+    }
+  }
+  var text: String {
+    switch self {
+    case .notifications:
+      return "Get alerts about upcoming payments, insights and more"
+    case .analytics:
+      return "We will collect some data about app usage to deliver great experience"
+    }
+  }
+}

@@ -27,9 +27,3 @@ public struct SuccessBottomAlert : View {
     }
   }
 }
-
-struct SwiftUIView_Previews: PreviewProvider {
-  static var previews: some View {
-    SuccessBottomAlert(type: .budgetAdded)
-  }
-}

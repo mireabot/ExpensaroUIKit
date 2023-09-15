@@ -24,9 +24,9 @@ public struct EXSmallSelector: View {
     HStack(alignment: .top) {
       VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.mukta(.regular, size: 17))
+          .font(.mukta(.regular, size: 15))
         Text(activeText)
-          .font(.mukta(.semibold, size: 20))
+          .font(.mukta(.semibold, size: 17))
       }
       .frame(maxWidth: .infinity,alignment: .leading)
     }
