@@ -34,7 +34,7 @@ public struct EXEmptyStateWithImage: View {
             .resizable()
             .frame(width: 16, height: 16)
           Text(type.buttonText)
-            .font(.mukta(.semibold, size: 13))
+            .font(.mukta(.semibold, size: 15))
         }
         .frame(maxWidth: .infinity)
       }

@@ -47,7 +47,7 @@ public struct EXInfoCardWithButton: View {
             .resizable()
             .frame(width: 16, height: 16)
           Text("How it works")
-            .font(.mukta(.semibold, size: 13))
+            .font(.mukta(.semibold, size: 15))
         }.frame(maxWidth: .infinity)
       }
       .buttonStyle(SmallButtonStyle())
