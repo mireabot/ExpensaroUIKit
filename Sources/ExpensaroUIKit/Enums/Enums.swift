@@ -11,6 +11,7 @@ public enum EmptyStateType {
   case noBudget
   case noExpenses
   case noRecurrentPayments
+  case noGoals
   
   var title: String {
     switch self {
@@ -20,6 +21,8 @@ public enum EmptyStateType {
       return "No Expenses Yet"
     case .noRecurrentPayments:
       return "Fill your recurrent payments"
+    case .noGoals:
+      return "You have no active goals"
     }
   }
   
@@ -31,6 +34,8 @@ public enum EmptyStateType {
       return "You haven’t added any expenses for this month"
     case .noRecurrentPayments:
       return "Rent, bills, subscriptions and more"
+    case .noGoals:
+      return ""
     }
   }
   
@@ -42,6 +47,8 @@ public enum EmptyStateType {
       return "Add expenses"
     case .noRecurrentPayments:
       return "Add"
+    case .noGoals:
+      return "Create goal"
     }
   }
 }
@@ -80,11 +87,33 @@ public enum SmallSelectorType {
 
 public enum InfoCardType {
   case goalHint
+  case monthToMonth
+  case topCategory
+  case overviewUpdates
   
   var title: String {
     switch self {
     case .goalHint:
       return "How to close your goal faster?"
+    case .monthToMonth:
+      return "Compare your spendings month to month"
+    case .topCategory:
+      return "Top category for each month"
+    case .overviewUpdates:
+      return "We always working on new features"
+    }
+  }
+  
+  var text: String {
+    switch self {
+    case .goalHint:
+      return ""
+    case .monthToMonth:
+      return "You will see your total spending amount after current month ends and data from previous month"
+    case .topCategory:
+      return "See where you spent the most of your budget each month"
+    case .overviewUpdates:
+      return "New analytics tools are incoming each month"
     }
   }
 }
