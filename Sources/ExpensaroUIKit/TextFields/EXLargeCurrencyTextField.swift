@@ -25,7 +25,7 @@ public struct EXLargeCurrencyTextField: View {
         TextField("", text: text)
           .font(.mukta(.medium, size: 40))
           .tint(.primaryGreen)
-          .keyboardType(.numberPad)
+          .keyboardType(.decimalPad)
           .multilineTextAlignment(.leading)
       }
       AnyView(bottomView)
