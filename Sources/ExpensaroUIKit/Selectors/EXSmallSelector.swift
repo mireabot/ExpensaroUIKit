@@ -8,13 +8,11 @@
 import SwiftUI
 
 public struct EXSmallSelector: View {
-  var activeText: String
-  var icon: Image
+  @Binding var activeText: String
   var type: SmallSelectorType
   
-  public init(activeText: String, icon: Image, type: SmallSelectorType) {
-    self.activeText = activeText
-    self.icon = icon
+  public init(activeText: Binding<String>, type: SmallSelectorType) {
+    self._activeText = activeText
     self.type = type
     MuktaFont.registerFonts()
   }

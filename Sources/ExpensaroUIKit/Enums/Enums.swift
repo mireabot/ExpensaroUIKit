@@ -74,6 +74,7 @@ public enum SegmentPickerType {
 public enum SmallSelectorType {
   case date
   case category
+  case initPayment
   
   var title: String {
     switch self {
@@ -81,6 +82,8 @@ public enum SmallSelectorType {
       return "Pay date"
     case .category:
       return "Category"
+    case .initPayment:
+      return "Initial payment"
     }
   }
 }

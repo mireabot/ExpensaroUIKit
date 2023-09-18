@@ -8,14 +8,14 @@
 import SwiftUI
 
 public struct EXLargeSelector : View {
-  var text: String
-  var icon: Image
+  @Binding var text: String
+  @Binding var icon: Image
   var buttonText: String
   var action: () -> Void
   
-  public init(text: String, icon: Image, buttonText: String, action: @escaping ()-> Void) {
-    self.text = text
-    self.icon = icon
+  public init(text: Binding<String>, icon: Binding<Image>, buttonText: String, action: @escaping ()-> Void) {
+    self._text = text
+    self._icon = icon
     self.buttonText = buttonText
     self.action = action
     MuktaFont.registerFonts()
