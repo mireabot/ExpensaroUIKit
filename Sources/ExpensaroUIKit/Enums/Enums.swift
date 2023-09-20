@@ -75,6 +75,7 @@ public enum SmallSelectorType {
   case date
   case category
   case initPayment
+  case goalDate
   
   var title: String {
     switch self {
@@ -84,6 +85,8 @@ public enum SmallSelectorType {
       return "Category"
     case .initPayment:
       return "Initial payment"
+    case .goalDate:
+      return "Goal date"
     }
   }
 }
@@ -150,6 +153,74 @@ public enum ToggleType {
       return "Get alerts about upcoming payments, insights and more"
     case .analytics:
       return "We will collect some data about app usage to deliver great experience"
+    }
+  }
+}
+
+public enum SettingsType {
+  case categories
+  case reminders
+  case exportData
+  case resetAccount
+  case contact
+  
+  var image: Image {
+    switch self {
+    case .categories:
+      return Image(systemName: "folder.circle.fill")
+    case .reminders:
+      return Image(systemName: "bell.circle.fill")
+    case .exportData:
+      return Image(systemName: "doc.circle.fill")
+    case .resetAccount:
+      return Image(systemName: "xmark.bin.circle.fill")
+    case .contact:
+      return Image(systemName: "bubble.left.circle.fill")
+    }
+  }
+  
+  var title: String {
+    switch self {
+    case .categories:
+      return "Categories"
+    case .reminders:
+      return "Reminders"
+    case .exportData:
+      return "Export Data"
+    case .resetAccount:
+      return "Reset Data"
+    case .contact:
+      return "Contact"
+    }
+  }
+  
+  var text: String {
+    switch self {
+    case .categories:
+      return "Create, edit or even remove any of categories"
+    case .reminders:
+      return "Set up reminders and get notified when needed"
+    case .exportData:
+      return "Export your activity to .csv file"
+    case .resetAccount:
+      return "Start over, or delete account data"
+    case .contact:
+      return "We'd love to hear what's on your mind"
+    }
+  }
+  
+  var color: Color {
+    switch self {
+    case .categories:
+      return .yellow
+    case .reminders:
+      return .pink
+    case .exportData:
+      return .cyan
+    case .resetAccount:
+      return .green
+    case .contact:
+      return .secondary
     }
   }
 }

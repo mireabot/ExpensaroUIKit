@@ -63,9 +63,3 @@ public struct EXInfoCardWithButton: View {
     )
   }
 }
-
-struct SwiftUIView_Previews: PreviewProvider {
-  static var previews: some View {
-    EXInfoCardWithButton(type: .monthToMonth, icon: .init(systemName: "globe"), buttonIcon: .init(systemName: "globe"), buttonAction: {}).padding([.leading,.trailing])
-  }
-}
