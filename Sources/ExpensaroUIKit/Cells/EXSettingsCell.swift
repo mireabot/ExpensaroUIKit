@@ -10,15 +10,17 @@ import SwiftUI
 public struct EXSettingsCell: View {
   @Binding var selectedCategory: String
   var type: SettingsType
-  
-  public init(category: Binding<String>, type: SettingsType) {
+  var action: ()-> Void
+  public init(category: Binding<String>, type: SettingsType, action: @escaping () -> Void) {
     self._selectedCategory = category
     self.type = type
+    self.action = action
     MuktaFont.registerFonts()
   }
   public var body: some View {
     Button {
       selectedCategory = type.title
+      action()
     } label: {
       VStack(spacing: 5) {
         type.image
@@ -26,7 +28,7 @@ public struct EXSettingsCell: View {
           .frame(width: 25, height: 25)
           .foregroundColor(.white)
           .padding(8)
-          .background(type.color)
+          .background(Color.primaryGreen)
           .cornerRadius(10)
         VStack(alignment: .center, spacing: 0) {
           Text(type.title)
@@ -49,5 +51,13 @@ public struct EXSettingsCell: View {
     }
     .buttonStyle(PlainButtonStyle())
 
+  }
+}
+struct SwiftUIView_Previews: PreviewProvider {
+  static var previews: some View {
+    HStack {
+      EXSettingsCell(category: .constant(""), type: .categories, action: {})
+      EXSettingsCell(category: .constant(""), type: .reminders, action: {})
+    }
   }
 }
