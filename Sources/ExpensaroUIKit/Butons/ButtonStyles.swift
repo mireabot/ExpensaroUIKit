@@ -100,3 +100,36 @@ public struct PlainButtonStyle: ButtonStyle {
     }
   }
 }
+
+public struct StretchButtonStyle: ButtonStyle {
+  let icon: Image
+  
+  public init(icon: Image) {
+    self.icon = icon
+  }
+  
+  public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
+    MyButton(configuration: configuration, icon: icon)
+  }
+  
+  struct MyButton: View {
+    let configuration: ButtonStyle.Configuration
+    let icon: Image
+    var body: some View {
+      HStack(alignment: .center) {
+        configuration.label
+        Spacer()
+        icon
+          .font(.callout)
+          .foregroundColor(.darkGrey)
+      }
+      .padding(15)
+      .overlay(
+        RoundedRectangle(cornerRadius: 12)
+          .inset(by: 0.5)
+          .stroke(Color.border, lineWidth: 1)
+      )
+      .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+  }
+}
