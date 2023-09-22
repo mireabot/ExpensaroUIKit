@@ -23,12 +23,9 @@ public struct EXToggleCard: View {
     HStack {
       HStack(alignment: .top, spacing: 10) {
         icon
-          .resizable()
-          .frame(width: 20, height: 20)
+          .font(.title2)
           .foregroundColor(.primaryGreen)
           .padding(10)
-          .background(Color.backgroundGrey)
-          .cornerRadius(40)
         VStack(alignment: .leading, spacing: 0) {
           Text(type.title)
             .font(.mukta(.medium, size: 15))

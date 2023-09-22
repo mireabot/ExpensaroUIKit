@@ -28,12 +28,8 @@ public struct EXInfoCardWithButton: View {
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       icon?
-        .resizable()
-        .frame(width: 20, height: 20)
+        .font(.title)
         .foregroundColor(.primaryGreen)
-        .padding(8)
-        .background(Color.backgroundGrey)
-        .cornerRadius(40)
       Text(type.title)
         .font(.mukta(.semibold, size: 17))
       Text(type.text)
@@ -42,13 +38,9 @@ public struct EXInfoCardWithButton: View {
       Button {
         buttonAction()
       } label: {
-        HStack {
-          buttonIcon
-            .resizable()
-            .frame(width: 16, height: 16)
-          Text("How it works")
-            .font(.mukta(.semibold, size: 15))
-        }.frame(maxWidth: .infinity)
+        Text("How it works")
+          .font(.mukta(.semibold, size: 15))
+          .frame(maxWidth: .infinity)
       }
       .buttonStyle(SmallButtonStyle())
       .padding(.top, 5)

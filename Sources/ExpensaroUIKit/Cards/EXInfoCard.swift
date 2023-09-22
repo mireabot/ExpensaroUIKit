@@ -44,12 +44,8 @@ public struct EXInfoCard: View {
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       icon?
-        .resizable()
-        .frame(width: 20, height: 20)
+        .font(.title)
         .foregroundColor(.primaryGreen)
-        .padding(8)
-        .background(Color.backgroundGrey)
-        .cornerRadius(40)
       Text(type.title)
         .font(.mukta(.semibold, size: 17))
       Text(text ?? type.text)
@@ -65,3 +61,4 @@ public struct EXInfoCard: View {
     )
   }
 }
+

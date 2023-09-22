@@ -21,22 +21,18 @@ public struct EXLargeEmptyState: View {
   
   public var body: some View {
     VStack {
-      VStack(spacing: 8) {
+      VStack(spacing: 5) {
         icon
-          .resizable()
-          .frame(width: 24, height: 24)
+          .font(.title)
           .foregroundColor(.primaryGreen)
-          .padding(18)
-          .background(Color.backgroundGrey)
-          .cornerRadius(30)
-        
+          .padding(.bottom, 5)
         Text(type.title)
           .font(.mukta(.semibold, size: 17))
         Text(type.text)
           .foregroundColor(.darkGrey)
           .font(.mukta(.regular, size: 15))
         
-      }.padding(.bottom, 20)
+      }.padding(.bottom, 15)
       Divider()
       Button {
         action()
@@ -45,10 +41,10 @@ public struct EXLargeEmptyState: View {
           .font(.mukta(.semibold, size: 15))
       }
       .buttonStyle(SmallButtonStyle())
-      .padding(.top, 20)
+      .padding(.top, 15)
       
     }
-    .padding(16)
+    .padding(20)
     .overlay(
       RoundedRectangle(cornerRadius: 12)
         .inset(by: 0.5)

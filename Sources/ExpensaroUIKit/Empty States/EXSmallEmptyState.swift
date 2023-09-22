@@ -9,12 +9,10 @@ import SwiftUI
 
 public struct EXSmallEmptyState: View {
   var type: EmptyStateType
-  var icon: Image
   var action: () -> Void
   
-  public init(type: EmptyStateType, icon: Image, action: @escaping () -> Void) {
+  public init(type: EmptyStateType, action: @escaping () -> Void) {
     self.type = type
-    self.icon = icon
     self.action = action
     MuktaFont.registerFonts()
   }

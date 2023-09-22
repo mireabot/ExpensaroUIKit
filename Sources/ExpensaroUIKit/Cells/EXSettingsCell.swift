@@ -53,11 +53,3 @@ public struct EXSettingsCell: View {
 
   }
 }
-struct SwiftUIView_Previews: PreviewProvider {
-  static var previews: some View {
-    HStack {
-      EXSettingsCell(category: .constant(""), type: .categories, action: {})
-      EXSettingsCell(category: .constant(""), type: .reminders, action: {})
-    }
-  }
-}

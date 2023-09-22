@@ -20,8 +20,7 @@ public struct EXCategoryCell: View {
   public var body: some View {
     VStack(spacing: 5) {
       icon
-        .resizable()
-        .frame(width: 24, height: 24)
+        .font(.title2)
         .foregroundColor(.primaryGreen)
       Text(title)
         .font(.mukta(.regular, size: 17))
