@@ -55,11 +55,14 @@ public enum EmptyStateType {
 
 public enum SegmentPickerType {
   case transactionType
+  case contactReason
   
   var firstTab: String {
     switch self {
     case .transactionType:
       return "Debit"
+    case .contactReason:
+      return "Feedback"
     }
   }
   
@@ -67,6 +70,17 @@ public enum SegmentPickerType {
     switch self {
     case .transactionType:
       return "Credit"
+    case .contactReason:
+      return "Bug"
+    }
+  }
+  
+  var thirdTab: String {
+    switch self {
+    case .transactionType:
+      return ""
+    case .contactReason:
+      return "Question"
     }
   }
 }

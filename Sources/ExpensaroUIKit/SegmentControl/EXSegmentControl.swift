@@ -59,6 +59,28 @@ public struct EXSegmentControl: View {
             self.currentTab = type.secondTab
           }
         }
+      
+      if !type.thirdTab.isEmpty {
+        Text(type.thirdTab)
+          .foregroundColor(currentTab == type.thirdTab ? .white : .darkGrey)
+          .font(.mukta(.semibold, size: 15))
+          .padding(8)
+          .frame(maxWidth: .infinity)
+          .background(
+            ZStack {
+              if currentTab == type.thirdTab {
+                Color.primaryGreen
+                  .cornerRadius(12)
+                  .matchedGeometryEffect(id: "TAB", in: animation)
+              }
+            }
+          )
+          .onTapGesture {
+            withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.9, blendDuration: 0.9)) {
+              self.currentTab = type.thirdTab
+            }
+          }
+      }
     }
     .onAppear {
       currentTab = type.firstTab
