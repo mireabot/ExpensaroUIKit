@@ -138,13 +138,16 @@ public enum AlertType {
 public enum ToggleType {
   case notifications
   case analytics
+  case reminders
   
   var title: String {
     switch self {
     case .notifications:
-      return "Push Notifications"
+      return "Push notifications"
     case .analytics:
       return "Performance and Analytics"
+    case .reminders:
+      return "Daily reminders"
     }
   }
   var text: String {
@@ -153,6 +156,19 @@ public enum ToggleType {
       return "Get alerts about upcoming payments, insights and more"
     case .analytics:
       return "We will collect some data about app usage to deliver great experience"
+    case .reminders:
+      return "The easiest way to fail with your budget is to forget about it. We can remind you to add todays expenses at a time that suits you"
+    }
+  }
+  
+  var toggleTitle: String {
+    switch self {
+    case .notifications:
+      return "Enable notifications"
+    case .analytics:
+      return "We will collect some data about app usage to deliver great experience"
+    case .reminders:
+      return "Activate reminders"
     }
   }
 }

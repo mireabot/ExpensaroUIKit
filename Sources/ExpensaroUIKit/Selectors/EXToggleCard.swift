@@ -2,47 +2,43 @@
 //  EXToggleCard.swift
 //  
 //
-//  Created by Mikhail Kolkov on 9/15/23.
+//  Created by Mikhail Kolkov on 9/23/23.
 //
 
 import SwiftUI
 
 public struct EXToggleCard: View {
-  @Binding var isSelected: Bool
-  var icon: Image
+  @Binding var isOn: Bool
   var type: ToggleType
   
-  public init(isSelected: Binding<Bool>, icon: Image, type: ToggleType) {
-    self._isSelected = isSelected
-    self.icon = icon
+  public init(type: ToggleType, isOn: Binding<Bool>) {
     self.type = type
+    self._isOn = isOn
     MuktaFont.registerFonts()
   }
   
   public var body: some View {
-    HStack {
-      HStack(alignment: .top, spacing: 10) {
-        icon
-          .font(.title2)
-          .foregroundColor(.primaryGreen)
-          .padding(10)
-        VStack(alignment: .leading, spacing: 0) {
-          Text(type.title)
-            .font(.mukta(.medium, size: 15))
-          Text(type.text)
-            .font(.mukta(.regular, size: 13))
-            .foregroundColor(.darkGrey)
-            .multilineTextAlignment(.leading)
-        }.padding(.top, 5)
-      }
-      Spacer()
-      Image(systemName: isSelected ? "largecircle.fill.circle" : "circle")
-        .resizable()
-        .frame(width: 20, height: 20)
-        .foregroundColor(isSelected ? .primaryGreen : .border)
-        .onTapGesture {
-          isSelected.toggle()
-        }
+    VStack(alignment: .leading, spacing: 5) {
+      Text(type.title)
+        .font(.mukta(.semibold, size: 17))
+        .foregroundColor(.black)
+      Text(type.text)
+        .font(.mukta(.regular, size: 13))
+        .foregroundColor(.darkGrey)
+        .multilineTextAlignment(.leading)
+      
+      Toggle(type.toggleTitle, isOn: $isOn)
+        .tint(.primaryGreen)
+        .font(.mukta(.regular, size: 13))
+        .padding(.horizontal, 10)
+        .padding(.vertical, 15)
+        .background(Color.backgroundGrey)
+        .cornerRadius(12)
+        .padding(.top, 10)
     }
+    .padding(15)
+    .background(Color.white)
+    .cornerRadius(12)
+    .shadowXS()
   }
 }
