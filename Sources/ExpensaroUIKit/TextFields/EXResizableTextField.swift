@@ -21,6 +21,8 @@ public struct EXResizableTextField: View {
       HStack(spacing: 8) {
         withAnimation(.easeInOut) {
           TextEditor(text: $message)
+            .keyboardType(.alphabet)
+            .autocorrectionDisabled(true)
             .tint(.primaryGreen)
             .font(.mukta(.regular, size: 17))
             .frame(minHeight: 100)
