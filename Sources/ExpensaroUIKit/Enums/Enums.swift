@@ -254,3 +254,22 @@ public enum SettingsType {
     }
   }
 }
+
+
+public enum BottomInfoType {
+  case spendings
+  
+  var title: String {
+    switch self {
+    case .spendings:
+      return "Keep track of your spendings progress"
+    }
+  }
+  
+  var text: String {
+    switch self {
+    case .spendings:
+      return "We will calculate the percentage of changes in spending at the end of this month and the previous month"
+    }
+  }
+}
