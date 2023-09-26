@@ -64,9 +64,9 @@ public struct SmallPrimaryButtonStyle: ButtonStyle {
           configuration.label
         }
       }
-      .padding([.vertical], 7)
-      .padding([.horizontal], 20)
       .foregroundColor(.primaryGreen)
+      .padding(.vertical, 10)
+      .frame(maxWidth: .infinity)
       .background(Color.backgroundGrey)
       .cornerRadius(8)
       .scaleEffect(configuration.isPressed ? 0.95 : 1)
