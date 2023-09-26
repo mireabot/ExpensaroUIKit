@@ -41,6 +41,40 @@ public struct PrimaryButtonStyle: ButtonStyle {
   }
 }
 
+public struct SmallPrimaryButtonStyle: ButtonStyle {
+  @Binding var showLoader: Bool
+  
+  public init(showLoader: Binding<Bool>) {
+    self._showLoader = showLoader
+  }
+  
+  public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
+    MyButton(configuration: configuration, showLoader: $showLoader)
+  }
+  
+  struct MyButton: View {
+    let configuration: ButtonStyle.Configuration
+    @Binding var showLoader: Bool
+    var body: some View {
+      HStack {
+        if showLoader {
+          CircularProgress()
+        }
+        else {
+          configuration.label
+        }
+      }
+      .padding([.vertical], 7)
+      .padding([.horizontal], 20)
+      .foregroundColor(.primaryGreen)
+      .background(Color.backgroundGrey)
+      .cornerRadius(8)
+      .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+  }
+}
+
+
 public struct SecondaryButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
