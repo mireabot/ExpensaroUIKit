@@ -153,6 +153,8 @@ public enum ToggleType {
   case notifications
   case analytics
   case reminders
+  case eraseData
+  case deleteAccount
   
   var title: String {
     switch self {
@@ -162,6 +164,10 @@ public enum ToggleType {
       return "Performance and Analytics"
     case .reminders:
       return "Daily reminders"
+    case .eraseData:
+      return "Erase history"
+    case .deleteAccount:
+      return "Full wipe out"
     }
   }
   var text: String {
@@ -172,6 +178,10 @@ public enum ToggleType {
       return "We will collect some data about app usage to deliver great experience"
     case .reminders:
       return "The easiest way to fail with your budget is to forget about it. We can remind you to add todays expenses at a time that suits you"
+    case .eraseData:
+      return "Remove all my added data"
+    case .deleteAccount:
+      return "Delete my profile and all related data"
     }
   }
   
@@ -183,6 +193,10 @@ public enum ToggleType {
       return "We will collect some data about app usage to deliver great experience"
     case .reminders:
       return "Activate reminders"
+    case .eraseData:
+      return ""
+    case .deleteAccount:
+      return ""
     }
   }
 }

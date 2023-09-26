@@ -32,10 +32,3 @@ public struct EXBottomInfoView: View {
     }
   }
 }
-
-struct SwiftUIView_Previews: PreviewProvider {
-  static var previews: some View {
-    EXBottomInfoView(type: .spendings, image: .init(systemName: "globe"))
-      .padding([.leading,.trailing], 16)
-  }
-}
