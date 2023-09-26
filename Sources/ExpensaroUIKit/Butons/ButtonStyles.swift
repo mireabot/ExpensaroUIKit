@@ -8,22 +8,35 @@
 import SwiftUI
 
 public struct PrimaryButtonStyle: ButtonStyle {
-  public init() {}
+  @Binding var showLoader: Bool
+  
+  public init(showLoader: Binding<Bool>) {
+    self._showLoader = showLoader
+  }
+  
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
-    MyButton(configuration: configuration)
+    MyButton(configuration: configuration, showLoader: $showLoader)
   }
   
   struct MyButton: View {
     let configuration: ButtonStyle.Configuration
     @Environment(\.isEnabled) private var isEnabled: Bool
+    @Binding var showLoader: Bool
     var body: some View {
-      configuration.label
-        .foregroundColor(isEnabled ? .white : .darkGrey)
-        .padding(.vertical, 10)
-        .frame(maxWidth: .infinity)
-        .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
-        .cornerRadius(8)
-        .scaleEffect(configuration.isPressed ? 0.95 : 1)
+      HStack {
+        if showLoader {
+          CircularProgress()
+        }
+        else {
+          configuration.label
+        }
+      }
+      .foregroundColor(isEnabled ? .white : .darkGrey)
+      .padding(.vertical, 10)
+      .frame(maxWidth: .infinity)
+      .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
+      .cornerRadius(8)
+      .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
 }
@@ -130,6 +143,49 @@ public struct StretchButtonStyle: ButtonStyle {
           .stroke(Color.border, lineWidth: 1)
       )
       .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+  }
+}
+
+
+// MARK: - Button Circle Progress
+public struct CircularProgress: View {
+  @State private var isCircleRotation = true
+  @State private var animationStart = false
+  @State private var animationEnd = false
+  
+  public var body: some View {
+    ZStack {
+      Circle()
+        .stroke(lineWidth: 4)
+        .fill(Color.white)
+        .frame(width: 20, height: 20)
+      
+      Circle()
+        .trim(from: animationStart ? 1/3 : 1/9, to: animationEnd ? 2/5 : 1)
+        .stroke(lineWidth: 4)
+        .rotationEffect(.degrees(isCircleRotation ? 360 : 0))
+        .frame(width: 20, height: 20)
+        .foregroundColor(.border)
+        .onAppear {
+          withAnimation(Animation
+            .linear(duration: 1)
+            .repeatForever(autoreverses: false)) {
+              self.isCircleRotation.toggle()
+            }
+          withAnimation(Animation
+            .linear(duration: 1)
+            .delay(0.5)
+            .repeatForever(autoreverses: true)) {
+              self.animationStart.toggle()
+            }
+          withAnimation(Animation
+            .linear(duration: 1)
+            .delay(1)
+            .repeatForever(autoreverses: true)) {
+              self.animationEnd.toggle()
+            }
+        }
     }
   }
 }
