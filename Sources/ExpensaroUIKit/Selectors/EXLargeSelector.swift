@@ -25,12 +25,10 @@ public struct EXLargeSelector : View {
     HStack {
       HStack(spacing: 10) {
         icon
-          .resizable()
-          .frame(width: 20, height: 20)
           .foregroundColor(.primaryGreen)
           .padding(10)
           .background(Color.backgroundGrey)
-          .cornerRadius(48)
+          .cornerRadius(12)
         Text(text)
           .font(.mukta(.regular, size: 17))
       }
