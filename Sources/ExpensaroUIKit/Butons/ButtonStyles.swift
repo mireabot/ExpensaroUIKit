@@ -133,7 +133,7 @@ public struct TextButtonStyle: ButtonStyle {
   }
 }
 
-public struct PlainButtonStyle: ButtonStyle {
+public struct EXPlainButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
