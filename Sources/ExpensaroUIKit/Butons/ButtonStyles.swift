@@ -96,6 +96,27 @@ public struct SecondaryButtonStyle: ButtonStyle {
   }
 }
 
+public struct DestructiveButtonStyle: ButtonStyle {
+  public init() {}
+  public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
+    MyButton(configuration: configuration)
+  }
+  
+  struct MyButton: View {
+    let configuration: ButtonStyle.Configuration
+    var body: some View {
+      configuration.label
+        .foregroundColor(.white)
+        .padding(.vertical, 10)
+        .frame(maxWidth: .infinity)
+        .background(.red)
+        .cornerRadius(8)
+        .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+  }
+}
+
+
 public struct SmallButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {

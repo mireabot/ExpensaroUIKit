@@ -292,3 +292,44 @@ public enum BottomInfoType {
     }
   }
 }
+
+public enum EXAlertType {
+  case deleteTransaction
+  case deleteGoal
+  
+  var title: String {
+    switch self {
+    case .deleteTransaction:
+      return "Delete transaction?"
+    case .deleteGoal:
+      return "Delete goal?"
+    }
+  }
+  
+  var subTitle: String {
+    switch self {
+    case .deleteTransaction:
+      return "This action is permanent and cannot be restored"
+    case .deleteGoal:
+      return "This action is permanent and cannot be restored"
+    }
+  }
+  
+  var primaryButtonText: String {
+    switch self {
+    case .deleteTransaction:
+      return "Yes, delete transaction"
+    case .deleteGoal:
+      return "Yes, delete goal"
+    }
+  }
+  
+  var secondaryButtonText: String {
+    switch self {
+    case .deleteTransaction:
+      return "No, leave transaction"
+    case .deleteGoal:
+      return "No, leave goal"
+    }
+  }
+}
