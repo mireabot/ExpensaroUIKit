@@ -155,6 +155,7 @@ public enum ToggleType {
   case reminders
   case eraseData
   case deleteAccount
+  case paymentReminder
   
   var title: String {
     switch self {
@@ -168,6 +169,8 @@ public enum ToggleType {
       return "Erase history"
     case .deleteAccount:
       return "Full wipe out"
+    case .paymentReminder:
+      return "Reminder in advance"
     }
   }
   var text: String {
@@ -182,6 +185,8 @@ public enum ToggleType {
       return "Remove all my added data"
     case .deleteAccount:
       return "Delete my profile and all related data"
+    case .paymentReminder:
+      return "You will receive a reminder 3 days before the date of payment"
     }
   }
   
@@ -197,6 +202,8 @@ public enum ToggleType {
       return ""
     case .deleteAccount:
       return ""
+    case .paymentReminder:
+      return "Enable reminder"
     }
   }
 }
