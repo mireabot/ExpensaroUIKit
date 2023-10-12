@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct EXTextFieldWithCurrency: View {
-  var text: Binding<String>
+  var value: Binding<Double>
   
-  public init(text: Binding<String>) {
-    self.text = text
+  public init(value: Binding<Double>) {
+    self.value = value
     MuktaFont.registerFonts()
   }
   
@@ -22,7 +22,7 @@ public struct EXTextFieldWithCurrency: View {
       Spacer()
       HStack {
         Spacer()
-        TextField("0", text: text)
+        TextField("0", value: value, formatter: NumberFormatter())
           .tint(.primaryGreen)
           .font(.mukta(.regular, size: 17))
           .keyboardType(.numberPad)
