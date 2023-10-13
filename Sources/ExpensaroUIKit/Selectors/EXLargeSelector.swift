@@ -9,11 +9,11 @@ import SwiftUI
 
 public struct EXLargeSelector : View {
   @Binding var text: String
-  @Binding var icon: Image
+  @Binding var icon: String
   var buttonText: String
   var action: () -> Void
   
-  public init(text: Binding<String>, icon: Binding<Image>, buttonText: String, action: @escaping ()-> Void) {
+  public init(text: Binding<String>, icon: Binding<String>, buttonText: String, action: @escaping ()-> Void) {
     self._text = text
     self._icon = icon
     self.buttonText = buttonText
@@ -24,7 +24,7 @@ public struct EXLargeSelector : View {
   public var body: some View {
     HStack {
       HStack(spacing: 10) {
-        icon
+        Image(icon)
           .foregroundColor(.primaryGreen)
           .padding(10)
           .background(Color.backgroundGrey)
