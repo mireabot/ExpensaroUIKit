@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct EXLargeCurrencyTextField: View {
-  var value: Binding<Double?>
+  var value: Binding<Double>
   var bottomView: any View
   
-  public init(value: Binding<Double?>, bottomView: any View) {
+  public init(value: Binding<Double>, bottomView: any View) {
     self.value = value
     self.bottomView = bottomView
     MuktaFont.registerFonts()
