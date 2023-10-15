@@ -8,10 +8,10 @@
 import SwiftUI
 
 public struct EXLargeCurrencyTextField: View {
-  var value: Binding<Double>
+  var value: Binding<String>
   var bottomView: any View
   
-  public init(value: Binding<Double>, bottomView: any View) {
+  public init(value: Binding<String>, bottomView: any View) {
     self.value = value
     self.bottomView = bottomView
     MuktaFont.registerFonts()
@@ -22,10 +22,9 @@ public struct EXLargeCurrencyTextField: View {
       HStack(alignment: .center, spacing: 2) {
         Text("$")
           .font(.mukta(.medium, size: 24))
-        TextField("", value: value, formatter: NumberFormatter())
+        TextField("", text: value)
           .font(.mukta(.medium, size: 40))
-          .tint(.primaryGreen)
-          .keyboardType(.decimalPad)
+          .tint(.clear)
           .multilineTextAlignment(.leading)
       }
       AnyView(bottomView)

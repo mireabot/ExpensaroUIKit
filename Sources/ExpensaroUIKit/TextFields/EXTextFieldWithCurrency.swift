@@ -23,9 +23,8 @@ public struct EXTextFieldWithCurrency: View {
       HStack {
         Spacer()
         TextField("0", text: value)
-          .tint(.primaryGreen)
+          .tint(.clear)
           .font(.mukta(.regular, size: 17))
-          .keyboardType(.numberPad)
           .multilineTextAlignment(.trailing)
       }
     }
