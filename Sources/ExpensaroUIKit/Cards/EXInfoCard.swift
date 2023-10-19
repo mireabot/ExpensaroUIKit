@@ -8,7 +8,8 @@
 import SwiftUI
 
 public struct EXInfoCard: View {
-  var type: InfoCardType
+  var type: InfoCardType?
+  var title: String?
   var icon: Image?
   var text: String?
   
@@ -19,6 +20,18 @@ public struct EXInfoCard: View {
   ///   - text: custom text
   public init(type: InfoCardType, icon: Image?, text: String?) {
     self.type = type
+    self.icon = icon
+    self.text = text
+    MuktaFont.registerFonts()
+  }
+  
+  /// Init for card with custom icon and custom title and text
+  /// - Parameters:
+  ///   - type: type of info card
+  ///   - icon: custom icon
+  ///   - text: custom text
+  public init(title: String?, icon: Image?, text: String?) {
+    self.title = title
     self.icon = icon
     self.text = text
     MuktaFont.registerFonts()
@@ -46,9 +59,9 @@ public struct EXInfoCard: View {
       icon?
         .font(.title)
         .foregroundColor(.primaryGreen)
-      Text(type.title)
+      Text((title ?? type?.title) ?? "")
         .font(.mukta(.semibold, size: 17))
-      Text(text ?? type.text)
+      Text((text ?? type?.text) ?? "")
         .font(.mukta(.regular, size: 15))
         .foregroundColor(.darkGrey)
     }
