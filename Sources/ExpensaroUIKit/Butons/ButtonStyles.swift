@@ -191,6 +191,7 @@ public struct StretchButtonStyle: ButtonStyle {
           .font(.callout)
           .foregroundColor(.darkGrey)
       }
+      .background(.white)
       .padding(15)
       .overlay(
         RoundedRectangle(cornerRadius: 12)
