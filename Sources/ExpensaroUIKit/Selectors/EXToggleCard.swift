@@ -38,7 +38,10 @@ public struct EXToggleCard: View {
     }
     .padding(15)
     .background(Color.white)
-    .cornerRadius(12)
-    .shadowXS()
+    .overlay(
+      RoundedRectangle(cornerRadius: 12)
+        .inset(by: 0.5)
+        .stroke(Color.border, lineWidth: 1)
+    )
   }
 }
