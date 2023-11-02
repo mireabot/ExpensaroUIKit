@@ -1,6 +1,6 @@
 //
 //  Enums.swift
-//  
+//
 //
 //  Created by Mikhail Kolkov on 9/13/23.
 //
@@ -214,6 +214,7 @@ public enum SettingsType {
   case exportData
   case resetAccount
   case contact
+  case appSettings
   
   var image: Image {
     switch self {
@@ -227,6 +228,8 @@ public enum SettingsType {
       return Image(systemName: "xmark.bin.circle.fill")
     case .contact:
       return Image(systemName: "bubble.left.circle.fill")
+    case .appSettings:
+      return Image(systemName: "gear.circle.fill")
     }
   }
   
@@ -242,6 +245,8 @@ public enum SettingsType {
       return "Reset Data"
     case .contact:
       return "Contact"
+    case .appSettings:
+      return "App Preferences"
     }
   }
   
@@ -257,21 +262,8 @@ public enum SettingsType {
       return "Start over, or delete account data"
     case .contact:
       return "We'd love to hear what's on your mind"
-    }
-  }
-  
-  var color: Color {
-    switch self {
-    case .categories:
-      return .yellow
-    case .reminders:
-      return .pink
-    case .exportData:
-      return .cyan
-    case .resetAccount:
-      return .green
-    case .contact:
-      return .secondary
+    case .appSettings:
+      return "Manage app settings"
     }
   }
 }
@@ -340,3 +332,10 @@ public enum EXAlertType {
     }
   }
 }
+
+#Preview(body: {
+  HStack {
+    EXSettingsCell(category: .constant(""), type: .appSettings, action: {})
+    EXSettingsCell(category: .constant(""), type: .appSettings, action: {})
+  }
+})

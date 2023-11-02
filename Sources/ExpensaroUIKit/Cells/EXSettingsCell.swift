@@ -46,8 +46,11 @@ public struct EXSettingsCell: View {
       .padding(.vertical, 20)
       .padding(.horizontal, 10)
       .background(.white)
-      .cornerRadius(12)
-      .shadowXS()
+      .overlay(
+        RoundedRectangle(cornerRadius: 12)
+          .inset(by: 0.5)
+          .stroke(Color.border, lineWidth: 1)
+      )
     }
     .buttonStyle(PlainButtonStyle())
 
