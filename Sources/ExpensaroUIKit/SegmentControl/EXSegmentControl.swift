@@ -1,6 +1,6 @@
 //
 //  EXSegmentControl.swift
-//  
+//
 //
 //  Created by Mikhail Kolkov on 9/14/23.
 //
@@ -24,7 +24,8 @@ public struct EXSegmentControl: View {
         .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
         .font(.mukta(.semibold, size: 15))
         .padding(8)
-        .frame(maxWidth: .infinity)
+//        .frame(maxWidth: .infinity)
+        .frame(width: 120)
         .background(
           ZStack {
             if currentTab == type.firstTab {
@@ -44,7 +45,8 @@ public struct EXSegmentControl: View {
         .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
         .font(.mukta(.semibold, size: 15))
         .padding(8)
-        .frame(maxWidth: .infinity)
+//        .frame(maxWidth: .infinity)
+        .frame(width: 120)
         .background(
           ZStack {
             if currentTab == type.secondTab {
@@ -88,5 +90,10 @@ public struct EXSegmentControl: View {
     .padding(2)
     .background(Color.backgroundGrey)
     .cornerRadius(12)
+    .frame(maxWidth: .infinity)
   }
+}
+
+#Preview {
+  EXSegmentControl(currentTab: .constant("Debit"), type: .transactionType)
 }

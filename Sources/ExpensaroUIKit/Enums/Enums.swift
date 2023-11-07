@@ -257,7 +257,7 @@ public enum SettingsType {
     case .reminders:
       return "Set up reminders and get notified when needed"
     case .exportData:
-      return "Export your activity to .csv file"
+      return "Export your financial activity to .csv file"
     case .resetAccount:
       return "Start over, or delete account data"
     case .contact:
@@ -335,7 +335,7 @@ public enum EXAlertType {
 
 #Preview(body: {
   HStack {
-    EXSettingsCell(category: .constant(""), type: .appSettings, action: {})
-    EXSettingsCell(category: .constant(""), type: .appSettings, action: {})
+    EXSettingsCell(category: .constant(""), type: .exportData, action: {})
+    EXSettingsCell(category: .constant(""), type: .contact, action: {})
   }
 })
