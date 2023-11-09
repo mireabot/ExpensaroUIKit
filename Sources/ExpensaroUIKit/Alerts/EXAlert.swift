@@ -37,7 +37,7 @@ public struct EXAlert: View {
           Text(type.secondaryButtonText)
             .font(.mukta(.semibold, size: 17))
         }
-        .buttonStyle(SmallPrimaryButtonStyle(showLoader: .constant(false)))
+        .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
         
         Button {
           primaryAction()
@@ -45,7 +45,7 @@ public struct EXAlert: View {
           Text(type.primaryButtonText)
             .font(.mukta(.semibold, size: 17))
         }
-        .buttonStyle(PrimaryButtonStyle(showLoader: .constant(false)))
+        .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
       }
     }
     .padding(16)

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct PrimaryButtonStyle: ButtonStyle {
+public struct EXPrimaryButtonStyle: ButtonStyle {
   @Binding var showLoader: Bool
   
   public init(showLoader: Binding<Bool>) {
@@ -41,7 +41,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
   }
 }
 
-public struct SmallPrimaryButtonStyle: ButtonStyle {
+public struct EXSecondaryPrimaryButtonStyle: ButtonStyle {
   @Binding var showLoader: Bool
   
   public init(showLoader: Binding<Bool>) {
@@ -75,7 +75,7 @@ public struct SmallPrimaryButtonStyle: ButtonStyle {
 }
 
 
-public struct SecondaryButtonStyle: ButtonStyle {
+public struct EXSecondaryButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
@@ -96,7 +96,7 @@ public struct SecondaryButtonStyle: ButtonStyle {
   }
 }
 
-public struct DestructiveButtonStyle: ButtonStyle {
+public struct EXDestructiveButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
@@ -117,7 +117,7 @@ public struct DestructiveButtonStyle: ButtonStyle {
 }
 
 
-public struct SmallButtonStyle: ButtonStyle {
+public struct EXSmallButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
@@ -138,7 +138,7 @@ public struct SmallButtonStyle: ButtonStyle {
 }
 
 
-public struct TextButtonStyle: ButtonStyle {
+public struct EXTextButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
     MyButton(configuration: configuration)
@@ -169,7 +169,7 @@ public struct EXPlainButtonStyle: ButtonStyle {
   }
 }
 
-public struct StretchButtonStyle: ButtonStyle {
+public struct EXStretchButtonStyle: ButtonStyle {
   let icon: Image
   
   public init(icon: Image) {

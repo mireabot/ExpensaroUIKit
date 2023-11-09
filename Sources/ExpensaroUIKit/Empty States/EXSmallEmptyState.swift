@@ -34,7 +34,7 @@ public struct EXSmallEmptyState: View {
         Text(type.buttonText)
           .font(.mukta(.semibold, size: 15))
       }
-      .buttonStyle(SmallButtonStyle())
+      .buttonStyle(EXSmallButtonStyle())
       
     }
     .padding(16)

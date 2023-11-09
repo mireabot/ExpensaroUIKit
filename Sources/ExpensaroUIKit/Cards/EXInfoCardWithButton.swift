@@ -42,7 +42,7 @@ public struct EXInfoCardWithButton: View {
           .font(.mukta(.semibold, size: 15))
           .frame(maxWidth: .infinity)
       }
-      .buttonStyle(SmallButtonStyle())
+      .buttonStyle(EXSmallButtonStyle())
       .padding(.top, 5)
 
     }

@@ -38,7 +38,7 @@ public struct EXEmptyStateWithImage: View {
         }
         .frame(maxWidth: .infinity)
       }
-      .buttonStyle(SmallButtonStyle())
+      .buttonStyle(EXSmallButtonStyle())
     }
   }
 }

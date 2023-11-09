@@ -40,7 +40,7 @@ public struct EXLargeEmptyState: View {
         Text(type.buttonText)
           .font(.mukta(.semibold, size: 15))
       }
-      .buttonStyle(SmallButtonStyle())
+      .buttonStyle(EXSmallButtonStyle())
       .padding(.top, 15)
       
     }

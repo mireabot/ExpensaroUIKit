@@ -40,7 +40,7 @@ public struct EXLargeSelector : View {
         Text(buttonText)
           .font(.mukta(.medium, size: 15))
       }
-      .buttonStyle(SmallButtonStyle())
+      .buttonStyle(EXSmallButtonStyle())
 
     }
     .padding(.horizontal, 12)
