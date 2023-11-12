@@ -20,7 +20,7 @@ public enum EmptyStateType {
     case .noExpenses:
       return "No Expenses Yet"
     case .noRecurrentPayments:
-      return "Fill your recurrent payments"
+      return "Add your recurrent payments"
     case .noGoals:
       return "You have no active goals"
     }
