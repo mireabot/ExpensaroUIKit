@@ -186,7 +186,7 @@ public enum ToggleType {
     case .deleteAccount:
       return "Delete my profile and all related data"
     case .paymentReminder:
-      return "You will receive a reminder 3 days before the date of payment"
+      return "You will receive a reminder the day before payment"
     }
   }
   
@@ -295,6 +295,7 @@ public enum BottomInfoType {
 public enum EXAlertType {
   case deleteTransaction
   case deleteGoal
+  case createReminder
   
   var title: String {
     switch self {
@@ -302,6 +303,8 @@ public enum EXAlertType {
       return "Delete transaction?"
     case .deleteGoal:
       return "Delete goal?"
+    case .createReminder:
+      return "Do you want to create reminder?"
     }
   }
   
@@ -311,6 +314,8 @@ public enum EXAlertType {
       return "This action is permanent and cannot be restored"
     case .deleteGoal:
       return "This action is permanent and cannot be restored"
+    case .createReminder:
+      return "Receive a push notification one day prior to your payment"
     }
   }
   
@@ -320,6 +325,8 @@ public enum EXAlertType {
       return "Yes, delete transaction"
     case .deleteGoal:
       return "Yes, delete goal"
+    case .createReminder:
+      return "Yes, I'm in"
     }
   }
   
@@ -329,6 +336,8 @@ public enum EXAlertType {
       return "No, leave transaction"
     case .deleteGoal:
       return "No, leave goal"
+    case .createReminder:
+      return "No, thank you"
     }
   }
 }
