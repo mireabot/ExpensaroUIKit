@@ -48,14 +48,12 @@ public struct EXAlert: View {
         .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
       }
     }
-    .padding(12)
+    .padding(20)
     .background(.white)
-    .cornerRadius(12)
+    .cornerRadius(20)
   }
 }
 
-struct EXAlert_Previews: PreviewProvider {
-  static var previews: some View {
-    EXAlert(type: .createReminder, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")}).padding([.leading,.trailing], 16).background(.black)
-  }
+#Preview {
+  EXAlert(type: .createReminder, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")}).padding().background(.black)
 }

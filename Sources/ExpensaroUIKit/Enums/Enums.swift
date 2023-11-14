@@ -170,7 +170,7 @@ public enum ToggleType {
     case .deleteAccount:
       return "Full wipe out"
     case .paymentReminder:
-      return "Reminder in advance"
+      return "Renewing reminder"
     }
   }
   var text: String {
@@ -186,7 +186,7 @@ public enum ToggleType {
     case .deleteAccount:
       return "Delete my profile and all related data"
     case .paymentReminder:
-      return "You will receive a reminder the day before payment"
+      return "You'll get a payment reminder on the day it's due."
     }
   }
   
@@ -343,8 +343,5 @@ public enum EXAlertType {
 }
 
 #Preview(body: {
-  HStack {
-    EXSettingsCell(category: .constant(""), type: .exportData, action: {})
-    EXSettingsCell(category: .constant(""), type: .contact, action: {})
-  }
+  EXToggleCard(type: .paymentReminder, isOn: .constant(false))
 })
