@@ -10,10 +10,12 @@ import SwiftUI
 public struct EXSettingsCell: View {
   @Binding var selectedCategory: String
   var type: SettingsType
+  var icon: Image
   var action: ()-> Void
-  public init(category: Binding<String>, type: SettingsType, action: @escaping () -> Void) {
+  public init(category: Binding<String>, type: SettingsType, icon: Image, action: @escaping () -> Void) {
     self._selectedCategory = category
     self.type = type
+    self.icon = icon
     self.action = action
     MuktaFont.registerFonts()
   }
@@ -22,37 +24,44 @@ public struct EXSettingsCell: View {
       selectedCategory = type.title
       action()
     } label: {
-      VStack(spacing: 5) {
-        type.image
+      VStack(alignment: .leading, spacing: 10) {
+        icon
           .resizable()
-          .frame(width: 25, height: 25)
+          .frame(width: 20, height: 20)
           .foregroundColor(.white)
           .padding(8)
           .background(Color.primaryGreen)
           .cornerRadius(10)
-        VStack(alignment: .center, spacing: 0) {
+        VStack(alignment: .leading, spacing: 0) {
           Text(type.title)
-            .font(.mukta(.regular, size: 15))
+            .font(.mukta(.semibold, size: 15))
             .foregroundColor(.black)
           
           Text(type.text)
-            .font(.mukta(.regular, size: 13))
+            .font(.mukta(.medium, size: 13))
             .foregroundColor(.darkGrey)
-            .multilineTextAlignment(.center)
-            .padding([.leading,.trailing], 5)
-            .frame(maxWidth: .infinity, alignment: .center)
         }
       }
-      .padding(.vertical, 20)
-      .padding(.horizontal, 10)
-      .background(.white)
-      .overlay(
-        RoundedRectangle(cornerRadius: 12)
-          .inset(by: 0.5)
-          .stroke(Color.border, lineWidth: 1)
-      )
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(20)
+      .background(Color.backgroundGrey)
+      .cornerRadius(20)
     }
-    .buttonStyle(PlainButtonStyle())
+    .buttonStyle(EXPlainButtonStyle())
 
+  }
+}
+
+#Preview {
+  VStack {
+    HStack {
+      EXSettingsCell(category: .constant(""), type: .categories, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), type: .reminders, icon: .init(systemName: "globe"), action: {})
+    }
+    HStack {
+      EXSettingsCell(category: .constant(""), type: .exportData, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), type: .resetAccount, icon: .init(systemName: "globe"), action: {})
+    }
+    EXSettingsCell(category: .constant(""), type: .contact, icon: .init(systemName: "globe"), action: {})
   }
 }

@@ -216,23 +216,6 @@ public enum SettingsType {
   case contact
   case appSettings
   
-  var image: Image {
-    switch self {
-    case .categories:
-      return Image(systemName: "folder.circle.fill")
-    case .reminders:
-      return Image(systemName: "bell.circle.fill")
-    case .exportData:
-      return Image(systemName: "doc.circle.fill")
-    case .resetAccount:
-      return Image(systemName: "xmark.bin.circle.fill")
-    case .contact:
-      return Image(systemName: "bubble.left.circle.fill")
-    case .appSettings:
-      return Image(systemName: "gear.circle.fill")
-    }
-  }
-  
   var title: String {
     switch self {
     case .categories:
