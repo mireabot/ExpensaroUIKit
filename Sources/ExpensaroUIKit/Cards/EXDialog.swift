@@ -38,7 +38,7 @@ public struct EXDialog<BottomView: View>: View {
       Text("Delete all reminders")
         .font(.mukta(.semibold, size: 15))
     })
-    .buttonStyle(EXDestructiveButtonStyle())
+    .buttonStyle(EXDestructiveButtonStyle(showLoader: .constant(false)))
     .padding(.top, 15)
   })
   .padding([.leading,.trailing], 16)

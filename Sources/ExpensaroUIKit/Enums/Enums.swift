@@ -358,7 +358,7 @@ public enum EXToasts {
   case pastDate
   case remindersDeleted
   
-  var text: String {
+  public var text: String {
     switch self {
     case .none:
       return ""
@@ -379,7 +379,7 @@ public enum EXToasts {
     }
   }
   
-  var isSuccess: Bool {
+  public var isSuccess: Bool {
     switch self {
     case .none:
       return false
