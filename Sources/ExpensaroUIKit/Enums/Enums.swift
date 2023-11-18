@@ -325,6 +325,31 @@ public enum EXAlertType {
   }
 }
 
+public enum EXDialogType {
+  case deleteReminders
+  case eraseData
+  
+  var title: String {
+    switch self {
+    case .deleteReminders:
+      return "Payments reminders"
+    case .eraseData:
+      return "Reset your account"
+    }
+  }
+  
+  var text: String {
+    switch self {
+    case .deleteReminders:
+      return "Unsubsribe from all reminders about recurring payments. This action cannot be restored."
+    case .eraseData:
+      return "Delete all added data related to your account. This action cannot be restored."
+    }
+  }
+}
+
 #Preview(body: {
-  EXToggleCard(type: .paymentReminder, isOn: .constant(false))
+  EXDialog(type: .eraseData) {
+    EmptyView()
+  }
 })
