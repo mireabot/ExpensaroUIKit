@@ -1,6 +1,6 @@
 //
 //  SwiftUIView.swift
-//  
+//
 //
 //  Created by Mikhail Kolkov on 9/9/23.
 //
@@ -97,21 +97,34 @@ public struct EXSecondaryButtonStyle: ButtonStyle {
 }
 
 public struct EXDestructiveButtonStyle: ButtonStyle {
-  public init() {}
+  @Binding var showLoader: Bool
+  
+  public init(showLoader: Binding<Bool>) {
+    self._showLoader = showLoader
+  }
+  
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
-    MyButton(configuration: configuration)
+    MyButton(configuration: configuration, showLoader: $showLoader)
   }
   
   struct MyButton: View {
     let configuration: ButtonStyle.Configuration
+    @Binding var showLoader: Bool
     var body: some View {
-      configuration.label
-        .foregroundColor(.white)
-        .padding(.vertical, 10)
-        .frame(maxWidth: .infinity)
-        .background(.red)
-        .cornerRadius(8)
-        .scaleEffect(configuration.isPressed ? 0.95 : 1)
+      HStack {
+        if showLoader {
+          CircularProgress()
+        }
+        else {
+          configuration.label
+        }
+      }
+      .foregroundColor(.white)
+      .padding(.vertical, 10)
+      .frame(maxWidth: .infinity)
+      .background(.red)
+      .cornerRadius(8)
+      .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
 }

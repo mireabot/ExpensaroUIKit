@@ -17,4 +17,7 @@ public extension Color {
   static var alertRedOpacity: Color { Color(red: 0.996, green: 0.945, blue: 0.945) } // #FEF2F1
   static var alertRed: Color { Color(red: 0.792, green: 0.11, blue: 0.2) } // #CA1C33
   static var alertDarkRed: Color { Color(red: 0.345, green: 0, blue: 0.008) } // #580002
+  static var alertGreenOpacity: Color { Color(red: 0.882, green: 0.992, blue: 0.957) } // #e1fdf4
+  static var alertDarkGreen: Color { Color(red: 0, green: 0.314, blue: 0.145) } // #005025
+  static var alertGreen: Color { Color(red: 0.016, green: 0.69, blue: 0.435) } // #04b06f
 }

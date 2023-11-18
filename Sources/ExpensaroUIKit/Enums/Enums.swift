@@ -348,6 +348,60 @@ public enum EXDialogType {
   }
 }
 
+public enum EXToasts {
+  case none
+  case emptyName
+  case zeroAmount
+  case budgetExceed
+  case zeroBudget
+  case wrongDate
+  case pastDate
+  case remindersDeleted
+  
+  var text: String {
+    switch self {
+    case .none:
+      return ""
+    case .emptyName:
+      return "Name field cannot be empty"
+    case .zeroAmount:
+      return "Amount cannot be $0"
+    case .budgetExceed:
+      return "You are over the budget"
+    case .zeroBudget:
+      return "You need to create a budget first"
+    case .wrongDate:
+      return "Date should be in current month"
+    case .pastDate:
+      return "Date cannot be in the past"
+    case .remindersDeleted:
+      return "You have unsubscribed from reminders"
+    }
+  }
+  
+  var isSuccess: Bool {
+    switch self {
+    case .none:
+      return false
+    case .emptyName:
+      return false
+    case .zeroAmount:
+      return false
+    case .budgetExceed:
+      return false
+    case .zeroBudget:
+      return false
+    case .wrongDate:
+      return false
+    case .pastDate:
+      return false
+    case .remindersDeleted:
+      return true
+    }
+  }
+}
+
+
 #Preview(body: {
   EXDialog(type: .eraseData) {
     EmptyView()
