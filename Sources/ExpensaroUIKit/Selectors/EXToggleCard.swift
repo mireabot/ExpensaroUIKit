@@ -30,18 +30,22 @@ public struct EXToggleCard: View {
       Toggle(type.toggleTitle, isOn: $isOn)
         .tint(.primaryGreen)
         .font(.mukta(.regular, size: 13))
-        .padding(.horizontal, 10)
+        .padding(.horizontal, 15)
         .padding(.vertical, 15)
         .background(Color.backgroundGrey)
-        .cornerRadius(12)
+        .cornerRadius(16)
         .padding(.top, 10)
     }
-    .padding(15)
+    .padding(16)
     .background(Color.white)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXToggleCard(type: .notifications, isOn: .constant(false)).padding([.leading,.trailing], 16)
 }

@@ -39,9 +39,13 @@ public struct EXSmallEmptyState: View {
     }
     .padding(16)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXSmallEmptyState(type: .noRecurrentPayments, action: {}).padding([.leading,.trailing], 16)
 }

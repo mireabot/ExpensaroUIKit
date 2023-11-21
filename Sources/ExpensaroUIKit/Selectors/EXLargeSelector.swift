@@ -43,12 +43,16 @@ public struct EXLargeSelector : View {
       .buttonStyle(EXSmallButtonStyle())
 
     }
-    .padding(.horizontal, 12)
-    .padding(.vertical, 12)
+    .padding([.horizontal, .vertical], 12)
+//    .padding([.horizontal, .vertical], 16)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXLargeSelector(text: .constant("Travel"), icon: .constant(""), buttonText: "Change", action: {}).padding([.leading,.trailing], 16)
 }

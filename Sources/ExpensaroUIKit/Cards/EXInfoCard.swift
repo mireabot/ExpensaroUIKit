@@ -68,10 +68,13 @@ public struct EXInfoCard: View {
     .frame(maxWidth: .infinity, alignment: .leading)
     .padding(15)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
 }
 
+#Preview {
+  EXInfoCard(type: .goalHint)
+}

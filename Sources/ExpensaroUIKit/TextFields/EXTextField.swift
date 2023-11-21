@@ -22,14 +22,15 @@ public struct EXTextField: View {
       .tint(.primaryGreen)
       .font(.mukta(.regular, size: 17))
       .autocorrectionDisabled(true)
-      .submitLabel(.return)
-      .padding(.vertical, 10)
-      .padding(.horizontal, 15)
-      .cornerRadius(12)
+      .padding([.horizontal, .vertical], 12)
       .overlay(
-        RoundedRectangle(cornerRadius: 12)
+        RoundedRectangle(cornerRadius: 16)
           .inset(by: 0.5)
           .stroke(Color.border, lineWidth: 1)
       )
   }
+}
+
+#Preview {
+  EXTextField(text: .constant(""), placeholder: "Enter text").padding([.leading,.trailing], 16)
 }

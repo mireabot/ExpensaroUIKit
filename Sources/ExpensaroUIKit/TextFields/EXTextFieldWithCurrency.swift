@@ -31,9 +31,13 @@ public struct EXTextFieldWithCurrency: View {
     .padding(.vertical, 14)
     .padding(.horizontal, 20)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXTextFieldWithCurrency(value: .constant("")).padding([.leading,.trailing], 16)
 }

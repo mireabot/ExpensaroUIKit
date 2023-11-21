@@ -207,7 +207,7 @@ public struct EXStretchButtonStyle: ButtonStyle {
       .background(.white)
       .padding(15)
       .overlay(
-        RoundedRectangle(cornerRadius: 12)
+        RoundedRectangle(cornerRadius: 16)
           .inset(by: 0.5)
           .stroke(Color.border, lineWidth: 1)
       )
@@ -257,4 +257,12 @@ public struct CircularProgress: View {
         }
     }
   }
+}
+
+#Preview {
+  Button(action: {}, label: {
+    Text("Create category")
+  })
+  .buttonStyle(EXStretchButtonStyle(icon: .init(systemName: "globe")))
+  .padding([.leading,.trailing], 16)
 }

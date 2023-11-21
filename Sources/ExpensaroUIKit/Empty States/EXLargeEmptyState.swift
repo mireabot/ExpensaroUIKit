@@ -46,9 +46,13 @@ public struct EXLargeEmptyState: View {
     }
     .padding(20)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXLargeEmptyState(type: .noExpenses, icon: .init(systemName: "globe"), action: {}).padding([.leading,.trailing], 16)
 }

@@ -28,12 +28,16 @@ public struct EXSmallSelector: View {
       }
       .frame(maxWidth: .infinity,alignment: .leading)
     }
-    .padding(.vertical, 5)
-    .padding(.horizontal, 10)
+    .padding(.vertical, 7)
+    .padding(.horizontal, 12)
     .overlay(
-      RoundedRectangle(cornerRadius: 12)
+      RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
         .stroke(Color.border, lineWidth: 1)
     )
   }
+}
+
+#Preview {
+  EXSmallSelector(activeText: .constant("text"), type: .date).padding([.leading,.trailing], 16)
 }

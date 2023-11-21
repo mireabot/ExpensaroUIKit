@@ -38,7 +38,7 @@ public struct EXResizableTextField: View {
       .padding(.vertical, 15)
       .padding(.horizontal, 12)
       .background(Color.backgroundGrey)
-      .cornerRadius(12)
+      .cornerRadius(16)
       .padding(.top, 15)
       
       HStack {
