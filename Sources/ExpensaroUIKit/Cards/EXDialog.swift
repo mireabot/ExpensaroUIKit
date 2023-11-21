@@ -25,20 +25,24 @@ public struct EXDialog<BottomView: View>: View {
       bottomView()
     }
     .padding(16)
-    .background(Color.backgroundGrey)
-    .cornerRadius(16)
+    .background(.white)
+    .overlay(
+      RoundedRectangle(cornerRadius: 16)
+        .inset(by: 0.5)
+        .stroke(Color.border, lineWidth: 1)
+    )
   }
 }
 
 #Preview(body: {
-  EXDialog(type: .eraseData, bottomView: {
+  EXDialog(type: .deleteReminders, bottomView: {
     Button(action: {
-      print("Hello")
+      
     }, label: {
       Text("Delete all reminders")
         .font(.mukta(.semibold, size: 15))
     })
-    .buttonStyle(EXDestructiveButtonStyle(showLoader: .constant(false)))
+    .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
     .padding(.top, 15)
   })
   .padding([.leading,.trailing], 16)
