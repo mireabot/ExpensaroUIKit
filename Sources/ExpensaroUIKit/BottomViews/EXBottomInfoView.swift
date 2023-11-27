@@ -7,22 +7,21 @@
 
 import SwiftUI
 
-public struct EXBottomInfoView: View {
+public struct EXBottomInfoView<BottomView: View>: View {
   var type: BottomInfoType
-  var image: Image
-  public init(type: BottomInfoType, image: Image) {
+  let bottomView: () -> BottomView
+  public init(type: BottomInfoType, @ViewBuilder bottomView: @escaping () -> BottomView) {
     self.type = type
-    self.image = image
+    self.bottomView = bottomView
     MuktaFont.registerFonts()
   }
   
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
-      image
-        .padding(.vertical, 15)
-        .frame(maxWidth: .infinity, alignment: .center)
+      bottomView()
+        .padding(16)
         .background(Color.backgroundGrey)
-        .cornerRadius(12)
+        .cornerRadius(16)
       Text(type.title)
         .font(.mukta(.semibold, size: 17))
       Text(type.text)
@@ -30,5 +29,11 @@ public struct EXBottomInfoView: View {
         .foregroundColor(.darkGrey)
         .multilineTextAlignment(.leading)
     }
+  }
+}
+
+#Preview {
+  EXBottomInfoView(type: .topCategory) {
+    Text("1")
   }
 }
