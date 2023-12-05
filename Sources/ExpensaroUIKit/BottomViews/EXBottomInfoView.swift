@@ -17,7 +17,7 @@ public struct EXBottomInfoView<BottomView: View>: View {
   }
   
   public var body: some View {
-    VStack(alignment: .leading, spacing: 5) {
+    VStack(alignment: .leading, spacing: 10) {
       bottomView()
         .padding(16)
         .background(Color.backgroundGrey)

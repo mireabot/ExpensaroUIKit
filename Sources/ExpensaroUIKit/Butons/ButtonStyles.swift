@@ -12,6 +12,7 @@ public struct EXPrimaryButtonStyle: ButtonStyle {
   
   public init(showLoader: Binding<Bool>) {
     self._showLoader = showLoader
+    MuktaFont.registerFonts()
   }
   
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -32,10 +33,10 @@ public struct EXPrimaryButtonStyle: ButtonStyle {
         }
       }
       .foregroundColor(isEnabled ? .white : .darkGrey)
-      .padding(.vertical, 10)
+      .padding(.vertical, 12)
       .frame(maxWidth: .infinity)
       .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
-      .cornerRadius(8)
+      .cornerRadius(12)
       .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -65,10 +66,10 @@ public struct EXSecondaryPrimaryButtonStyle: ButtonStyle {
         }
       }
       .foregroundColor(.primaryGreen)
-      .padding(.vertical, 10)
+      .padding(.vertical, 12)
       .frame(maxWidth: .infinity)
       .background(Color.backgroundGrey)
-      .cornerRadius(8)
+      .cornerRadius(12)
       .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -120,10 +121,10 @@ public struct EXDestructiveButtonStyle: ButtonStyle {
         }
       }
       .foregroundColor(.white)
-      .padding(.vertical, 10)
+      .padding(.vertical, 12)
       .frame(maxWidth: .infinity)
       .background(.red)
-      .cornerRadius(8)
+      .cornerRadius(12)
       .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -140,11 +141,11 @@ public struct EXSmallButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
-        .padding([.vertical], 7)
-        .padding([.horizontal], 20)
+        .padding([.vertical], 12)
+        .padding([.horizontal], 25)
         .foregroundColor(.primaryGreen)
         .background(Color.backgroundGrey)
-        .cornerRadius(8)
+        .cornerRadius(12)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
   }
@@ -204,8 +205,8 @@ public struct EXStretchButtonStyle: ButtonStyle {
           .font(.callout)
           .foregroundColor(.darkGrey)
       }
-      .background(.white)
       .padding(15)
+      .background(.white)
       .overlay(
         RoundedRectangle(cornerRadius: 16)
           .inset(by: 0.5)
@@ -260,9 +261,31 @@ public struct CircularProgress: View {
 }
 
 #Preview {
-  Button(action: {}, label: {
-    Text("Create category")
-  })
-  .buttonStyle(EXStretchButtonStyle(icon: .init(systemName: "globe")))
+  VStack(spacing: 20) {
+    Button(action: {}) {
+      Text("Label").font(.mukta(.semibold, size: 17))
+    }
+    .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
+    
+    Button(action: {}, label: {
+      Text("Create category").font(.mukta(.semibold, size: 17))
+    })
+    .buttonStyle(EXStretchButtonStyle(icon: .init(systemName: "globe")))
+    
+    Button(action: {}, label: {
+      Text("Label").font(.mukta(.semibold, size: 17))
+    })
+    .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
+    
+    Button(action: {}, label: {
+      Text("Label").font(.mukta(.semibold, size: 17))
+    })
+    .buttonStyle(EXDestructiveButtonStyle(showLoader: .constant(false)))
+    
+    Button(action: {}, label: {
+      Text("Label").font(.mukta(.semibold, size: 17))
+    })
+    .buttonStyle(EXSmallButtonStyle())
+  }
   .padding([.leading,.trailing], 16)
 }

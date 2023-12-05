@@ -21,14 +21,15 @@ public struct EXLargeEmptyState: View {
   
   public var body: some View {
     VStack {
-      VStack(spacing: 5) {
+      VStack(spacing: 10) {
         icon
           .font(.title)
           .foregroundColor(.primaryGreen)
-          .padding(.bottom, 5)
+          .padding(.bottom, 10)
         Text(type.title)
-          .font(.mukta(.semibold, size: 17))
+          .font(.mukta(.semibold, size: 20))
         Text(type.text)
+          .multilineTextAlignment(.center)
           .foregroundColor(.darkGrey)
           .font(.mukta(.regular, size: 15))
         

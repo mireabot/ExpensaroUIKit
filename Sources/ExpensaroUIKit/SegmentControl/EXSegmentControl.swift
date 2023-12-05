@@ -22,7 +22,7 @@ public struct EXSegmentControl: View {
     HStack {
       Text(type.firstTab)
         .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
-        .font(.mukta(.semibold, size: 15))
+        .font(.mukta(.semibold, size: 17))
         .padding(8)
 //        .frame(maxWidth: .infinity)
         .frame(width: 120)
@@ -43,7 +43,7 @@ public struct EXSegmentControl: View {
       
       Text(type.secondTab)
         .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
-        .font(.mukta(.semibold, size: 15))
+        .font(.mukta(.semibold, size: 17))
         .padding(8)
 //        .frame(maxWidth: .infinity)
         .frame(width: 120)
@@ -65,7 +65,7 @@ public struct EXSegmentControl: View {
       if !type.thirdTab.isEmpty {
         Text(type.thirdTab)
           .foregroundColor(currentTab == type.thirdTab ? .white : .darkGrey)
-          .font(.mukta(.semibold, size: 15))
+          .font(.mukta(.semibold, size: 17))
           .padding(8)
           .frame(maxWidth: .infinity)
           .background(

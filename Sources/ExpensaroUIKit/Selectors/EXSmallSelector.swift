@@ -28,7 +28,7 @@ public struct EXSmallSelector: View {
       }
       .frame(maxWidth: .infinity,alignment: .leading)
     }
-    .padding(.vertical, 7)
+    .padding(.vertical, 12)
     .padding(.horizontal, 12)
     .overlay(
       RoundedRectangle(cornerRadius: 16)

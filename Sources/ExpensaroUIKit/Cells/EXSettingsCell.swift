@@ -32,7 +32,7 @@ public struct EXSettingsCell: View {
           .padding(8)
           .background(Color.primaryGreen)
           .cornerRadius(10)
-        VStack(alignment: .leading, spacing: 0) {
+        VStack(alignment: .leading, spacing: 5) {
           Text(type.title)
             .font(.mukta(.semibold, size: 15))
             .foregroundColor(.black)

@@ -19,7 +19,7 @@ public struct EXSmallEmptyState: View {
   
   public var body: some View {
     HStack {
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
           .font(.mukta(.semibold, size: 17))
         Text(type.text)

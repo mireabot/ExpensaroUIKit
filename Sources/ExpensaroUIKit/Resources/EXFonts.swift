@@ -8,10 +8,10 @@
 import SwiftUI
 
 public enum Mukta: String, CaseIterable {
-  case regular = "Mukta-Regular"
-  case medium = "Mukta-Medium"
-  case semibold = "Mukta-SemiBold"
-  case bold = "Mukta-Bold"
+  case regular = "IBMPlexSans-Regular"
+  case medium = "IBMPlexSans-Medium"
+  case semibold = "IBMPlexSans-SemiBold"
+  case bold = "IBMPlexSans-Bold"
 }
 
 extension Font {

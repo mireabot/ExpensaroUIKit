@@ -42,3 +42,7 @@ public struct EXEmptyStateWithImage: View {
     }
   }
 }
+
+#Preview {
+  EXEmptyStateWithImage(type: .noGoals, image: .init(systemName: "globe"), buttonIcon: .init(systemName: "globe"), action: {})
+}

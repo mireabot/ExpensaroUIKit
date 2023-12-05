@@ -22,7 +22,7 @@ public struct EXAlert: View {
   
   public var body: some View {
     VStack {
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
           .font(.mukta(.semibold, size: 20))
         Text(type.subTitle)
@@ -30,6 +30,7 @@ public struct EXAlert: View {
           .foregroundColor(.darkGrey)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.bottom, 15)
       VStack(spacing: 10) {
         Button {
           secondaryAction()

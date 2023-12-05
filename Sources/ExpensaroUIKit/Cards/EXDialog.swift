@@ -16,7 +16,7 @@ public struct EXDialog<BottomView: View>: View {
     MuktaFont.registerFonts()
   }
   public var body: some View {
-    VStack(alignment: .leading, spacing: 0) {
+    VStack(alignment: .leading, spacing: 5) {
       Text(type.title)
         .font(.mukta(.semibold, size: 17))
       Text(type.text)
