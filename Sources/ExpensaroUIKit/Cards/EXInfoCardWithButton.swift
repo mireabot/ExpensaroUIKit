@@ -22,7 +22,6 @@ public struct EXInfoCardWithButton: View {
     self.icon = icon
     self.buttonIcon = buttonIcon
     self.buttonAction = buttonAction
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
@@ -31,19 +30,19 @@ public struct EXInfoCardWithButton: View {
         .font(.title)
         .foregroundColor(.primaryGreen)
       Text(type.title)
-        .font(.mukta(.semibold, size: 17))
+        .font(.system(.headline, weight: .semibold))
       Text(type.text)
-        .font(.mukta(.regular, size: 15))
+        .font(.system(.subheadline, weight: .regular))
         .foregroundColor(.darkGrey)
       Button {
         buttonAction()
       } label: {
         Text("How it works")
-          .font(.mukta(.semibold, size: 15))
+          .font(.system(.subheadline, weight: .semibold))
           .frame(maxWidth: .infinity)
       }
       .buttonStyle(EXSmallButtonStyle())
-      .padding(.top, 5)
+      .padding(.top, 10)
 
     }
     .frame(maxWidth: .infinity, alignment: .leading)

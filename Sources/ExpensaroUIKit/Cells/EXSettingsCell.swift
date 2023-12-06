@@ -17,7 +17,6 @@ public struct EXSettingsCell: View {
     self.type = type
     self.icon = icon
     self.action = action
-    MuktaFont.registerFonts()
   }
   public var body: some View {
     Button {
@@ -34,11 +33,11 @@ public struct EXSettingsCell: View {
           .cornerRadius(10)
         VStack(alignment: .leading, spacing: 5) {
           Text(type.title)
-            .font(.mukta(.semibold, size: 15))
+            .font(.system(.headline, weight: .semibold))
             .foregroundColor(.black)
           
           Text(type.text)
-            .font(.mukta(.medium, size: 13))
+            .font(.system(.footnote, weight: .medium))
             .foregroundColor(.darkGrey)
         }
       }

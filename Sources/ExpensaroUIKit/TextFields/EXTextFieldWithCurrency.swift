@@ -12,19 +12,18 @@ public struct EXTextFieldWithCurrency: View {
   
   public init(value: Binding<String>) {
     self.value = value
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     HStack {
       Text("USD")
-        .font(.mukta(.semibold, size: 17))
+        .font(.system(.headline, weight: .semibold))
       Spacer()
       HStack {
         Spacer()
         TextField("0", text: value)
           .tint(.clear)
-          .font(.mukta(.regular, size: 17))
+          .font(.system(.headline, weight: .regular))
           .multilineTextAlignment(.trailing)
       }
     }

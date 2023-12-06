@@ -14,7 +14,6 @@ public struct EXResizableTextField: View {
   public init(message: Binding<String>, characterLimit: Int) {
     self._message = message
     self.characterLimit = characterLimit
-    MuktaFont.registerFonts()
   }
   public var body: some View {
     VStack() {
@@ -24,7 +23,7 @@ public struct EXResizableTextField: View {
             .keyboardType(.alphabet)
             .autocorrectionDisabled(true)
             .tint(.primaryGreen)
-            .font(.mukta(.regular, size: 17))
+            .font(.system(.headline, weight: .regular))
             .frame(minHeight: 100)
             .colorMultiply(.backgroundGrey)
             .expanding()
@@ -44,14 +43,14 @@ public struct EXResizableTextField: View {
       HStack {
         Text("\(characterLimit - message.count) characters left")
           .foregroundColor(message.count == characterLimit ? .red : .darkGrey)
-          .font(.mukta(.regular, size: 13))
+          .font(.system(.footnote, weight: .regular))
         Spacer()
         Button {
           message = ""
         } label: {
           Text("Clear")
             .foregroundColor(.darkGrey)
-            .font(.mukta(.regular, size: 13))
+            .font(.system(.footnote, weight: .regular))
         }
         
       }
@@ -66,7 +65,7 @@ struct NYCChipCollection_Previews: PreviewProvider {
 }
 
 struct SampleView: View {
-  @State private var tab = ""
+  @State private var tab = "er"
   var body: some View {
     VStack {
       EXResizableTextField(message: $tab, characterLimit: 300).padding([.leading,.trailing], 16)

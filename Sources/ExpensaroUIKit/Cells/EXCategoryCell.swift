@@ -21,7 +21,6 @@ public struct EXCategoryCell: View {
     self.icon = icon
     self.title = title
     self.leftIcon = leftIcon
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
@@ -33,7 +32,7 @@ public struct EXCategoryCell: View {
         .cornerRadius(12)
       
       Text(title)
-        .font(.mukta(.regular, size: 17))
+        .font(.system(.headline, weight: .regular))
       
       Spacer()
       

@@ -14,7 +14,6 @@ public struct EXSmallSelector: View {
   public init(activeText: Binding<String>, type: SmallSelectorType) {
     self._activeText = activeText
     self.type = type
-    MuktaFont.registerFonts()
   }
   
   
@@ -22,9 +21,9 @@ public struct EXSmallSelector: View {
     HStack(alignment: .top) {
       VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.mukta(.regular, size: 15))
+          .font(.system(.footnote, weight: .regular))
         Text(activeText)
-          .font(.mukta(.semibold, size: 17))
+          .font(.system(.headline, weight: .semibold))
       }
       .frame(maxWidth: .infinity,alignment: .leading)
     }

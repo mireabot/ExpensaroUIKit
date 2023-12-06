@@ -16,22 +16,21 @@ public struct EXLargeEmptyState: View {
     self.type = type
     self.icon = icon
     self.action = action
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     VStack {
-      VStack(spacing: 10) {
+      VStack(spacing: 5) {
         icon
           .font(.title)
           .foregroundColor(.primaryGreen)
-          .padding(.bottom, 10)
+          .padding(.bottom, 5)
         Text(type.title)
-          .font(.mukta(.semibold, size: 20))
+          .font(.system(.headline, weight: .bold))
         Text(type.text)
           .multilineTextAlignment(.center)
           .foregroundColor(.darkGrey)
-          .font(.mukta(.regular, size: 15))
+          .font(.system(.subheadline, weight: .regular))
         
       }.padding(.bottom, 15)
       Divider()
@@ -39,7 +38,7 @@ public struct EXLargeEmptyState: View {
         action()
       } label: {
         Text(type.buttonText)
-          .font(.mukta(.semibold, size: 15))
+          .font(.system(.subheadline, weight: .semibold))
       }
       .buttonStyle(EXSmallButtonStyle())
       .padding(.top, 15)

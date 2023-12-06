@@ -14,13 +14,12 @@ public struct EXTextField: View {
   public init(text: Binding<String>, placeholder: String) {
     self.text = text
     self.placeholder = placeholder
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     TextField(placeholder, text: text)
       .tint(.primaryGreen)
-      .font(.mukta(.regular, size: 17))
+      .font(.system(.headline, weight: .regular))
       .autocorrectionDisabled(true)
       .padding([.horizontal, .vertical], 12)
       .overlay(

@@ -14,17 +14,16 @@ public struct EXSmallEmptyState: View {
   public init(type: EmptyStateType, action: @escaping () -> Void) {
     self.type = type
     self.action = action
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     HStack {
       VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.mukta(.semibold, size: 17))
+          .font(.system(.headline, weight: .semibold))
         Text(type.text)
           .foregroundColor(.darkGrey)
-          .font(.mukta(.regular, size: 15))
+          .font(.system(.subheadline, weight: .regular))
         
       }
       Spacer()
@@ -32,7 +31,7 @@ public struct EXSmallEmptyState: View {
         action()
       } label: {
         Text(type.buttonText)
-          .font(.mukta(.semibold, size: 15))
+          .font(.system(.subheadline, weight: .semibold))
       }
       .buttonStyle(EXSmallButtonStyle())
       

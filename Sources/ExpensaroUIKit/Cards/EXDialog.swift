@@ -13,14 +13,13 @@ public struct EXDialog<BottomView: View>: View {
   public init(type: EXDialogType, @ViewBuilder bottomView: @escaping () -> BottomView) {
     self.type = type
     self.bottomView = bottomView
-    MuktaFont.registerFonts()
   }
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       Text(type.title)
-        .font(.mukta(.semibold, size: 17))
+        .font(.system(.headline, weight: .semibold))
       Text(type.text)
-        .font(.mukta(.regular, size: 15))
+        .font(.system(.subheadline, weight: .regular))
         .foregroundColor(.darkGrey)
       bottomView()
     }
@@ -40,7 +39,7 @@ public struct EXDialog<BottomView: View>: View {
       
     }, label: {
       Text("Delete all reminders")
-        .font(.mukta(.semibold, size: 15))
+        .font(.system(.subheadline, weight: .semibold))
     })
     .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
     .padding(.top, 15)

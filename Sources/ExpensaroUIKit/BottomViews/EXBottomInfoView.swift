@@ -13,7 +13,6 @@ public struct EXBottomInfoView<BottomView: View>: View {
   public init(type: BottomInfoType, @ViewBuilder bottomView: @escaping () -> BottomView) {
     self.type = type
     self.bottomView = bottomView
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
@@ -23,9 +22,9 @@ public struct EXBottomInfoView<BottomView: View>: View {
         .background(Color.backgroundGrey)
         .cornerRadius(16)
       Text(type.title)
-        .font(.mukta(.semibold, size: 17))
+        .font(.system(.headline, weight: .semibold))
       Text(type.text)
-        .font(.mukta(.regular, size: 15))
+        .font(.system(.subheadline, weight: .regular))
         .foregroundColor(.darkGrey)
         .multilineTextAlignment(.leading)
     }

@@ -18,7 +18,6 @@ public struct EXLargeSelector : View {
     self._icon = icon
     self.buttonText = buttonText
     self.action = action
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
@@ -30,7 +29,7 @@ public struct EXLargeSelector : View {
           .background(Color.backgroundGrey)
           .cornerRadius(12)
         Text(text)
-          .font(.mukta(.regular, size: 17))
+          .font(.system(.headline, weight: .regular))
       }
       Spacer()
       
@@ -38,7 +37,7 @@ public struct EXLargeSelector : View {
         action()
       } label: {
         Text(buttonText)
-          .font(.mukta(.medium, size: 15))
+          .font(.system(.subheadline, weight: .semibold))
       }
       .buttonStyle(EXSmallButtonStyle())
 

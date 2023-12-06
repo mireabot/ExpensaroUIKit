@@ -18,14 +18,13 @@ public struct EXEmptyStateWithImage: View {
     self.image = image
     self.buttonIcon = buttonIcon
     self.action = action
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     VStack(alignment: .center, spacing: 10) {
       image
       Text(type.title)
-        .font(.mukta(.bold, size: 20))
+        .font(.system(.title3, weight: .semibold))
       Button {
         action()
       } label: {
@@ -34,7 +33,7 @@ public struct EXEmptyStateWithImage: View {
             .resizable()
             .frame(width: 16, height: 16)
           Text(type.buttonText)
-            .font(.mukta(.semibold, size: 15))
+            .font(.system(.subheadline, weight: .semibold))
         }
         .frame(maxWidth: .infinity)
       }

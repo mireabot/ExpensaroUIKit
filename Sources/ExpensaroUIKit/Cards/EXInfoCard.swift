@@ -22,7 +22,6 @@ public struct EXInfoCard: View {
     self.type = type
     self.icon = icon
     self.text = text
-    MuktaFont.registerFonts()
   }
   
   /// Init for card with custom icon and custom title and text
@@ -34,7 +33,6 @@ public struct EXInfoCard: View {
     self.title = title
     self.icon = icon
     self.text = text
-    MuktaFont.registerFonts()
   }
   
   /// Init for card with title, text and icon
@@ -44,14 +42,12 @@ public struct EXInfoCard: View {
   public init(type: InfoCardType, icon: Image?) {
     self.type = type
     self.icon = icon
-    MuktaFont.registerFonts()
   }
   
   /// Init for card with title and text
   /// - Parameter type: type of info card
   public init(type: InfoCardType) {
     self.type = type
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
@@ -60,9 +56,9 @@ public struct EXInfoCard: View {
         .font(.title)
         .foregroundColor(.primaryGreen)
       Text((title ?? type?.title) ?? "")
-        .font(.mukta(.semibold, size: 17))
+        .font(.system(.headline, weight: .semibold))
       Text((text ?? type?.text) ?? "")
-        .font(.mukta(.regular, size: 15))
+        .font(.system(.subheadline, weight: .regular))
         .foregroundColor(.darkGrey)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
@@ -76,5 +72,5 @@ public struct EXInfoCard: View {
 }
 
 #Preview {
-  EXInfoCard(type: .goalHint)
+  EXInfoCard(type: .monthToMonth)
 }

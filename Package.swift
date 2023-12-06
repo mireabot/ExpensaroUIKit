@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
   name: "ExpensaroUIKit",
   platforms: [
-    .iOS(.v15), // Set the minimum iOS version to 15 or higher
+    .iOS(.v16), // Set the minimum iOS version to 15 or higher
   ],
   products: [
     // Products define the executables and libraries a package produces, and make them visible to other packages.

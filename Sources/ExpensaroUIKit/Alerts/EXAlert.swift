@@ -16,27 +16,25 @@ public struct EXAlert: View {
     self.type = type
     self.primaryAction = primaryAction
     self.secondaryAction = secondaryAction
-    
-    MuktaFont.registerFonts()
   }
   
   public var body: some View {
     VStack {
-      VStack(alignment: .leading, spacing: 5) {
+      VStack(alignment: .leading, spacing: 10) {
         Text(type.title)
-          .font(.mukta(.semibold, size: 20))
+          .font(.system(.title3, weight: .semibold))
         Text(type.subTitle)
-          .font(.mukta(.regular, size: 17))
+          .font(.system(.headline, weight: .regular))
           .foregroundColor(.darkGrey)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(.bottom, 15)
+      .padding(.bottom, 10)
       VStack(spacing: 10) {
         Button {
           secondaryAction()
         } label: {
           Text(type.secondaryButtonText)
-            .font(.mukta(.semibold, size: 17))
+            .font(.system(.headline, weight: .semibold))
         }
         .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
         
@@ -44,7 +42,7 @@ public struct EXAlert: View {
           primaryAction()
         } label: {
           Text(type.primaryButtonText)
-            .font(.mukta(.semibold, size: 17))
+            .font(.system(.headline, weight: .semibold))
         }
         .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
       }
