@@ -9,9 +9,11 @@ import SwiftUI
 
 public struct EXBottomInfoView<BottomView: View>: View {
   var type: BottomInfoType
+  let action: () -> Void
   let bottomView: () -> BottomView
-  public init(type: BottomInfoType, @ViewBuilder bottomView: @escaping () -> BottomView) {
+  public init(type: BottomInfoType, action: @escaping ()-> Void, @ViewBuilder bottomView: @escaping () -> BottomView) {
     self.type = type
+    self.action = action
     self.bottomView = bottomView
   }
   
@@ -27,12 +29,20 @@ public struct EXBottomInfoView<BottomView: View>: View {
         .font(.subheadlineRegular)
         .foregroundColor(.darkGrey)
         .multilineTextAlignment(.leading)
+      
+      Button(action: {
+        action()
+      }) {
+        Text("See Demo").font(.headlineSemibold)
+      }
+      .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
+      .padding(.top, 10)
     }
   }
 }
 
 #Preview {
-  EXBottomInfoView(type: .topCategory) {
+  EXBottomInfoView(type: .topCategory, action: {}) {
     Text("1")
       .frame(maxWidth: .infinity, alignment: .center)
   }
