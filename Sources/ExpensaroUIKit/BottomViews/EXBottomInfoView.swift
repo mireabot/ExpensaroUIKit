@@ -22,9 +22,9 @@ public struct EXBottomInfoView<BottomView: View>: View {
         .background(Color.backgroundGrey)
         .cornerRadius(16)
       Text(type.title)
-        .font(.system(.headline, weight: .semibold))
+        .font(.headlineSemibold)
       Text(type.text)
-        .font(.system(.subheadline, weight: .regular))
+        .font(.subheadlineRegular)
         .foregroundColor(.darkGrey)
         .multilineTextAlignment(.leading)
     }
@@ -34,5 +34,6 @@ public struct EXBottomInfoView<BottomView: View>: View {
 #Preview {
   EXBottomInfoView(type: .topCategory) {
     Text("1")
+      .frame(maxWidth: .infinity, alignment: .center)
   }
 }

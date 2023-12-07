@@ -29,7 +29,7 @@ public struct EXLargeSelector : View {
           .background(Color.backgroundGrey)
           .cornerRadius(12)
         Text(text)
-          .font(.system(.headline, weight: .regular))
+          .font(.headlineRegular)
       }
       Spacer()
       
@@ -37,13 +37,12 @@ public struct EXLargeSelector : View {
         action()
       } label: {
         Text(buttonText)
-          .font(.system(.subheadline, weight: .semibold))
+          .font(.subheadlineSemibold)
       }
       .buttonStyle(EXSmallButtonStyle())
 
     }
     .padding([.horizontal, .vertical], 12)
-//    .padding([.horizontal, .vertical], 16)
     .overlay(
       RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)

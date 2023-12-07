@@ -23,7 +23,7 @@ public struct EXResizableTextField: View {
             .keyboardType(.alphabet)
             .autocorrectionDisabled(true)
             .tint(.primaryGreen)
-            .font(.system(.headline, weight: .regular))
+            .font(.headlineRegular)
             .frame(minHeight: 100)
             .colorMultiply(.backgroundGrey)
             .expanding()
@@ -43,14 +43,14 @@ public struct EXResizableTextField: View {
       HStack {
         Text("\(characterLimit - message.count) characters left")
           .foregroundColor(message.count == characterLimit ? .red : .darkGrey)
-          .font(.system(.footnote, weight: .regular))
+          .font(.footnoteRegular)
         Spacer()
         Button {
           message = ""
         } label: {
           Text("Clear")
             .foregroundColor(.darkGrey)
-            .font(.system(.footnote, weight: .regular))
+            .font(.footnoteRegular)
         }
         
       }

@@ -19,18 +19,17 @@ public struct EXToggleCard: View {
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       Text(type.title)
-        .font(.system(.headline, weight: .semibold))
+        .font(.headlineSemibold)
         .foregroundColor(.black)
       Text(type.text)
-        .font(.system(.footnote, weight: .regular))
+        .font(.footnoteRegular)
         .foregroundColor(.darkGrey)
         .multilineTextAlignment(.leading)
       
       Toggle(type.toggleTitle, isOn: $isOn)
         .tint(.primaryGreen)
-        .font(.system(.footnote, weight: .regular))
-        .padding(.horizontal, 15)
-        .padding(.vertical, 15)
+        .font(.footnoteRegular)
+        .padding(15)
         .background(Color.backgroundGrey)
         .cornerRadius(16)
         .padding(.top, 15)

@@ -53,16 +53,15 @@ public struct EXInfoCard: View {
   public var body: some View {
     VStack(alignment: .leading, spacing: 5) {
       icon?
-        .font(.title)
         .foregroundColor(.primaryGreen)
       Text((title ?? type?.title) ?? "")
-        .font(.system(.headline, weight: .semibold))
+        .font(.headlineSemibold)
       Text((text ?? type?.text) ?? "")
-        .font(.system(.subheadline, weight: .regular))
+        .font(.subheadlineRegular)
         .foregroundColor(.darkGrey)
     }
     .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(15)
+    .padding(16)
     .overlay(
       RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)

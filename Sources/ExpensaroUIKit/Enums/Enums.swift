@@ -236,9 +236,9 @@ public enum SettingsType {
   var text: String {
     switch self {
     case .categories:
-      return "Create, edit or even remove any of categories"
+      return "Create, edit or remove any of categories"
     case .reminders:
-      return "Set up reminders and get notified when needed"
+      return "Set up reminders and get notified instantly"
     case .exportData:
       return "Export your financial activity to .csv file"
     case .resetAccount:

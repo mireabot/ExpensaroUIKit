@@ -24,7 +24,7 @@ public struct EXEmptyStateWithImage: View {
     VStack(alignment: .center, spacing: 10) {
       image
       Text(type.title)
-        .font(.system(.title3, weight: .semibold))
+        .font(.title3Semibold)
       Button {
         action()
       } label: {
@@ -33,7 +33,7 @@ public struct EXEmptyStateWithImage: View {
             .resizable()
             .frame(width: 16, height: 16)
           Text(type.buttonText)
-            .font(.system(.subheadline, weight: .semibold))
+            .font(.subheadlineSemibold)
         }
         .frame(maxWidth: .infinity)
       }

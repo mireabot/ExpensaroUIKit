@@ -21,8 +21,8 @@ public struct EXSegmentControl: View {
     HStack {
       Text(type.firstTab)
         .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
-        .font(.system(.headline, weight: .semibold))
-        .padding(8)
+        .font(.headlineSemibold)
+        .padding(12)
 //        .frame(maxWidth: .infinity)
         .frame(width: 120)
         .background(
@@ -42,9 +42,8 @@ public struct EXSegmentControl: View {
       
       Text(type.secondTab)
         .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
-        .font(.system(.headline, weight: .semibold))
-        .padding(8)
-//        .frame(maxWidth: .infinity)
+        .font(.headlineSemibold)
+        .padding(12)
         .frame(width: 120)
         .background(
           ZStack {
@@ -64,8 +63,8 @@ public struct EXSegmentControl: View {
       if !type.thirdTab.isEmpty {
         Text(type.thirdTab)
           .foregroundColor(currentTab == type.thirdTab ? .white : .darkGrey)
-          .font(.system(.headline, weight: .semibold))
-          .padding(8)
+          .font(.headlineSemibold)
+          .padding(12)
           .frame(maxWidth: .infinity)
           .background(
             ZStack {
@@ -86,7 +85,6 @@ public struct EXSegmentControl: View {
     .onAppear {
       currentTab = type.firstTab
     }
-    .padding(2)
     .background(Color.backgroundGrey)
     .cornerRadius(12)
     .frame(maxWidth: .infinity)
@@ -94,5 +92,5 @@ public struct EXSegmentControl: View {
 }
 
 #Preview {
-  EXSegmentControl(currentTab: .constant("Debit"), type: .transactionType)
+  EXSegmentControl(currentTab: .constant("Feedback"), type: .contactReason)
 }

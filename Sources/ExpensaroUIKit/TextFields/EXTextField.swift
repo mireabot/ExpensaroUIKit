@@ -19,9 +19,9 @@ public struct EXTextField: View {
   public var body: some View {
     TextField(placeholder, text: text)
       .tint(.primaryGreen)
-      .font(.system(.headline, weight: .regular))
+      .font(.headlineRegular)
       .autocorrectionDisabled(true)
-      .padding([.horizontal, .vertical], 12)
+      .padding(16)
       .overlay(
         RoundedRectangle(cornerRadius: 16)
           .inset(by: 0.5)

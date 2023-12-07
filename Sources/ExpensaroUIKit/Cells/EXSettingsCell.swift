@@ -33,11 +33,11 @@ public struct EXSettingsCell: View {
           .cornerRadius(10)
         VStack(alignment: .leading, spacing: 5) {
           Text(type.title)
-            .font(.system(.headline, weight: .semibold))
+            .font(.headlineMedium)
             .foregroundColor(.black)
           
           Text(type.text)
-            .font(.system(.footnote, weight: .medium))
+            .font(.footnoteRegular)
             .foregroundColor(.darkGrey)
         }
       }

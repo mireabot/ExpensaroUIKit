@@ -25,15 +25,16 @@ public struct EXInfoCardWithButton: View {
   }
   
   public var body: some View {
-    VStack(alignment: .leading, spacing: 5) {
-      icon?
-        .font(.title)
-        .foregroundColor(.primaryGreen)
-      Text(type.title)
-        .font(.system(.headline, weight: .semibold))
-      Text(type.text)
-        .font(.system(.subheadline, weight: .regular))
-        .foregroundColor(.darkGrey)
+    VStack {
+      VStack(alignment: .leading, spacing: 5) {
+        icon?
+          .foregroundColor(.primaryGreen)
+        Text(type.title)
+          .font(.system(.headline, weight: .semibold))
+        Text(type.text)
+          .font(.system(.subheadline, weight: .regular))
+          .foregroundColor(.darkGrey)
+      }
       Button {
         buttonAction()
       } label: {
@@ -45,8 +46,7 @@ public struct EXInfoCardWithButton: View {
       .padding(.top, 10)
 
     }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(15)
+    .padding(16)
     .overlay(
       RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)

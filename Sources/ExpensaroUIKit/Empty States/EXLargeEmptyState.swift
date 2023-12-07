@@ -22,15 +22,14 @@ public struct EXLargeEmptyState: View {
     VStack {
       VStack(spacing: 5) {
         icon
-          .font(.title)
           .foregroundColor(.primaryGreen)
           .padding(.bottom, 5)
         Text(type.title)
-          .font(.system(.headline, weight: .bold))
+          .font(.headlineBold)
         Text(type.text)
           .multilineTextAlignment(.center)
+          .font(.subheadlineRegular)
           .foregroundColor(.darkGrey)
-          .font(.system(.subheadline, weight: .regular))
         
       }.padding(.bottom, 15)
       Divider()
@@ -38,13 +37,13 @@ public struct EXLargeEmptyState: View {
         action()
       } label: {
         Text(type.buttonText)
-          .font(.system(.subheadline, weight: .semibold))
+          .font(.subheadlineSemibold)
       }
       .buttonStyle(EXSmallButtonStyle())
       .padding(.top, 15)
       
     }
-    .padding(20)
+    .padding(16)
     .overlay(
       RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)
@@ -54,5 +53,5 @@ public struct EXLargeEmptyState: View {
 }
 
 #Preview {
-  EXLargeEmptyState(type: .noExpenses, icon: .init(systemName: "globe"), action: {}).padding([.leading,.trailing], 16)
+  EXLargeEmptyState(type: .noBudget, icon: .init(systemName: "globe"), action: {}).padding([.leading,.trailing], 16)
 }

@@ -15,13 +15,16 @@ public struct EXDialog<BottomView: View>: View {
     self.bottomView = bottomView
   }
   public var body: some View {
-    VStack(alignment: .leading, spacing: 5) {
-      Text(type.title)
-        .font(.system(.headline, weight: .semibold))
-      Text(type.text)
-        .font(.system(.subheadline, weight: .regular))
-        .foregroundColor(.darkGrey)
+    VStack {
+      VStack(alignment: .leading, spacing: 5) {
+        Text(type.title)
+          .font(.headlineSemibold)
+        Text(type.text)
+          .font(.subheadlineRegular)
+          .foregroundColor(.darkGrey)
+      }
       bottomView()
+        .padding(.top, 15)
     }
     .padding(16)
     .background(.white)
@@ -39,10 +42,9 @@ public struct EXDialog<BottomView: View>: View {
       
     }, label: {
       Text("Delete all reminders")
-        .font(.system(.subheadline, weight: .semibold))
+        .font(.subheadlineSemibold)
     })
     .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
-    .padding(.top, 15)
   })
   .padding([.leading,.trailing], 16)
 })

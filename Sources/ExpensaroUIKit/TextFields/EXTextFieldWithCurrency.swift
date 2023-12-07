@@ -17,17 +17,17 @@ public struct EXTextFieldWithCurrency: View {
   public var body: some View {
     HStack {
       Text("USD")
-        .font(.system(.headline, weight: .semibold))
+        .font(.headlineSemibold)
       Spacer()
       HStack {
         Spacer()
         TextField("0", text: value)
           .tint(.clear)
-          .font(.system(.headline, weight: .regular))
+          .font(.headlineRegular)
           .multilineTextAlignment(.trailing)
       }
     }
-    .padding(.vertical, 14)
+    .padding(.vertical, 16)
     .padding(.horizontal, 20)
     .overlay(
       RoundedRectangle(cornerRadius: 16)

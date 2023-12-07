@@ -12,7 +12,6 @@ public struct EXPrimaryButtonStyle: ButtonStyle {
   
   public init(showLoader: Binding<Bool>) {
     self._showLoader = showLoader
-    MuktaFont.registerFonts()
   }
   
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -263,27 +262,30 @@ public struct CircularProgress: View {
 #Preview {
   VStack(spacing: 20) {
     Button(action: {}) {
-      Text("Label").font(.mukta(.semibold, size: 17))
+      Text("Label").font(.headlineSemibold)
     }
     .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
     
     Button(action: {}, label: {
-      Text("Create category").font(.mukta(.semibold, size: 17))
+      Text("Create category").font(.headlineSemibold)
     })
     .buttonStyle(EXStretchButtonStyle(icon: .init(systemName: "globe")))
     
     Button(action: {}, label: {
-      Text("Label").font(.mukta(.semibold, size: 17))
+      Text("Label").font(.headlineSemibold)
     })
     .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
     
     Button(action: {}, label: {
-      Text("Label").font(.mukta(.semibold, size: 17))
+      Text("Label").font(.headlineSemibold)
     })
     .buttonStyle(EXDestructiveButtonStyle(showLoader: .constant(false)))
     
     Button(action: {}, label: {
-      Text("Label").font(.mukta(.semibold, size: 17))
+      HStack {
+        Image(systemName: "plus")
+        Text("Add goal").font(.headlineSemibold)
+      }
     })
     .buttonStyle(EXSmallButtonStyle())
   }

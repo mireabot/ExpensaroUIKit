@@ -21,14 +21,13 @@ public struct EXSmallSelector: View {
     HStack(alignment: .top) {
       VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.system(.footnote, weight: .regular))
+          .font(.footnoteRegular)
         Text(activeText)
-          .font(.system(.headline, weight: .semibold))
+          .font(.headlineSemibold)
       }
       .frame(maxWidth: .infinity,alignment: .leading)
     }
-    .padding(.vertical, 12)
-    .padding(.horizontal, 12)
+    .padding(12)
     .overlay(
       RoundedRectangle(cornerRadius: 16)
         .inset(by: 0.5)

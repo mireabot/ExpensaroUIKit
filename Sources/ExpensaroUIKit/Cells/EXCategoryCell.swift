@@ -32,7 +32,7 @@ public struct EXCategoryCell: View {
         .cornerRadius(12)
       
       Text(title)
-        .font(.system(.headline, weight: .regular))
+        .font(.headlineRegular)
       
       Spacer()
       

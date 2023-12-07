@@ -20,10 +20,10 @@ public struct EXSmallEmptyState: View {
     HStack {
       VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.system(.headline, weight: .semibold))
+          .font(.headlineSemibold)
         Text(type.text)
           .foregroundColor(.darkGrey)
-          .font(.system(.subheadline, weight: .regular))
+          .font(.footnoteRegular)
         
       }
       Spacer()
@@ -31,7 +31,7 @@ public struct EXSmallEmptyState: View {
         action()
       } label: {
         Text(type.buttonText)
-          .font(.system(.subheadline, weight: .semibold))
+          .font(.subheadlineSemibold)
       }
       .buttonStyle(EXSmallButtonStyle())
       

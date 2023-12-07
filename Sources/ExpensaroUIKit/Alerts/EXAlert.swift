@@ -20,21 +20,21 @@ public struct EXAlert: View {
   
   public var body: some View {
     VStack {
-      VStack(alignment: .leading, spacing: 10) {
+      VStack(alignment: .leading, spacing: 5) {
         Text(type.title)
-          .font(.system(.title3, weight: .semibold))
+          .font(.title3Semibold)
         Text(type.subTitle)
-          .font(.system(.headline, weight: .regular))
+          .font(.headlineRegular)
           .foregroundColor(.darkGrey)
       }
       .frame(maxWidth: .infinity, alignment: .leading)
-      .padding(.bottom, 10)
+      .padding(.bottom, 15)
       VStack(spacing: 10) {
         Button {
           secondaryAction()
         } label: {
           Text(type.secondaryButtonText)
-            .font(.system(.headline, weight: .semibold))
+            .font(.headlineSemibold)
         }
         .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
         
@@ -42,14 +42,14 @@ public struct EXAlert: View {
           primaryAction()
         } label: {
           Text(type.primaryButtonText)
-            .font(.system(.headline, weight: .semibold))
+            .font(.headlineSemibold)
         }
         .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
       }
     }
-    .padding(20)
+    .padding(16)
     .background(.white)
-    .cornerRadius(20)
+    .cornerRadius(16)
   }
 }
 
