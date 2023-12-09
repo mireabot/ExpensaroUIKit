@@ -24,7 +24,7 @@ public struct EXDialog<BottomView: View>: View {
           .foregroundColor(.darkGrey)
       }
       bottomView()
-        .padding(.top, 15)
+        .padding(.top, 10)
     }
     .padding(16)
     .background(.white)

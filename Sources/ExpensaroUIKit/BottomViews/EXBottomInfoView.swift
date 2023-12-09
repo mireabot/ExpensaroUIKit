@@ -26,9 +26,9 @@ public struct EXBottomInfoView<BottomView: View>: View {
       Text(type.title)
         .font(.headlineSemibold)
       Text(type.text)
+        .multilineTextAlignment(.leading)
         .font(.subheadlineRegular)
         .foregroundColor(.darkGrey)
-        .multilineTextAlignment(.leading)
       
       Button(action: {
         action()

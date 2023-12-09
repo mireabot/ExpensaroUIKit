@@ -32,7 +32,7 @@ public struct EXToggleCard: View {
         .padding(15)
         .background(Color.backgroundGrey)
         .cornerRadius(16)
-        .padding(.top, 15)
+        .padding(.top, 10)
     }
     .padding(16)
     .background(Color.white)
