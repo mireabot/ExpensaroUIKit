@@ -21,13 +21,13 @@ public struct EXChip: View {
       Image(icon)
         .foregroundColor(.primaryGreen)
       Text(text)
-        .font(.subheadlineMedium)
+        .font(.calloutMedium)
         .foregroundColor(.primaryGreen)
     }
-    .padding(.horizontal, 15)
-    .padding(.vertical, 10)
+    .padding(.horizontal, 10)
+    .padding(.vertical, 5)
     .background(Color.backgroundGrey)
-    .clipShape(Capsule())
+    .cornerRadius(12)
   }
 }
 
