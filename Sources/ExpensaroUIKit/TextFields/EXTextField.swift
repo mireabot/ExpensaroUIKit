@@ -9,27 +9,30 @@ import SwiftUI
 
 public struct EXTextField: View {
   var text: Binding<String>
+  var header: String
   var placeholder: String
   
-  public init(text: Binding<String>, placeholder: String) {
+  public init(text: Binding<String>, header: String, placeholder: String) {
     self.text = text
+    self.header = header
     self.placeholder = placeholder
   }
   
   public var body: some View {
-    TextField(placeholder, text: text)
-      .tint(.primaryGreen)
-      .font(.headlineRegular)
-      .autocorrectionDisabled(true)
-      .padding(16)
-      .overlay(
-        RoundedRectangle(cornerRadius: 16)
-          .inset(by: 0.5)
-          .stroke(Color.border, lineWidth: 1)
-      )
+    EXBaseCard {
+      VStack(alignment: .leading, spacing: 5) {
+        Text(header)
+          .font(.footnoteRegular)
+          .foregroundColor(.darkGrey)
+        TextField(placeholder, text: text)
+          .tint(.primaryGreen)
+          .font(.headlineRegular)
+          .autocorrectionDisabled(true)
+      }
+    }
   }
 }
 
 #Preview {
-  EXTextField(text: .constant(""), placeholder: "Enter text").padding([.leading,.trailing], 16)
+  EXTextField(text: .constant(""), header: "Transaction name", placeholder: "What did you spend money on?").padding([.leading,.trailing], 16)
 }

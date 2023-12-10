@@ -150,6 +150,27 @@ public struct EXSmallButtonStyle: ButtonStyle {
   }
 }
 
+public struct EXSmallPrimaryButtonStyle: ButtonStyle {
+  public init() {}
+  public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
+    MyButton(configuration: configuration)
+  }
+  
+  struct MyButton: View {
+    let configuration: ButtonStyle.Configuration
+    var body: some View {
+      configuration.label
+        .padding([.vertical], 12)
+        .padding([.horizontal], 25)
+        .foregroundColor(.white)
+        .background(Color.primaryGreen)
+        .cornerRadius(12)
+        .scaleEffect(configuration.isPressed ? 0.95 : 1)
+    }
+  }
+}
+
+
 
 public struct EXTextButtonStyle: ButtonStyle {
   public init() {}
@@ -288,6 +309,14 @@ public struct CircularProgress: View {
       }
     })
     .buttonStyle(EXSmallButtonStyle())
+    
+    Button(action: {}, label: {
+      HStack {
+        Image(systemName: "plus")
+        Text("Add goal").font(.headlineSemibold)
+      }
+    })
+    .buttonStyle(EXSmallPrimaryButtonStyle())
   }
   .padding([.leading,.trailing], 16)
 }

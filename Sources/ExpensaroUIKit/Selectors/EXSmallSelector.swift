@@ -9,33 +9,30 @@ import SwiftUI
 
 public struct EXSmallSelector: View {
   @Binding var activeText: String
-  var type: SmallSelectorType
+  var icon: String
   
-  public init(activeText: Binding<String>, type: SmallSelectorType) {
+  public init(activeText: Binding<String>, icon: String) {
     self._activeText = activeText
-    self.type = type
+    self.icon = icon
   }
   
-  
   public var body: some View {
-    HStack(alignment: .top) {
-      VStack(alignment: .leading, spacing: 5) {
-        Text(type.title)
-          .font(.footnoteRegular)
+    EXBaseCard {
+      HStack(spacing: 10) {
+        Image(icon)
+          .foregroundColor(.primaryGreen)
         Text(activeText)
-          .font(.headlineSemibold)
+          .font(.subheadlineMedium)
       }
-      .frame(maxWidth: .infinity,alignment: .leading)
+      .frame(maxWidth: .infinity)
     }
-    .padding(12)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 
 #Preview {
-  EXSmallSelector(activeText: .constant("text"), type: .date).padding([.leading,.trailing], 16)
+  HStack {
+    EXSmallSelector(activeText: .constant("Every week"), icon: "")
+    EXSmallSelector(activeText: .constant("Dec 25, 2023"), icon: "")
+  }
+  .padding([.leading,.trailing], 16)
 }

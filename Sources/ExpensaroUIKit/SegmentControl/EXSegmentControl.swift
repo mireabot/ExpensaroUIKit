@@ -21,7 +21,7 @@ public struct EXSegmentControl: View {
     HStack {
       Text(type.firstTab)
         .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
-        .font(.headlineSemibold)
+        .font(.subheadlineSemibold)
         .padding(12)
 //        .frame(maxWidth: .infinity)
         .frame(width: 120)
@@ -31,6 +31,7 @@ public struct EXSegmentControl: View {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
+                .clipShape(Capsule())
             }
           }
         )
@@ -42,7 +43,7 @@ public struct EXSegmentControl: View {
       
       Text(type.secondTab)
         .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
-        .font(.headlineSemibold)
+        .font(.subheadlineSemibold)
         .padding(12)
         .frame(width: 120)
         .background(
@@ -51,6 +52,7 @@ public struct EXSegmentControl: View {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
+                .clipShape(Capsule())
             }
           }
         )
@@ -63,7 +65,7 @@ public struct EXSegmentControl: View {
       if !type.thirdTab.isEmpty {
         Text(type.thirdTab)
           .foregroundColor(currentTab == type.thirdTab ? .white : .darkGrey)
-          .font(.headlineSemibold)
+          .font(.subheadlineSemibold)
           .padding(12)
           .frame(maxWidth: .infinity)
           .background(
@@ -72,6 +74,7 @@ public struct EXSegmentControl: View {
                 Color.primaryGreen
                   .cornerRadius(12)
                   .matchedGeometryEffect(id: "TAB", in: animation)
+                  .clipShape(Capsule())
               }
             }
           )
@@ -86,11 +89,11 @@ public struct EXSegmentControl: View {
       currentTab = type.firstTab
     }
     .background(Color.backgroundGrey)
-    .cornerRadius(12)
+    .clipShape(Capsule())
     .frame(maxWidth: .infinity)
   }
 }
 
 #Preview {
-  EXSegmentControl(currentTab: .constant("Feedback"), type: .contactReason)
+  EXSegmentControl(currentTab: .constant("Feedback"), type: .contactReason).padding(16)
 }

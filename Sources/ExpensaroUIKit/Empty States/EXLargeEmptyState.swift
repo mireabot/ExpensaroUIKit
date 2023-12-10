@@ -19,39 +19,39 @@ public struct EXLargeEmptyState: View {
   }
   
   public var body: some View {
-    VStack {
-      VStack(spacing: 5) {
-        icon
-          .foregroundColor(.primaryGreen)
-          .padding(.bottom, 5)
-        Text(type.title)
-          .font(.headlineBold)
-        Text(type.text)
-          .multilineTextAlignment(.center)
-          .font(.subheadlineRegular)
-          .foregroundColor(.darkGrey)
+    EXBaseCard {
+      VStack {
+        VStack(spacing: 5) {
+          icon
+            .foregroundColor(.primaryGreen)
+            .padding(.bottom, 5)
+          Text(type.title)
+            .font(.headlineBold)
+          Text(type.text)
+            .multilineTextAlignment(.center)
+            .font(.subheadlineRegular)
+            .foregroundColor(.darkGrey)
+          
+        }
         
-      }.padding(.bottom, 15)
-      Divider()
-      Button {
-        action()
-      } label: {
-        Text(type.buttonText)
-          .font(.subheadlineSemibold)
+        Button {
+          action()
+        } label: {
+          Text(type.buttonText)
+            .font(.subheadlineSemibold)
+        }
+        .buttonStyle(EXSmallPrimaryButtonStyle())
+        .padding(.top, 5)
       }
-      .buttonStyle(EXSmallButtonStyle())
-      .padding(.top, 15)
-      
+      .frame(maxWidth: .infinity)
     }
-    .padding(16)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 
 #Preview {
-  EXLargeEmptyState(type: .noBudget, icon: .init(systemName: "globe"), action: {}).padding([.leading,.trailing], 16)
+  VStack {
+    EXLargeEmptyState(type: .noBudget, icon: .init(systemName: "globe"), action: {})
+    EXLargeEmptyState(type: .noExpenses, icon: .init(systemName: "globe"), action: {})
+  }
+  .padding([.leading,.trailing], 16)
 }

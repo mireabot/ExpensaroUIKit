@@ -25,33 +25,29 @@ public struct EXInfoCardWithButton: View {
   }
   
   public var body: some View {
-    VStack {
-      VStack(alignment: .leading, spacing: 5) {
-        icon?
-          .foregroundColor(.primaryGreen)
-        Text(type.title)
-          .font(.system(.headline, weight: .semibold))
-        Text(type.text)
-          .font(.system(.subheadline, weight: .regular))
-          .foregroundColor(.darkGrey)
+    EXBaseCard {
+      VStack {
+        VStack(alignment: .leading, spacing: 5) {
+          icon?
+            .foregroundColor(.primaryGreen)
+          Text(type.title)
+            .font(.system(.headline, weight: .semibold))
+          Text(type.text)
+            .font(.system(.subheadline, weight: .regular))
+            .foregroundColor(.darkGrey)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        Button {
+          buttonAction()
+        } label: {
+          Text("How it works")
+            .font(.system(.subheadline, weight: .semibold))
+            .frame(maxWidth: .infinity)
+        }
+        .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
+        .padding(.top, 5)
       }
-      Button {
-        buttonAction()
-      } label: {
-        Text("How it works")
-          .font(.system(.subheadline, weight: .semibold))
-          .frame(maxWidth: .infinity)
-      }
-      .buttonStyle(EXSmallButtonStyle())
-      .padding(.top, 10)
-
     }
-    .padding(16)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 

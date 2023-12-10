@@ -15,24 +15,21 @@ public struct EXDialog<BottomView: View>: View {
     self.bottomView = bottomView
   }
   public var body: some View {
-    VStack {
-      VStack(alignment: .leading, spacing: 5) {
-        Text(type.title)
-          .font(.headlineSemibold)
-        Text(type.text)
-          .font(.subheadlineRegular)
-          .foregroundColor(.darkGrey)
+    EXBaseCard {
+      VStack {
+        VStack(alignment: .leading, spacing: 5) {
+          Text(type.title)
+            .font(.headlineSemibold)
+          Text(type.text)
+            .font(.subheadlineRegular)
+            .foregroundColor(.darkGrey)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        bottomView()
+          .padding(.top, 5)
       }
-      bottomView()
-        .padding(.top, 10)
+      .padding(4)
     }
-    .padding(16)
-    .background(.white)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 

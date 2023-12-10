@@ -17,31 +17,26 @@ public struct EXSmallEmptyState: View {
   }
   
   public var body: some View {
-    HStack {
-      VStack(alignment: .leading, spacing: 5) {
-        Text(type.title)
-          .font(.headlineSemibold)
-        Text(type.text)
-          .foregroundColor(.darkGrey)
-          .font(.footnoteRegular)
-        
+    EXBaseCard {
+      HStack {
+        VStack(alignment: .leading, spacing: 5) {
+          Text(type.title)
+            .font(.headlineSemibold)
+          Text(type.text)
+            .foregroundColor(.darkGrey)
+            .font(.footnoteRegular)
+          
+        }
+        Spacer()
+        Button {
+          action()
+        } label: {
+          Text(type.buttonText)
+            .font(.subheadlineSemibold)
+        }
+        .buttonStyle(EXSmallPrimaryButtonStyle())
       }
-      Spacer()
-      Button {
-        action()
-      } label: {
-        Text(type.buttonText)
-          .font(.subheadlineSemibold)
-      }
-      .buttonStyle(EXSmallButtonStyle())
-      
     }
-    .padding(16)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 

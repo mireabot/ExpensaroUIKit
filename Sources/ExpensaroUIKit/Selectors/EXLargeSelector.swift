@@ -10,47 +10,44 @@ import SwiftUI
 public struct EXLargeSelector : View {
   @Binding var text: String
   @Binding var icon: String
-  var buttonText: String
-  var action: () -> Void
+  var header: String
+  var rightIcon: String
   
-  public init(text: Binding<String>, icon: Binding<String>, buttonText: String, action: @escaping ()-> Void) {
+  public init(text: Binding<String>, icon: Binding<String>, header: String, rightIcon: String) {
     self._text = text
     self._icon = icon
-    self.buttonText = buttonText
-    self.action = action
+    self.header = header
+    self.rightIcon = rightIcon
   }
   
   public var body: some View {
-    HStack {
-      HStack(spacing: 10) {
-        Image(icon)
-          .foregroundColor(.primaryGreen)
-          .padding(10)
-          .background(Color.backgroundGrey)
-          .cornerRadius(12)
-        Text(text)
-          .font(.headlineRegular)
+    EXBaseCard {
+      HStack {
+        HStack(spacing: 10) {
+          Image(icon)
+            .foregroundColor(.primaryGreen)
+            .padding(12)
+            .background(.white)
+            .cornerRadius(12)
+          VStack(alignment: .leading, spacing: 3) {
+            Text(header)
+              .font(.footnoteRegular)
+              .foregroundColor(.darkGrey)
+            Text(text)
+              .font(.headlineRegular)
+          }
+        }
+        Spacer()
+        Image(rightIcon)
+          .foregroundColor(.black)
       }
-      Spacer()
-      
-      Button {
-        action()
-      } label: {
-        Text(buttonText)
-          .font(.subheadlineSemibold)
-      }
-      .buttonStyle(EXSmallButtonStyle())
-
     }
-    .padding([.horizontal, .vertical], 12)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 
 #Preview {
-  EXLargeSelector(text: .constant("Travel"), icon: .constant(""), buttonText: "Change", action: {}).padding([.leading,.trailing], 16)
+  HStack {
+    EXLargeSelector(text: .constant("Shopping"), icon: .constant(""), header: "Category", rightIcon: "Change")
+  }
+  .padding([.leading,.trailing], 16)
 }

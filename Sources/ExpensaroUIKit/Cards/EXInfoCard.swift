@@ -51,25 +51,21 @@ public struct EXInfoCard: View {
   }
   
   public var body: some View {
-    VStack(alignment: .leading, spacing: 5) {
-      icon?
-        .foregroundColor(.primaryGreen)
-      Text((title ?? type?.title) ?? "")
-        .font(.headlineSemibold)
-      Text((text ?? type?.text) ?? "")
-        .font(.subheadlineRegular)
-        .foregroundColor(.darkGrey)
+    EXBaseCard {
+      VStack(alignment: .leading, spacing: 5) {
+        icon?
+          .foregroundColor(.primaryGreen)
+        Text((title ?? type?.title) ?? "")
+          .font(.headlineSemibold)
+        Text((text ?? type?.text) ?? "")
+          .font(.footnoteRegular)
+          .foregroundColor(.darkGrey)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
-    .frame(maxWidth: .infinity, alignment: .leading)
-    .padding(16)
-    .overlay(
-      RoundedRectangle(cornerRadius: 16)
-        .inset(by: 0.5)
-        .stroke(Color.border, lineWidth: 1)
-    )
   }
 }
 
 #Preview {
-  EXInfoCard(type: .monthToMonth)
+  EXInfoCard(type: .overviewUpdates).padding([.leading,.trailing], 16)
 }
