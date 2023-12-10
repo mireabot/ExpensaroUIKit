@@ -21,7 +21,7 @@ public struct EXChip: View {
       Image(icon)
         .foregroundColor(.primaryGreen)
       Text(text)
-        .font(.headlineMedium)
+        .font(.subheadlineMedium)
         .foregroundColor(.primaryGreen)
     }
     .padding(.horizontal, 15)
