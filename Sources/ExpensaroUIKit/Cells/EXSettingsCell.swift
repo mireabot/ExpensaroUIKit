@@ -1,6 +1,6 @@
 //
 //  EXSettingsCell.swift
-//  
+//
 //
 //  Created by Mikhail Kolkov on 9/20/23.
 //

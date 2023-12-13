@@ -58,7 +58,7 @@ public struct EXInfoCard: View {
         Text((title ?? type?.title) ?? "")
           .font(.headlineSemibold)
         Text((text ?? type?.text) ?? "")
-          .font(.footnoteRegular)
+          .font(.subheadlineRegular)
           .foregroundColor(.darkGrey)
       }
       .frame(maxWidth: .infinity, alignment: .leading)

@@ -9,11 +9,13 @@ import SwiftUI
 
 public struct EXDialog<BottomView: View>: View {
   var type: EXDialogType
-  let bottomView: () -> BottomView
-  public init(type: EXDialogType, @ViewBuilder bottomView: @escaping () -> BottomView) {
+  let bottomView: BottomView?
+  
+  public init(type: EXDialogType, @ViewBuilder bottomView: () -> BottomView? = {nil}) {
     self.type = type
-    self.bottomView = bottomView
+    self.bottomView = bottomView()
   }
+  
   public var body: some View {
     EXBaseCard {
       VStack {
@@ -25,7 +27,7 @@ public struct EXDialog<BottomView: View>: View {
             .foregroundColor(.darkGrey)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        bottomView()
+        bottomView
           .padding(.top, 5)
       }
       .padding(4)
@@ -33,15 +35,25 @@ public struct EXDialog<BottomView: View>: View {
   }
 }
 
+extension EXDialog where BottomView == EmptyView {
+  public init(_ type: EXDialogType) {
+    self.init(type: type, bottomView: { EmptyView() })
+  }
+}
+
 #Preview(body: {
-  EXDialog(type: .deleteReminders, bottomView: {
-    Button(action: {
-      
-    }, label: {
-      Text("Delete all reminders")
-        .font(.subheadlineSemibold)
+  VStack {
+    EXDialog(type: .deleteReminders, bottomView: {
+      Button(action: {
+        
+      }, label: {
+        Text("Delete all reminders")
+          .font(.subheadlineSemibold)
+      })
+      .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
     })
-    .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
-  })
+    
+    EXDialog<EmptyView>(type: .eraseData)
+  }
   .padding([.leading,.trailing], 16)
 })

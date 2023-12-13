@@ -21,8 +21,6 @@ public struct EXBottomInfoView<BottomView: View>: View {
     VStack(alignment: .leading, spacing: 10) {
       bottomView()
         .padding(16)
-        .background(Color.backgroundGrey)
-        .cornerRadius(16)
       Text(type.title)
         .font(.headlineSemibold)
       Text(type.text)
