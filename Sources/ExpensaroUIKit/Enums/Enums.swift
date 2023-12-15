@@ -255,6 +255,7 @@ public enum SettingsType {
 public enum BottomInfoType {
   case spendings
   case topCategory
+  case transactions
   
   var title: String {
     switch self {
@@ -262,6 +263,8 @@ public enum BottomInfoType {
       return "Keep track of your spendings progress"
     case .topCategory:
       return "Top Category Spotlight"
+    case .transactions:
+      return "Selected category breakdown"
     }
   }
   
@@ -271,6 +274,8 @@ public enum BottomInfoType {
       return "We will calculate the percentage of changes in spending at the end of this month and the previous month"
     case .topCategory:
       return "Track your monthly spending trends, which shows your top spending category and the amount you've spent in it"
+    case .transactions:
+      return "Uncover your spending trends: tap to see average spend, top 3 purchases, and more in selected category!"
     }
   }
 }
