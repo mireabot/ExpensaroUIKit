@@ -31,7 +31,6 @@ public struct EXSegmentControl: View {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
-                .clipShape(Capsule())
             }
           }
         )
@@ -52,7 +51,6 @@ public struct EXSegmentControl: View {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
-                .clipShape(Capsule())
             }
           }
         )
@@ -74,7 +72,6 @@ public struct EXSegmentControl: View {
                 Color.primaryGreen
                   .cornerRadius(12)
                   .matchedGeometryEffect(id: "TAB", in: animation)
-                  .clipShape(Capsule())
               }
             }
           )
@@ -89,7 +86,7 @@ public struct EXSegmentControl: View {
       currentTab = type.firstTab
     }
     .background(Color.backgroundGrey)
-    .clipShape(Capsule())
+    .cornerRadius(12)
     .frame(maxWidth: .infinity)
   }
 }
