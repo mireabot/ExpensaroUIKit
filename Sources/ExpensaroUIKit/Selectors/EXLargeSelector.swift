@@ -24,11 +24,13 @@ public struct EXLargeSelector : View {
     EXBaseCard {
       HStack {
         HStack(spacing: 10) {
-          Image(icon)
-            .foregroundColor(.primaryGreen)
-            .padding(12)
-            .background(.white)
-            .cornerRadius(12)
+          if icon != "" {
+            Image(icon)
+              .foregroundColor(.primaryGreen)
+              .padding(12)
+              .background(.white)
+              .cornerRadius(12)
+          }
           VStack(alignment: .leading, spacing: 3) {
             Text(header)
               .font(.footnoteRegular)
