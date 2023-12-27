@@ -24,33 +24,32 @@ public struct EXCategoryCell: View {
   }
   
   public var body: some View {
-    HStack {
-      icon
-        .foregroundColor(.primaryGreen)
-        .padding(12)
-        .background(Color.backgroundGrey)
-        .cornerRadius(12)
-      
-      Text(title)
-        .font(.headlineRegular)
-      
-      Spacer()
-      
-      leftIcon
-        .foregroundColor(.black)
+    EXBaseCard {
+      HStack {
+        icon
+          .foregroundColor(.primaryGreen)
+        
+        Text(title)
+          .font(.headlineRegular)
+        
+        Spacer()
+        
+        leftIcon
+          .foregroundColor(.black)
+      }
+      .padding(4)
+      .frame(maxWidth: .infinity, alignment: .leading)
     }
-    .background(Color.white)
-    .frame(maxWidth: .infinity, alignment: .leading)
   }
 }
 
 struct SwiftUIView_Previews: PreviewProvider {
   static var previews: some View {
     List {
-      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel")
-      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel")
-      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel")
-      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel")
+      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
+      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
+      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
+      EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
     }
     .listStyle(.plain)
     .background(Color.white)
