@@ -28,11 +28,15 @@ public struct EXSelectCell: View {
     }
     .padding(.vertical, 25)
     .padding(.horizontal, 16)
-    .background(condition ?? false ? Color.backgroundGrey : .clear)
+    .background(condition ?? false ? Color.backgroundGrey : .white)
     .cornerRadius(12)
   }
 }
 
 #Preview {
-  EXSelectCell(title: "Every week", selectIcon: Image(systemName: "checkmark"), condition: true).padding([.leading,.trailing], 16)
+  EXSelectCell(title: "Every week", selectIcon: Image(systemName: "checkmark"), condition: false)
+    .padding([.leading,.trailing], 16)
+    .onTapGesture {
+      print("Hell")
+    }
 }
