@@ -116,7 +116,7 @@ public enum InfoCardType {
     case .goalHint:
       return "How to close your goal faster?"
     case .monthToMonth:
-      return "Compare your spendings month to month"
+      return "Your monthly financial snapshots"
     case .topCategory:
       return "Top category for each month"
     case .overviewUpdates:
@@ -129,7 +129,7 @@ public enum InfoCardType {
     case .goalHint:
       return ""
     case .monthToMonth:
-      return "You will see your total spending amount after current month ends and data from previous month"
+      return "Gain financial clarity every month. See budgets, goal milestones and spending habits"
     case .topCategory:
       return "See where you spent the most of your budget each month"
     case .overviewUpdates:
@@ -260,7 +260,7 @@ public enum BottomInfoType {
   var title: String {
     switch self {
     case .spendings:
-      return "Keep track of your spendings progress"
+      return "Analyze your spendings against your budget"
     case .topCategory:
       return "Top Category Spotlight"
     case .transactions:
@@ -271,7 +271,7 @@ public enum BottomInfoType {
   var text: String {
     switch self {
     case .spendings:
-      return "We will calculate the percentage of changes in spending at the end of this month and the previous month"
+      return "Unlock profound budget insights, track monthly goals, and explore detailed category breakdowns"
     case .topCategory:
       return "Track your monthly spending trends, which shows your top spending category and the amount you've spent in it"
     case .transactions:
@@ -408,7 +408,7 @@ public enum EXToasts {
 
 
 #Preview(body: {
-  EXDialog(type: .eraseData) {
+  EXBottomInfoView(type: .spendings, action: {}) {
     EmptyView()
   }
 })

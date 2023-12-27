@@ -18,33 +18,38 @@ public struct EXBottomInfoView<BottomView: View>: View {
   }
   
   public var body: some View {
-    VStack(alignment: .leading, spacing: 10) {
-      bottomView()
-        .padding(.vertical, 10)
-      Text(type.title)
-        .font(.headlineSemibold)
-      Text(type.text)
-        .multilineTextAlignment(.leading)
-        .font(.subheadlineRegular)
-        .foregroundColor(.darkGrey)
-      
-      if type != .transactions {
-        Button(action: {
-          action()
-        }) {
-          Text("See Demo").font(.headlineSemibold)
+    ViewThatFits(in: .vertical) {
+      VStack(alignment: .leading, spacing: 10) {
+        bottomView()
+          .padding(.vertical, 10)
+        Text(type.title)
+          .font(.headlineSemibold)
+        Text(type.text)
+          .multilineTextAlignment(.leading)
+          .font(.subheadlineRegular)
+          .foregroundColor(.darkGrey)
+        
+        if type != .transactions {
+          Button(action: {
+            action()
+          }) {
+            Text("See Demo").font(.headlineSemibold)
+          }
+          .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
+          .padding(.top, 10)
         }
-        .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
-        .padding(.top, 10)
       }
+      .fixedSize(horizontal: false, vertical: true)
+      .padding(.vertical, 16)
     }
   }
 }
 
 #Preview {
-  EXBottomInfoView(type: .transactions, action: {}) {
+  EXBottomInfoView(type: .spendings, action: {}) {
     Text("1")
       .frame(maxWidth: .infinity, alignment: .center)
       .background(Color.backgroundGrey)
-  }.padding([.leading,.trailing], 16)
+  }
+  .padding([.leading,.trailing], 16)
 }

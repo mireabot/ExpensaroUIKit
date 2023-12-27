@@ -52,5 +52,5 @@ public struct EXInfoCardWithButton: View {
 }
 
 #Preview {
-  EXInfoCardWithButton(type: .topCategory, icon: .init(systemName: "globe"), buttonIcon: .init(systemName: "globe"), buttonAction: {}).padding([.leading,.trailing], 16)
+  EXInfoCardWithButton(type: .monthToMonth, icon: .init(systemName: "globe"), buttonIcon: .init(systemName: "globe"), buttonAction: {}).padding([.leading,.trailing], 16)
 }
