@@ -406,6 +406,12 @@ public enum EXToasts {
   }
 }
 
+public enum IconType {
+  case imageName(String)
+  case image(Image)
+}
+
+
 
 #Preview(body: {
   EXBottomInfoView(type: .spendings, action: {}) {

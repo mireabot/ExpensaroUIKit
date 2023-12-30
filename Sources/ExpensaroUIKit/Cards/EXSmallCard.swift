@@ -10,9 +10,9 @@ import SwiftUI
 public struct EXSmallCard: View {
   var title: String
   var header: String?
-  var image: String?
+  var image: IconType
   
-  public init(title: String, header: String? = nil, image: String? = nil) {
+  public init(title: String, header: String? = nil, image: IconType) {
     self.title = title
     self.header = header
     self.image = image
@@ -30,9 +30,16 @@ public struct EXSmallCard: View {
           }
         }
         Spacer()
-        if let image = image {
-          Image(image)
+        switch image {
+        case .imageName(let imageName) where !imageName.isEmpty:
+          Text(imageName)
+          
+        case .image(let image):
+          image
             .foregroundColor(.primaryGreen)
+          
+        default:
+          EmptyView()
         }
       }
     }

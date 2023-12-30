@@ -8,18 +8,27 @@
 import SwiftUI
 
 public struct EXChip: View {
-  var icon: String
+  var icon: IconType
   var text: String
   
-  public init(icon: String, text: String) {
+  public init(icon: IconType, text: String) {
     self.icon = icon
     self.text = text
   }
   
   public var body: some View {
     HStack {
-      Image(icon)
-        .foregroundColor(.primaryGreen)
+      switch icon {
+      case .imageName(let imageName) where !imageName.isEmpty:
+        Text(imageName)
+        
+      case .image(let image):
+        image
+          .foregroundColor(.primaryGreen)
+        
+      default:
+        EmptyView()
+      }
       Text(text)
         .font(.calloutMedium)
         .foregroundColor(.primaryGreen)
@@ -32,5 +41,8 @@ public struct EXChip: View {
 }
 
 #Preview {
-  EXChip(icon: "globe", text: "Debit")
+  HStack {
+    EXChip(icon: .imageName("🧠"), text: "Debit")
+    EXChip(icon: .image(.init(systemName: "globe")), text: "Debit")
+  }
 }

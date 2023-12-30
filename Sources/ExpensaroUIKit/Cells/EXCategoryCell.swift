@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct EXCategoryCell: View {
-  var icon: Image
+  var icon: String
   var title: String
   var leftIcon: Image?
   
@@ -17,7 +17,7 @@ public struct EXCategoryCell: View {
   ///   - icon: icon of category
   ///   - title: name of category
   ///   - leftIcon: optional left icon for selection
-  public init(icon: Image, title: String, leftIcon: Image? = nil) {
+  public init(icon: String, title: String, leftIcon: Image? = nil) {
     self.icon = icon
     self.title = title
     self.leftIcon = leftIcon
@@ -25,7 +25,7 @@ public struct EXCategoryCell: View {
   
   public var body: some View {
     HStack {
-      icon
+      Text(icon)
         .foregroundColor(.primaryGreen)
         .padding(10)
         .background(Color.backgroundGrey)
@@ -44,10 +44,10 @@ public struct EXCategoryCell: View {
 
 #Preview {
   List {
-    EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
-    EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
-    EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
-    EXCategoryCell(icon: .init(systemName: "globe"), title: "Travel").listRowSeparator(.hidden)
+    EXCategoryCell(icon: "🧠", title: "Travel").listRowSeparator(.hidden)
+    EXCategoryCell(icon: "🧠", title: "Travel").listRowSeparator(.hidden)
+    EXCategoryCell(icon: "🧠", title: "Travel").listRowSeparator(.hidden)
+    EXCategoryCell(icon: "💻", title: "Travel").listRowSeparator(.hidden)
   }
   .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
   .listStyle(.plain)
