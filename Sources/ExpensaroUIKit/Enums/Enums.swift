@@ -215,6 +215,7 @@ public enum SettingsType {
   case resetAccount
   case contact
   case appSettings
+  case wishKit
   
   var title: String {
     switch self {
@@ -230,6 +231,8 @@ public enum SettingsType {
       return "Contact"
     case .appSettings:
       return "App Preferences"
+    case .wishKit:
+      return "Request Features"
     }
   }
   
@@ -247,6 +250,8 @@ public enum SettingsType {
       return "We'd love to hear what's on your mind"
     case .appSettings:
       return "Manage app settings"
+    case .wishKit:
+      return "Vote for new features or create your own"
     }
   }
 }
