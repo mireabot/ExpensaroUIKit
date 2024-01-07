@@ -367,6 +367,7 @@ public enum EXToasts {
   case wrongDate
   case pastDate
   case remindersDeleted
+  case feebackSent
   
   public var text: String {
     switch self {
@@ -386,6 +387,8 @@ public enum EXToasts {
       return "Date cannot be in the past"
     case .remindersDeleted:
       return "You have unsubscribed from reminders"
+    case .feebackSent:
+      return "We got your information and will get back very shortly!"
     }
   }
   
@@ -406,6 +409,8 @@ public enum EXToasts {
     case .pastDate:
       return false
     case .remindersDeleted:
+      return true
+    case .feebackSent:
       return true
     }
   }
