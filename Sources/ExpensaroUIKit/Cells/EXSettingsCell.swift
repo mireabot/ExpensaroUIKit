@@ -58,7 +58,7 @@ public struct EXSettingsCell: View {
       EXSettingsCell(category: .constant(""), type: .reminders, icon: .init(systemName: "globe"), action: {})
     }
     HStack {
-      EXSettingsCell(category: .constant(""), type: .exportData, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), type: .appSettings, icon: .init(systemName: "globe"), action: {})
       EXSettingsCell(category: .constant(""), type: .resetAccount, icon: .init(systemName: "globe"), action: {})
     }
     HStack {

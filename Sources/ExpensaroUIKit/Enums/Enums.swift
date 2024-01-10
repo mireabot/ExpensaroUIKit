@@ -230,7 +230,7 @@ public enum SettingsType {
     case .contact:
       return "Contact"
     case .appSettings:
-      return "App Preferences"
+      return "General Settings"
     case .wishKit:
       return "Request Features"
     }
@@ -249,7 +249,7 @@ public enum SettingsType {
     case .contact:
       return "We'd love to hear what's on your mind"
     case .appSettings:
-      return "Manage app settings"
+      return "Customize app settings for your preferences"
     case .wishKit:
       return "Vote for new features or create your own"
     }
