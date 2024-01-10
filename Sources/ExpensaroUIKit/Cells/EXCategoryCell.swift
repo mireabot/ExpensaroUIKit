@@ -38,7 +38,7 @@ public struct EXCategoryCell: View {
       leftIcon
         .foregroundColor(.black)
     }
-    .frame(maxWidth: .infinity, alignment: .leading)
+    .background(.white)
   }
 }
 
