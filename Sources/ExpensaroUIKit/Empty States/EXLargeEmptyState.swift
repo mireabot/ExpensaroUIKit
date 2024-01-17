@@ -10,11 +10,13 @@ import SwiftUI
 public struct EXLargeEmptyState: View {
   var type: EmptyStateType
   var icon: Image
+  var isActive: Bool
   var action: () -> Void
   
-  public init(type: EmptyStateType, icon: Image, action: @escaping () -> Void) {
+  public init(type: EmptyStateType, icon: Image, isActive: Bool, action: @escaping () -> Void) {
     self.type = type
     self.icon = icon
+    self.isActive = isActive
     self.action = action
   }
   
@@ -41,6 +43,7 @@ public struct EXLargeEmptyState: View {
             .font(.subheadlineSemibold)
         }
         .buttonStyle(EXSmallPrimaryButtonStyle())
+        .disabled(isActive)
         .padding(.top, 5)
       }
       .frame(maxWidth: .infinity)
@@ -50,8 +53,8 @@ public struct EXLargeEmptyState: View {
 
 #Preview {
   VStack {
-    EXLargeEmptyState(type: .noBudget, icon: .init(systemName: "globe"), action: {})
-    EXLargeEmptyState(type: .noExpenses, icon: .init(systemName: "globe"), action: {})
+    EXLargeEmptyState(type: .noBudget, icon: .init(systemName: "globe"), isActive: true, action: {})
+    EXLargeEmptyState(type: .noExpenses, icon: .init(systemName: "globe"), isActive: false, action: {})
   }
   .padding([.leading,.trailing], 16)
 }

@@ -9,10 +9,12 @@ import SwiftUI
 
 public struct EXSmallEmptyState: View {
   var type: EmptyStateType
+  var isActive: Bool
   var action: () -> Void
   
-  public init(type: EmptyStateType, action: @escaping () -> Void) {
+  public init(type: EmptyStateType, isActive: Bool, action: @escaping () -> Void) {
     self.type = type
+    self.isActive = isActive
     self.action = action
   }
   
@@ -35,11 +37,12 @@ public struct EXSmallEmptyState: View {
             .font(.subheadlineSemibold)
         }
         .buttonStyle(EXSmallPrimaryButtonStyle())
+        .disabled(isActive)
       }
     }
   }
 }
 
 #Preview {
-  EXSmallEmptyState(type: .noRecurrentPayments, action: {}).padding([.leading,.trailing], 16)
+  EXSmallEmptyState(type: .noRecurrentPayments, isActive: false, action: {}).padding([.leading,.trailing], 16)
 }

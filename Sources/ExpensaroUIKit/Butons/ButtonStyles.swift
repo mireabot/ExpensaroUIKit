@@ -157,13 +157,14 @@ public struct EXSmallPrimaryButtonStyle: ButtonStyle {
   }
   
   struct MyButton: View {
+    @Environment(\.isEnabled) private var isEnabled: Bool
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
         .padding([.vertical], 12)
         .padding([.horizontal], 25)
-        .foregroundColor(.white)
-        .background(Color.primaryGreen)
+        .foregroundColor(isEnabled ? .white : .darkGrey)
+        .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
         .cornerRadius(12)
         .scaleEffect(configuration.isPressed ? 0.95 : 1)
     }
