@@ -46,10 +46,22 @@ public struct EXBottomInfoView<BottomView: View>: View {
 }
 
 #Preview {
-  EXBottomInfoView(type: .spendings, action: {}) {
-    Text("1")
-      .frame(maxWidth: .infinity, alignment: .center)
-      .background(Color.backgroundGrey)
+  ScrollView {
+    EXBottomInfoView(type: .spendings, action: {}) {
+      Text("1")
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color.backgroundGrey)
+    }
+    EXBottomInfoView(type: .topCategory, action: {}) {
+      Text("1")
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color.backgroundGrey)
+    }
+    EXBottomInfoView(type: .transactions, action: {}) {
+      Text("1")
+        .frame(maxWidth: .infinity, alignment: .center)
+        .background(Color.backgroundGrey)
+    }
   }
   .padding([.leading,.trailing], 16)
 }

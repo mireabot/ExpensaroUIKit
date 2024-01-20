@@ -54,5 +54,11 @@ public struct EXAlert: View {
 }
 
 #Preview {
-  EXAlert(type: .createReminder, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")}).padding().background(.black)
+  ScrollView(showsIndicators: false) {
+    EXAlert(type: .createReminder, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+    EXAlert(type: .deleteGoal, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+    EXAlert(type: .deletePayment, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+    EXAlert(type: .deleteTransaction, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+  }
+  .padding().background(Color(uiColor: .systemGray6))
 }

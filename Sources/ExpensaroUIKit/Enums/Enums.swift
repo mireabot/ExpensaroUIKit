@@ -33,7 +33,7 @@ public enum EmptyStateType {
     case .noExpenses:
       return "You haven’t added any expenses for this month"
     case .noRecurrentPayments:
-      return "Rent, bills, subscriptions and more"
+      return "Bills, subscriptions and more"
     case .noGoals:
       return ""
     }
@@ -133,7 +133,7 @@ public enum InfoCardType {
     case .topCategory:
       return "See where you spent the most of your budget each month"
     case .overviewUpdates:
-      return "New analytics tools are incoming each month"
+      return "New analytics tools are incoming each update"
     }
   }
 }
@@ -289,6 +289,7 @@ public enum EXAlertType {
   case deleteTransaction
   case deleteGoal
   case createReminder
+  case deletePayment
   
   var title: String {
     switch self {
@@ -298,6 +299,8 @@ public enum EXAlertType {
       return "Delete goal?"
     case .createReminder:
       return "Do you want to create reminder?"
+    case .deletePayment:
+      return "Delete recurring payment"
     }
   }
   
@@ -309,6 +312,8 @@ public enum EXAlertType {
       return "This action is permanent and cannot be restored"
     case .createReminder:
       return "Receive a push notification one day prior to your payment"
+    case .deletePayment:
+      return "This action is permanent and cannot be restored"
     }
   }
   
@@ -320,6 +325,8 @@ public enum EXAlertType {
       return "Yes, delete goal"
     case .createReminder:
       return "Yes, I'm in"
+    case .deletePayment:
+      return "Yes, delete payment"
     }
   }
   
@@ -331,6 +338,8 @@ public enum EXAlertType {
       return "No, leave goal"
     case .createReminder:
       return "No, thank you"
+    case .deletePayment:
+      return "No, leave payment"
     }
   }
 }
@@ -351,9 +360,9 @@ public enum EXDialogType {
   var text: String {
     switch self {
     case .deleteReminders:
-      return "Unsubsribe from all reminders about recurring payments. This action cannot be restored."
+      return "Unsubsribe from all reminders about recurring payments. This action cannot be restored"
     case .eraseData:
-      return "Delete all added data related to your account. This action cannot be restored."
+      return "Delete all added data related to your account. This action cannot be restored"
     }
   }
 }

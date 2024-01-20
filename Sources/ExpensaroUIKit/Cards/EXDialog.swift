@@ -42,7 +42,7 @@ extension EXDialog where BottomView == EmptyView {
 }
 
 #Preview(body: {
-  VStack {
+  ScrollView {
     EXDialog(type: .deleteReminders, bottomView: {
       Button(action: {
         

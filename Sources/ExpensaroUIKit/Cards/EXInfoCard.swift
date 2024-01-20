@@ -1,6 +1,6 @@
 //
 //  EXInfoCard.swift
-//  
+//
 //
 //  Created by Mikhail Kolkov on 9/14/23.
 //
@@ -67,5 +67,10 @@ public struct EXInfoCard: View {
 }
 
 #Preview {
-  EXInfoCard(type: .overviewUpdates).padding([.leading,.trailing], 16)
+  VStack {
+    EXInfoCard(type: .overviewUpdates)
+    EXInfoCard(type: .monthToMonth)
+    EXInfoCard(type: .topCategory)
+  }
+  .padding([.leading,.trailing], 16)
 }

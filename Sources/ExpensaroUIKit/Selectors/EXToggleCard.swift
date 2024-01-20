@@ -37,5 +37,11 @@ public struct EXToggleCard: View {
 }
 
 #Preview {
-  EXToggleCard(type: .notifications, isOn: .constant(true)).padding([.leading,.trailing], 16)
+  VStack{
+    EXToggleCard(type: .notifications, isOn: .constant(true))
+    EXToggleCard(type: .analytics, isOn: .constant(false))
+    EXToggleCard(type: .paymentReminder, isOn: .constant(true))
+    EXToggleCard(type: .reminders, isOn: .constant(true))
+  }
+  .padding([.leading,.trailing], 16)
 }
