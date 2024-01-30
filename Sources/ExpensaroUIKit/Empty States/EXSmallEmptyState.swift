@@ -21,7 +21,7 @@ public struct EXSmallEmptyState: View {
   public var body: some View {
     EXBaseCard {
       HStack {
-        VStack(alignment: .leading, spacing: 5) {
+        VStack(alignment: .leading, spacing: 3) {
           Text(type.title)
             .font(.headlineSemibold)
           Text(type.text)

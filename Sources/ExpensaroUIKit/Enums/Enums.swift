@@ -20,7 +20,7 @@ public enum EmptyStateType {
     case .noExpenses:
       return "No Expenses Yet"
     case .noRecurrentPayments:
-      return "Add your recurrent payments"
+      return "Add Your Recurring Payments"
     case .noGoals:
       return "You have no active goals"
     }
@@ -29,11 +29,11 @@ public enum EmptyStateType {
   var text: String {
     switch self {
     case .noBudget:
-      return "You haven’t set up budget for this month yet"
+      return "You haven’t set up a budget for this month yet"
     case .noExpenses:
       return "You haven’t added any expenses for this month"
     case .noRecurrentPayments:
-      return "Bills, subscriptions and more"
+      return "Bills, subscriptions, and more"
     case .noGoals:
       return ""
     }
@@ -94,13 +94,13 @@ public enum SmallSelectorType {
   var title: String {
     switch self {
     case .date:
-      return "Pay date"
+      return "Renewal date"
     case .category:
       return "Category"
     case .initPayment:
       return "Initial payment"
     case .goalDate:
-      return "Goal date"
+      return "Goal due date"
     }
   }
 }
@@ -120,7 +120,7 @@ public enum InfoCardType {
     case .topCategory:
       return "Top category for each month"
     case .overviewUpdates:
-      return "We always working on new features"
+      return "We are always working on new features"
     }
   }
   
@@ -129,11 +129,11 @@ public enum InfoCardType {
     case .goalHint:
       return ""
     case .monthToMonth:
-      return "Gain financial clarity every month. See budgets, goal milestones and spending habits"
+      return "Gain financial clarity every month. See your budgets, goal milestones and spending habits"
     case .topCategory:
-      return "See where you spent the most of your budget each month"
+      return "See where you spent most of your budget each month"
     case .overviewUpdates:
-      return "New analytics tools are incoming each update"
+      return "New analytics tools are coming each update"
     }
   }
 }
@@ -267,7 +267,7 @@ public enum BottomInfoType {
     case .spendings:
       return "Analyze your spendings against your budget"
     case .topCategory:
-      return "Top Category Spotlight"
+      return "Top Category Trends"
     case .transactions:
       return "Selected category breakdown"
     }
@@ -278,9 +278,9 @@ public enum BottomInfoType {
     case .spendings:
       return "Unlock profound budget insights, track monthly goals, and explore detailed category breakdowns"
     case .topCategory:
-      return "Track your monthly spending trends, which shows your top spending category and the amount you've spent in it"
+      return "Track your primary spending category and amount spent"
     case .transactions:
-      return "Uncover your spending trends: tap to see average spend, top 3 purchases, and more in selected category!"
+      return "Explore averages, top purchases, and more in any category"
     }
   }
 }
@@ -360,9 +360,9 @@ public enum EXDialogType {
   var text: String {
     switch self {
     case .deleteReminders:
-      return "Unsubsribe from all reminders about recurring payments. This action cannot be restored"
+      return "Confirm to unsubscribe from all payment reminders. This action is irreversible."
     case .eraseData:
-      return "Delete all added data related to your account. This action cannot be restored"
+      return "Confirm to delete all your account data. This action is irreversible."
     }
   }
 }
@@ -383,11 +383,11 @@ public enum EXToasts {
     case .none:
       return ""
     case .emptyName:
-      return "Name field cannot be empty"
+      return "The name field cannot be empty"
     case .zeroAmount:
       return "Amount cannot be $0"
     case .budgetExceed:
-      return "You are over the budget"
+      return "Budget exceeded"
     case .zeroBudget:
       return "You need to create a budget first"
     case .wrongDate:
