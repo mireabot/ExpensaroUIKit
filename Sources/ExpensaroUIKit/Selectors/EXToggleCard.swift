@@ -21,14 +21,13 @@ public struct EXToggleCard: View {
       HStack {
         VStack(alignment: .leading, spacing: 5) {
           Text(type.title)
-            .font(.title3Semibold)
+            .font(.headlineBold)
             .foregroundColor(.black)
           
           Toggle(type.text, isOn: $isOn)
             .tint(.primaryGreen)
             .font(.footnoteRegular)
             .foregroundColor(.darkGrey)
-            .padding(.top, 5)
         }
       }
       .padding(4)

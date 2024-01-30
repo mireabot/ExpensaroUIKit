@@ -186,7 +186,7 @@ public enum ToggleType {
     case .deleteAccount:
       return "Delete my profile and all related data"
     case .paymentReminder:
-      return "You'll get a payment reminder on the day it's due."
+      return "You'll receive a payment reminder one day before it's due"
     }
   }
   
@@ -232,7 +232,7 @@ public enum SettingsType {
     case .appSettings:
       return "General Settings"
     case .wishKit:
-      return "Request Features"
+      return "Features Hub"
     }
   }
   
@@ -249,7 +249,7 @@ public enum SettingsType {
     case .contact:
       return "We'd love to hear what's on your mind"
     case .appSettings:
-      return "Customize app settings for your preferences"
+      return "Tailor settings to your preference"
     case .wishKit:
       return "Vote for new features or create your own"
     }
