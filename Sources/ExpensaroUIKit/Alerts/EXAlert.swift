@@ -59,6 +59,7 @@ public struct EXAlert: View {
     EXAlert(type: .deleteGoal, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
     EXAlert(type: .deletePayment, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
     EXAlert(type: .deleteTransaction, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+    EXAlert(type: .createBudget, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
   }
   .padding().background(Color(uiColor: .systemGray6))
 }

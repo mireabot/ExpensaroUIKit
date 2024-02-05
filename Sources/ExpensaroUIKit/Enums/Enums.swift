@@ -295,6 +295,7 @@ public enum EXAlertType {
   case deleteGoal
   case createReminder
   case deletePayment
+  case createBudget
   
   var title: String {
     switch self {
@@ -306,6 +307,8 @@ public enum EXAlertType {
       return "Do you want to create reminder?"
     case .deletePayment:
       return "Delete recurring payment"
+    case .createBudget:
+      return "Proceed with Budget Creation?"
     }
   }
   
@@ -319,6 +322,8 @@ public enum EXAlertType {
       return "Receive a push notification one day prior to your payment"
     case .deletePayment:
       return "This action is permanent and cannot be restored"
+    case .createBudget:
+      return "Once created, your budget cannot be deleted or modified, except for adding funds"
     }
   }
   
@@ -332,6 +337,8 @@ public enum EXAlertType {
       return "Yes, I'm in"
     case .deletePayment:
       return "Yes, delete payment"
+    case .createBudget:
+      return "Yes, confirm"
     }
   }
   
@@ -345,6 +352,8 @@ public enum EXAlertType {
       return "No, thank you"
     case .deletePayment:
       return "No, leave payment"
+    case .createBudget:
+      return "No, go back"
     }
   }
 }
