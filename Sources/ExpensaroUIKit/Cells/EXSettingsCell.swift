@@ -65,5 +65,6 @@ public struct EXSettingsCell: View {
       EXSettingsCell(category: .constant(""), type: .contact, icon: .init(systemName: "globe"), action: {})
       EXSettingsCell(category: .constant(""), type: .wishKit, icon: .init(systemName: "globe"), action: {})
     }
+    EXSettingsCell(category: .constant(""), type: .rateApp, icon: .init(systemName: "star"), action: {})
   }.padding(.horizontal, 16)
 }

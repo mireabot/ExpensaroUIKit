@@ -216,6 +216,7 @@ public enum SettingsType {
   case contact
   case appSettings
   case wishKit
+  case rateApp
   
   var title: String {
     switch self {
@@ -233,6 +234,8 @@ public enum SettingsType {
       return "General Settings"
     case .wishKit:
       return "Features Hub"
+    case .rateApp:
+      return "Rate App"
     }
   }
   
@@ -252,6 +255,8 @@ public enum SettingsType {
       return "Tailor settings to your preference"
     case .wishKit:
       return "Vote for new features or create your own"
+    case .rateApp:
+      return "How would you rate your experience with Expensaro?"
     }
   }
 }
