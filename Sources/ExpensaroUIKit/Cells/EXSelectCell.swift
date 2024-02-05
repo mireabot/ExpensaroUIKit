@@ -9,34 +9,42 @@ import SwiftUI
 
 public struct EXSelectCell: View {
   var title: String
-  var selectIcon: Image
-  var condition: Bool?
+  var text: String?
+  var condition: Bool
   
-  public init(title: String, selectIcon: Image, condition: Bool? = nil) {
+  public init(title: String, text: String? = nil, condition: Bool) {
     self.title = title
-    self.selectIcon = selectIcon
+    self.text = text
     self.condition = condition
   }
   
   public var body: some View {
-    HStack {
-      Text(title)
-        .font(.headlineRegular)
-      Spacer()
-      selectIcon
-        .foregroundColor(condition ?? false ? .black : .clear)
+    ZStack(alignment: .topTrailing) {
+      VStack(alignment: .leading, spacing: 0) {
+        Spacer()
+        Text(title)
+          .font(.headlineBold)
+          .foregroundColor(.black)
+        if let text = text {
+          Text(text)
+            .font(.footnoteRegular)
+            .foregroundColor(.darkGrey)
+            .lineLimit(2)
+        }
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      
+      Image(systemName: condition ? "checkmark.circle" : "circle")
+        .foregroundColor(condition ? .primaryGreen : Color(uiColor: .systemGray5))
     }
-    .padding(.vertical, 25)
-    .padding(.horizontal, 16)
-    .background(condition ?? false ? Color.backgroundGrey : .white)
+    .padding(10)
+    .background(Color.backgroundGrey)
     .cornerRadius(12)
+    .frame(height: 80)
   }
 }
 
 #Preview {
-  EXSelectCell(title: "Every week", selectIcon: Image(systemName: "checkmark"), condition: false)
+  EXSelectCell(title: "$", condition: true)
     .padding([.leading,.trailing], 16)
-    .onTapGesture {
-      print("Hell")
-    }
 }
