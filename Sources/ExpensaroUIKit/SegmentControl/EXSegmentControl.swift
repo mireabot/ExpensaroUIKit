@@ -23,8 +23,7 @@ public struct EXSegmentControl: View {
         .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
         .font(.subheadlineSemibold)
         .padding(12)
-//        .frame(maxWidth: .infinity)
-        .frame(width: 120)
+        .frame(maxWidth: .infinity)
         .background(
           ZStack {
             if currentTab == type.firstTab {
@@ -44,7 +43,7 @@ public struct EXSegmentControl: View {
         .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
         .font(.subheadlineSemibold)
         .padding(12)
-        .frame(width: 120)
+        .frame(maxWidth: .infinity)
         .background(
           ZStack {
             if currentTab == type.secondTab {
@@ -59,28 +58,6 @@ public struct EXSegmentControl: View {
             self.currentTab = type.secondTab
           }
         }
-      
-      if !type.thirdTab.isEmpty {
-        Text(type.thirdTab)
-          .foregroundColor(currentTab == type.thirdTab ? .white : .darkGrey)
-          .font(.subheadlineSemibold)
-          .padding(12)
-          .frame(maxWidth: .infinity)
-          .background(
-            ZStack {
-              if currentTab == type.thirdTab {
-                Color.primaryGreen
-                  .cornerRadius(12)
-                  .matchedGeometryEffect(id: "TAB", in: animation)
-              }
-            }
-          )
-          .onTapGesture {
-            withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.9, blendDuration: 0.9)) {
-              self.currentTab = type.thirdTab
-            }
-          }
-      }
     }
     .onAppear {
       currentTab = type.firstTab
@@ -92,5 +69,5 @@ public struct EXSegmentControl: View {
 }
 
 #Preview {
-  EXSegmentControl(currentTab: .constant("Feedback"), type: .contactReason).padding(16)
+  EXSegmentControl(currentTab: .constant("Implemented"), type: .featureType).padding(16)
 }
