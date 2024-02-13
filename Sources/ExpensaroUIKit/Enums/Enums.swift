@@ -252,7 +252,7 @@ public enum SettingsType {
     case .wishKit:
       return "Vote for new features or create your own"
     case .rateApp:
-      return "How would you rate your experience with Expensaro?"
+      return "Rate your experience with Expensaro?"
     }
   }
 }
