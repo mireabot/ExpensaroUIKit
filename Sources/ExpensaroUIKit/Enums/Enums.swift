@@ -134,17 +134,6 @@ public enum InfoCardType {
   }
 }
 
-public enum AlertType {
-  case budgetAdded
-  
-  var title: String {
-    switch self {
-    case .budgetAdded:
-      return "Your budget was created"
-    }
-  }
-}
-
 public enum ToggleType {
   case notifications
   case analytics
@@ -282,6 +271,17 @@ public enum BottomInfoType {
       return "Track your primary spending category and amount spent"
     case .transactions:
       return "Explore averages, top purchases, and more in any category"
+    }
+  }
+  
+  var isButton: Bool {
+    switch self {
+    case .spendings:
+      return true
+    case .topCategory:
+      return true
+    case .transactions:
+      return false
     }
   }
 }
@@ -439,11 +439,3 @@ public enum IconType {
   case imageName(String)
   case image(Image)
 }
-
-
-
-#Preview(body: {
-  EXBottomInfoView(type: .spendings, action: {}) {
-    EmptyView()
-  }
-})

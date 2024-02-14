@@ -8,56 +8,33 @@
 import SwiftUI
 
 public struct EXInfoCard: View {
-  var type: InfoCardType?
-  var title: String?
-  var icon: Image?
-  var text: String?
+  var config: (String, String)
+  var icon: IconType?
   
-  /// Init for card with custom icon and custom text
-  /// - Parameters:
-  ///   - type: type of info card
-  ///   - icon: custom icon
-  ///   - text: custom text
-  public init(type: InfoCardType, icon: Image?, text: String?) {
-    self.type = type
+  public init(config: (String, String), icon: IconType? = nil) {
+    self.config = config
     self.icon = icon
-    self.text = text
-  }
-  
-  /// Init for card with custom icon and custom title and text
-  /// - Parameters:
-  ///   - type: type of info card
-  ///   - icon: custom icon
-  ///   - text: custom text
-  public init(title: String?, icon: Image?, text: String?) {
-    self.title = title
-    self.icon = icon
-    self.text = text
-  }
-  
-  /// Init for card with title, text and icon
-  /// - Parameters:
-  ///   - type: type of info card
-  ///   - icon: custom icon
-  public init(type: InfoCardType, icon: Image?) {
-    self.type = type
-    self.icon = icon
-  }
-  
-  /// Init for card with title and text
-  /// - Parameter type: type of info card
-  public init(type: InfoCardType) {
-    self.type = type
   }
   
   public var body: some View {
     EXBaseCard {
       VStack(alignment: .leading, spacing: 5) {
-        icon?
-          .foregroundColor(.primaryGreen)
-        Text((title ?? type?.title) ?? "")
+        if let icon = icon {
+          switch icon {
+          case .imageName(let imageName) where !imageName.isEmpty:
+            Text(imageName)
+            
+          case .image(let image):
+            image
+              .foregroundColor(.primaryGreen)
+            
+          default:
+            EmptyView()
+          }
+        }
+        Text(config.0)
           .font(.headlineSemibold)
-        Text((text ?? type?.text) ?? "")
+        Text(config.1)
           .font(.subheadlineRegular)
           .foregroundColor(.darkGrey)
       }
@@ -68,9 +45,7 @@ public struct EXInfoCard: View {
 
 #Preview {
   VStack {
-    EXInfoCard(type: .overviewUpdates)
-    EXInfoCard(type: .monthToMonth)
-    EXInfoCard(type: .topCategory)
+    EXInfoCard(config: (InfoCardType.overviewUpdates.title, InfoCardType.overviewUpdates.text))
   }
   .padding([.leading,.trailing], 16)
 }

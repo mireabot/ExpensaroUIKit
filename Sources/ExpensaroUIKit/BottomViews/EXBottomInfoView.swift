@@ -8,11 +8,11 @@
 import SwiftUI
 
 public struct EXBottomInfoView<BottomView: View>: View {
-  var type: BottomInfoType
+  var config: (String, String, Bool)
   let action: () -> Void
   let bottomView: () -> BottomView
-  public init(type: BottomInfoType, action: @escaping ()-> Void, @ViewBuilder bottomView: @escaping () -> BottomView) {
-    self.type = type
+  public init(config: (String, String, Bool), action: @escaping ()-> Void, @ViewBuilder bottomView: @escaping () -> BottomView) {
+    self.config = config
     self.action = action
     self.bottomView = bottomView
   }
@@ -22,14 +22,14 @@ public struct EXBottomInfoView<BottomView: View>: View {
       VStack(alignment: .leading, spacing: 10) {
         bottomView()
           .padding(.vertical, 10)
-        Text(type.title)
+        Text(config.0)
           .font(.headlineSemibold)
-        Text(type.text)
+        Text(config.1)
           .multilineTextAlignment(.leading)
           .font(.subheadlineRegular)
           .foregroundColor(.darkGrey)
         
-        if type != .transactions {
+        if config.2 {
           Button(action: {
             action()
           }) {
@@ -47,17 +47,10 @@ public struct EXBottomInfoView<BottomView: View>: View {
 
 #Preview {
   ScrollView {
-    EXBottomInfoView(type: .spendings, action: {}) {
-      Text("1")
-        .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color.backgroundGrey)
-    }
-    EXBottomInfoView(type: .topCategory, action: {}) {
-      Text("1")
-        .frame(maxWidth: .infinity, alignment: .center)
-        .background(Color.backgroundGrey)
-    }
-    EXBottomInfoView(type: .transactions, action: {}) {
+    EXBottomInfoView(
+      config:
+        (BottomInfoType.spendings.title, BottomInfoType.spendings.text, BottomInfoType.spendings.isButton),
+      action: {}) {
       Text("1")
         .frame(maxWidth: .infinity, alignment: .center)
         .background(Color.backgroundGrey)

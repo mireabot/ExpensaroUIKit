@@ -8,8 +8,8 @@
 import SwiftUI
 
 public struct EXInfoCardWithButton: View {
-  var type: InfoCardType
-  var icon: Image?
+  var config: (String, String)
+  var icon: IconType?
   var buttonIcon: Image
   var buttonAction: () -> Void
   
@@ -17,8 +17,8 @@ public struct EXInfoCardWithButton: View {
   /// - Parameters:
   ///   - type: type of info card
   ///   - icon: custom icon
-  public init(type: InfoCardType, icon: Image, buttonIcon: Image, buttonAction: @escaping ()-> Void) {
-    self.type = type
+  public init(config: (String, String), icon: IconType, buttonIcon: Image, buttonAction: @escaping ()-> Void) {
+    self.config = config
     self.icon = icon
     self.buttonIcon = buttonIcon
     self.buttonAction = buttonAction
@@ -28,11 +28,22 @@ public struct EXInfoCardWithButton: View {
     EXBaseCard {
       VStack {
         VStack(alignment: .leading, spacing: 5) {
-          icon?
-            .foregroundColor(.primaryGreen)
-          Text(type.title)
+          if let icon = icon {
+            switch icon {
+            case .imageName(let imageName) where !imageName.isEmpty:
+              Text(imageName)
+              
+            case .image(let image):
+              image
+                .foregroundColor(.primaryGreen)
+              
+            default:
+              EmptyView()
+            }
+          }
+          Text(config.0)
             .font(.system(.headline, weight: .semibold))
-          Text(type.text)
+          Text(config.1)
             .font(.system(.subheadline, weight: .regular))
             .foregroundColor(.darkGrey)
         }
@@ -52,5 +63,5 @@ public struct EXInfoCardWithButton: View {
 }
 
 #Preview {
-  EXInfoCardWithButton(type: .monthToMonth, icon: .init(systemName: "globe"), buttonIcon: .init(systemName: "globe"), buttonAction: {}).padding([.leading,.trailing], 16)
+  EXInfoCardWithButton(config: (InfoCardType.monthToMonth.title, InfoCardType.monthToMonth.text), icon: .imageName("📦"), buttonIcon: .init(systemName: "globe"), buttonAction: {}).padding([.leading,.trailing], 16)
 }

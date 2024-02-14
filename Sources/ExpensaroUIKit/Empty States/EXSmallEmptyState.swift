@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct EXSmallEmptyState: View {
-  var type: EmptyStateType
+  var config: (String, String, String)
   var isActive: Bool
   var action: () -> Void
   
-  public init(type: EmptyStateType, isActive: Bool, action: @escaping () -> Void) {
-    self.type = type
+  public init(config: (String, String, String), isActive: Bool, action: @escaping () -> Void) {
+    self.config = config
     self.isActive = isActive
     self.action = action
   }
@@ -22,9 +22,9 @@ public struct EXSmallEmptyState: View {
     EXBaseCard {
       HStack {
         VStack(alignment: .leading, spacing: 3) {
-          Text(type.title)
+          Text(config.0)
             .font(.headlineSemibold)
-          Text(type.text)
+          Text(config.1)
             .foregroundColor(.darkGrey)
             .font(.footnoteRegular)
           
@@ -33,7 +33,7 @@ public struct EXSmallEmptyState: View {
         Button {
           action()
         } label: {
-          Text(type.buttonText)
+          Text(config.2)
             .font(.subheadlineSemibold)
         }
         .buttonStyle(EXSmallPrimaryButtonStyle())
@@ -44,5 +44,5 @@ public struct EXSmallEmptyState: View {
 }
 
 #Preview {
-  EXSmallEmptyState(type: .noRecurrentPayments, isActive: false, action: {}).padding([.leading,.trailing], 16)
+  EXSmallEmptyState(config: (EmptyStateType.noRecurrentPayments.title, EmptyStateType.noRecurrentPayments.text, EmptyStateType.noRecurrentPayments.buttonText), isActive: false, action: {}).padding([.leading,.trailing], 16)
 }

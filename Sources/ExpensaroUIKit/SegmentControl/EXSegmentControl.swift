@@ -10,23 +10,23 @@ import SwiftUI
 public struct EXSegmentControl: View {
   @Binding var currentTab: String
   @Namespace var animation
-  var type: SegmentPickerType
+  var config: (String, String)
   
-  public init(currentTab: Binding<String>, type: SegmentPickerType) {
+  public init(currentTab: Binding<String>, config: (String, String)) {
     self._currentTab = currentTab
-    self.type = type
+    self.config = config
   }
   
   public var body: some View {
     HStack {
-      Text(type.firstTab)
-        .foregroundColor(currentTab == type.firstTab ? .white : .darkGrey)
+      Text(config.0)
+        .foregroundColor(currentTab == config.0 ? .white : .darkGrey)
         .font(.subheadlineSemibold)
         .padding(12)
         .frame(maxWidth: .infinity)
         .background(
           ZStack {
-            if currentTab == type.firstTab {
+            if currentTab == config.0 {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -35,18 +35,18 @@ public struct EXSegmentControl: View {
         )
         .onTapGesture {
           withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.9, blendDuration: 0.9)) {
-            self.currentTab = type.firstTab
+            self.currentTab = config.0
           }
         }
       
-      Text(type.secondTab)
-        .foregroundColor(currentTab == type.secondTab ? .white : .darkGrey)
+      Text(config.1)
+        .foregroundColor(currentTab == config.1 ? .white : .darkGrey)
         .font(.subheadlineSemibold)
         .padding(12)
         .frame(maxWidth: .infinity)
         .background(
           ZStack {
-            if currentTab == type.secondTab {
+            if currentTab == config.1 {
               Color.primaryGreen
                 .cornerRadius(12)
                 .matchedGeometryEffect(id: "TAB", in: animation)
@@ -55,12 +55,12 @@ public struct EXSegmentControl: View {
         )
         .onTapGesture {
           withAnimation(.interactiveSpring(response: 0.5,dampingFraction: 0.9, blendDuration: 0.9)) {
-            self.currentTab = type.secondTab
+            self.currentTab = config.1
           }
         }
     }
     .onAppear {
-      currentTab = type.firstTab
+      currentTab = config.0
     }
     .background(Color.backgroundGrey)
     .cornerRadius(12)
@@ -69,5 +69,5 @@ public struct EXSegmentControl: View {
 }
 
 #Preview {
-  EXSegmentControl(currentTab: .constant("Implemented"), type: .featureType).padding(16)
+  EXSegmentControl(currentTab: .constant(SegmentPickerType.transactionType.secondTab), config: (SegmentPickerType.transactionType.firstTab, SegmentPickerType.transactionType.secondTab)).padding(16)
 }

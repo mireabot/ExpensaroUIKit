@@ -8,12 +8,12 @@
 import SwiftUI
 
 public struct EXAlert: View {
-  var type: EXAlertType
+  var config: (String, String, String, String)
   var primaryAction: () -> Void
   var secondaryAction: () -> Void
   
-  public init(type: EXAlertType, primaryAction: @escaping ()-> Void, secondaryAction: @escaping ()-> Void) {
-    self.type = type
+  public init(config: (String, String, String, String), primaryAction: @escaping ()-> Void, secondaryAction: @escaping ()-> Void) {
+    self.config = config
     self.primaryAction = primaryAction
     self.secondaryAction = secondaryAction
   }
@@ -21,9 +21,9 @@ public struct EXAlert: View {
   public var body: some View {
     VStack {
       VStack(alignment: .leading, spacing: 5) {
-        Text(type.title)
+        Text(config.0)
           .font(.title3Semibold)
-        Text(type.subTitle)
+        Text(config.1)
           .font(.headlineRegular)
           .foregroundColor(.darkGrey)
       }
@@ -33,7 +33,7 @@ public struct EXAlert: View {
         Button {
           secondaryAction()
         } label: {
-          Text(type.secondaryButtonText)
+          Text(config.2)
             .font(.headlineSemibold)
         }
         .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
@@ -41,7 +41,7 @@ public struct EXAlert: View {
         Button {
           primaryAction()
         } label: {
-          Text(type.primaryButtonText)
+          Text(config.3)
             .font(.headlineSemibold)
         }
         .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
@@ -55,11 +55,9 @@ public struct EXAlert: View {
 
 #Preview {
   ScrollView(showsIndicators: false) {
-    EXAlert(type: .createReminder, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
-    EXAlert(type: .deleteGoal, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
-    EXAlert(type: .deletePayment, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
-    EXAlert(type: .deleteTransaction, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
-    EXAlert(type: .createBudget, primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
+    EXAlert(
+      config: (EXAlertType.createBudget.title, EXAlertType.createBudget.subTitle, EXAlertType.createBudget.secondaryButtonText, EXAlertType.createBudget.primaryButtonText),
+      primaryAction: {print("Delete")}, secondaryAction: {print("Leave")})
   }
   .padding().background(Color(uiColor: .systemGray6))
 }

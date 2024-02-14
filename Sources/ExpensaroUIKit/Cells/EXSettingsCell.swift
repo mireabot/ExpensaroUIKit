@@ -9,18 +9,20 @@ import SwiftUI
 
 public struct EXSettingsCell: View {
   @Binding var selectedCategory: String
-  var type: SettingsType
+  var config: (String, String)
   var icon: Image
   var action: ()-> Void
-  public init(category: Binding<String>, type: SettingsType, icon: Image, action: @escaping () -> Void) {
+  
+  public init(category: Binding<String>, config: (String, String), icon: Image, action: @escaping () -> Void) {
     self._selectedCategory = category
-    self.type = type
+    self.config = config
     self.icon = icon
     self.action = action
   }
+  
   public var body: some View {
     Button {
-      selectedCategory = type.title
+      selectedCategory = config.0
       action()
     } label: {
       VStack(alignment: .leading, spacing: 10) {
@@ -32,11 +34,11 @@ public struct EXSettingsCell: View {
           .background(Color.primaryGreen)
           .cornerRadius(10)
         VStack(alignment: .leading, spacing: 5) {
-          Text(type.title)
+          Text(config.0)
             .font(.headlineMedium)
             .foregroundColor(.black)
           
-          Text(type.text)
+          Text(config.1)
             .font(.footnoteRegular)
             .foregroundColor(.darkGrey)
         }
@@ -54,17 +56,17 @@ public struct EXSettingsCell: View {
 #Preview {
   VStack {
     HStack {
-      EXSettingsCell(category: .constant(""), type: .categories, icon: .init(systemName: "globe"), action: {})
-      EXSettingsCell(category: .constant(""), type: .reminders, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
     }
     HStack {
-      EXSettingsCell(category: .constant(""), type: .appSettings, icon: .init(systemName: "globe"), action: {})
-      EXSettingsCell(category: .constant(""), type: .resetAccount, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
     }
     HStack {
-      EXSettingsCell(category: .constant(""), type: .contact, icon: .init(systemName: "globe"), action: {})
-      EXSettingsCell(category: .constant(""), type: .wishKit, icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
+      EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "globe"), action: {})
     }
-    EXSettingsCell(category: .constant(""), type: .rateApp, icon: .init(systemName: "star"), action: {})
+    EXSettingsCell(category: .constant(""), config: (SettingsType.categories.title, SettingsType.categories.text), icon: .init(systemName: "star"), action: {})
   }.padding(.horizontal, 16)
 }

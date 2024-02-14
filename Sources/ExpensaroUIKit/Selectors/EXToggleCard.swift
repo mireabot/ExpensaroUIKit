@@ -9,10 +9,10 @@ import SwiftUI
 
 public struct EXToggleCard: View {
   @Binding var isOn: Bool
-  var type: ToggleType
+  var config: (String, String)
   
-  public init(type: ToggleType, isOn: Binding<Bool>) {
-    self.type = type
+  public init(config: (String, String), isOn: Binding<Bool>) {
+    self.config = config
     self._isOn = isOn
   }
   
@@ -20,11 +20,11 @@ public struct EXToggleCard: View {
     EXBaseCard {
       HStack {
         VStack(alignment: .leading, spacing: 5) {
-          Text(type.title)
+          Text(config.0)
             .font(.headlineBold)
             .foregroundColor(.black)
           
-          Toggle(type.text, isOn: $isOn)
+          Toggle(config.1, isOn: $isOn)
             .tint(.primaryGreen)
             .font(.footnoteRegular)
             .foregroundColor(.darkGrey)
@@ -37,10 +37,10 @@ public struct EXToggleCard: View {
 
 #Preview {
   VStack{
-    EXToggleCard(type: .notifications, isOn: .constant(true))
-    EXToggleCard(type: .analytics, isOn: .constant(false))
-    EXToggleCard(type: .paymentReminder, isOn: .constant(true))
-    EXToggleCard(type: .reminders, isOn: .constant(true))
+    EXToggleCard(config: (ToggleType.notifications.title, ToggleType.notifications.text), isOn: .constant(true))
+    EXToggleCard(config: (ToggleType.notifications.title, ToggleType.notifications.text), isOn: .constant(false))
+    EXToggleCard(config: (ToggleType.notifications.title, ToggleType.notifications.text), isOn: .constant(true))
+    EXToggleCard(config: (ToggleType.notifications.title, ToggleType.notifications.text), isOn: .constant(true))
   }
   .padding([.leading,.trailing], 16)
 }
