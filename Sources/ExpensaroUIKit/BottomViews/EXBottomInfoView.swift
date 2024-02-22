@@ -19,15 +19,17 @@ public struct EXBottomInfoView<BottomView: View>: View {
   
   public var body: some View {
     ViewThatFits(in: .vertical) {
-      VStack(alignment: .leading, spacing: 10) {
+      VStack(alignment: .leading) {
         bottomView()
           .padding(.vertical, 10)
-        Text(config.0)
-          .font(.headlineSemibold)
-        Text(config.1)
-          .multilineTextAlignment(.leading)
-          .font(.subheadlineRegular)
-          .foregroundColor(.darkGrey)
+        VStack(alignment: .leading, spacing: 3) {
+          Text(config.0)
+            .font(.headlineSemibold)
+          Text(config.1)
+            .multilineTextAlignment(.leading)
+            .font(.subheadlineRegular)
+            .foregroundColor(.darkGrey)
+        }
         
         if config.2 {
           Button(action: {

@@ -315,7 +315,7 @@ public enum EXAlertType {
     case .deleteGoal:
       return "This action is permanent and cannot be restored"
     case .createReminder:
-      return "Receive a push notification one day prior to your payment"
+      return "Choose when to receive a push notification reminder for your upcoming payment"
     case .deletePayment:
       return "This action is permanent and cannot be restored"
     case .createBudget:
