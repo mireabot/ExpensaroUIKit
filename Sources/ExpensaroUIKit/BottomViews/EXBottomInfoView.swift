@@ -8,10 +8,16 @@
 import SwiftUI
 
 public struct EXBottomInfoView<BottomView: View>: View {
-  var config: (String, String, Bool)
+  var config: (String, String, Bool, String)
   let action: () -> Void
   let bottomView: () -> BottomView
-  public init(config: (String, String, Bool), action: @escaping ()-> Void, @ViewBuilder bottomView: @escaping () -> BottomView) {
+  
+  /// Config for bottom info view
+  /// - Parameters:
+  ///   - config: (Title, subtitle, isButton, Button text)
+  ///   - action: Action of button
+  ///   - bottomView: Top view
+  public init(config: (String, String, Bool, String), action: @escaping ()-> Void, @ViewBuilder bottomView: @escaping () -> BottomView) {
     self.config = config
     self.action = action
     self.bottomView = bottomView
@@ -35,7 +41,7 @@ public struct EXBottomInfoView<BottomView: View>: View {
           Button(action: {
             action()
           }) {
-            Text("See Demo").font(.headlineSemibold)
+            Text(config.3).font(.headlineSemibold)
           }
           .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
           .padding(.top, 10)
@@ -51,7 +57,7 @@ public struct EXBottomInfoView<BottomView: View>: View {
   ScrollView {
     EXBottomInfoView(
       config:
-        (BottomInfoType.spendings.title, BottomInfoType.spendings.text, BottomInfoType.spendings.isButton),
+        (BottomInfoType.spendings.title, BottomInfoType.spendings.text, BottomInfoType.spendings.isButton, "test"),
       action: {}) {
       Text("1")
         .frame(maxWidth: .infinity, alignment: .center)
