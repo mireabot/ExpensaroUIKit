@@ -7,6 +7,21 @@
 
 import SwiftUI
 
+/// A primary button style with a customizable loader, suitable for prominent actions.
+///
+/// This button style highlights the primary action in a view. When `showLoader` is `true`,
+/// a loading spinner is displayed instead of the button's label.
+///
+/// ### Parameters
+/// - `showLoader`: A `Binding<Bool>` that determines whether the loader should be displayed.
+///
+/// ### Example
+/// ```swift
+/// Button("Save") {
+///     print("Save action triggered")
+/// }
+/// .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
+/// ```
 public struct EXPrimaryButtonStyle: ButtonStyle {
   @Binding var showLoader: Bool
   
@@ -41,6 +56,21 @@ public struct EXPrimaryButtonStyle: ButtonStyle {
   }
 }
 
+/// A secondary primary button style with a customizable loader, ideal for less emphasized primary actions.
+///
+/// This style is visually distinct from `EXPrimaryButtonStyle`, typically used for actions of slightly
+/// lower priority.
+///
+/// ### Parameters
+/// - `showLoader`: A `Binding<Bool>` that determines whether the loader should be displayed.
+///
+/// ### Example
+/// ```swift
+/// Button("Continue") {
+///     print("Continue action triggered")
+/// }
+/// .buttonStyle(EXSecondaryPrimaryButtonStyle(showLoader: .constant(false)))
+/// ```
 public struct EXSecondaryPrimaryButtonStyle: ButtonStyle {
   @Binding var showLoader: Bool
   
@@ -74,7 +104,17 @@ public struct EXSecondaryPrimaryButtonStyle: ButtonStyle {
   }
 }
 
-
+/// A secondary button style for non-primary actions.
+///
+/// Use this style for secondary actions that require less visual emphasis.
+///
+/// ### Example
+/// ```swift
+/// Button("Cancel") {
+///     print("Cancel action triggered")
+/// }
+/// .buttonStyle(EXSecondaryButtonStyle())
+/// ```
 public struct EXSecondaryButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -96,6 +136,20 @@ public struct EXSecondaryButtonStyle: ButtonStyle {
   }
 }
 
+/// A destructive button style with a customizable loader, ideal for actions like delete or remove.
+///
+/// This style visually emphasizes potentially harmful actions to alert users.
+///
+/// ### Parameters
+/// - `showLoader`: A `Binding<Bool>` that determines whether the loader should be displayed.
+///
+/// ### Example
+/// ```swift
+/// Button("Delete") {
+///     print("Delete action triggered")
+/// }
+/// .buttonStyle(EXDestructiveButtonStyle(showLoader: .constant(false)))
+/// ```
 public struct EXDestructiveButtonStyle: ButtonStyle {
   @Binding var showLoader: Bool
   
@@ -129,7 +183,19 @@ public struct EXDestructiveButtonStyle: ButtonStyle {
   }
 }
 
-
+/// A small button style, suitable for compact actions.
+///
+/// Use this style for actions in dense UI areas where space is limited.
+///
+/// ### Example
+/// ```swift
+/// Button {
+///     print("Add goal action triggered")
+/// } label: {
+///     Text("Add Goal")
+/// }
+/// .buttonStyle(EXSmallButtonStyle())
+/// ```
 public struct EXSmallButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -140,8 +206,8 @@ public struct EXSmallButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
-        .padding([.vertical], 12)
-        .padding([.horizontal], 25)
+        .padding([.vertical], 6)
+        .padding([.horizontal], 12)
         .foregroundColor(.primaryGreen)
         .background(Color.backgroundGrey)
         .cornerRadius(12)
@@ -150,6 +216,17 @@ public struct EXSmallButtonStyle: ButtonStyle {
   }
 }
 
+/// A small primary button style for compact and emphasized actions.
+///
+/// This style is a variant of `EXSmallButtonStyle`, providing a higher visual priority.
+///
+/// ### Example
+/// ```swift
+/// Button("Submit") {
+///     print("Submit action triggered")
+/// }
+/// .buttonStyle(EXSmallPrimaryButtonStyle())
+/// ```
 public struct EXSmallPrimaryButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -161,8 +238,8 @@ public struct EXSmallPrimaryButtonStyle: ButtonStyle {
     let configuration: ButtonStyle.Configuration
     var body: some View {
       configuration.label
-        .padding([.vertical], 12)
-        .padding([.horizontal], 25)
+        .padding([.vertical], 6)
+        .padding([.horizontal], 12)
         .foregroundColor(isEnabled ? .white : .darkGrey)
         .background(isEnabled ? Color.primaryGreen : Color.backgroundGrey)
         .cornerRadius(12)
@@ -171,8 +248,17 @@ public struct EXSmallPrimaryButtonStyle: ButtonStyle {
   }
 }
 
-
-
+/// A text button style for minimal emphasis actions.
+///
+/// Use this style when you want a simple, inline text button without background or padding.
+///
+/// ### Example
+/// ```swift
+/// Button("Learn More") {
+///     print("Learn More action triggered")
+/// }
+/// .buttonStyle(EXTextButtonStyle())
+/// ```
 public struct EXTextButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -189,6 +275,17 @@ public struct EXTextButtonStyle: ButtonStyle {
   }
 }
 
+/// A plain button style with no additional styling.
+///
+/// Use this style when the button should inherit its appearance from its content or parent view.
+///
+/// ### Example
+/// ```swift
+/// Button("Tap Me") {
+///     print("Plain action triggered")
+/// }
+/// .buttonStyle(EXPlainButtonStyle())
+/// ```
 public struct EXPlainButtonStyle: ButtonStyle {
   public init() {}
   public func makeBody(configuration: ButtonStyle.Configuration) -> some View {
@@ -204,7 +301,22 @@ public struct EXPlainButtonStyle: ButtonStyle {
   }
 }
 
-public struct EXStretchButtonStyle: ButtonStyle {
+/// A stretch button style with an icon, ideal for full-width actions.
+///
+/// This style includes a label on the left and an icon on the right, typically used for settings or
+/// navigation options.
+///
+/// ### Parameters
+/// - `icon`: An `Image` to display on the right side of the button.
+///
+/// ### Example
+/// ```swift
+/// Button("Settings") {
+///     print("Settings action triggered")
+/// }
+/// .buttonStyle(EXSpacedIconButtonStyle(icon: Image(systemName: "gear")))
+/// ```
+public struct EXSpacedIconButtonStyle: ButtonStyle {
   let icon: Image
   
   public init(icon: Image) {
@@ -281,6 +393,7 @@ public struct CircularProgress: View {
   }
 }
 
+// MARK: Examples
 #Preview {
   VStack(spacing: 20) {
     Button(action: {}) {
@@ -289,9 +402,9 @@ public struct CircularProgress: View {
     .buttonStyle(EXPrimaryButtonStyle(showLoader: .constant(false)))
     
     Button(action: {}, label: {
-      Text("Create category").font(.headlineSemibold)
+      Text("Create category").font(.headlineMedium)
     })
-    .buttonStyle(EXStretchButtonStyle(icon: .init(systemName: "globe")))
+    .buttonStyle(EXSpacedIconButtonStyle(icon: .init(systemName: "globe")))
     
     Button(action: {}, label: {
       Text("Label").font(.headlineSemibold)
