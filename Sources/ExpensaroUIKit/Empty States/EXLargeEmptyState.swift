@@ -36,6 +36,7 @@ import SwiftUI
 public struct EXLargeEmptyState: View {
     var title: String
     var text: String
+    var buttonText: String
     var icon: IconType
     var isActive: Bool
     var action: () -> Void
@@ -47,9 +48,10 @@ public struct EXLargeEmptyState: View {
     ///   - icon: The icon to display (`IconType`).
     ///   - isActive: Indicates whether the action button is enabled (`false`) or disabled (`true`).
     ///   - action: A closure executed when the action button is tapped.
-    public init(title: String, text: String, icon: IconType, isActive: Bool, action: @escaping () -> Void) {
+    public init(title: String, text: String, buttonText: String, icon: IconType, isActive: Bool, action: @escaping () -> Void) {
         self.title = title
         self.text = text
+        self.buttonText = buttonText
         self.icon = icon
         self.isActive = isActive
         self.action = action
@@ -80,7 +82,7 @@ public struct EXLargeEmptyState: View {
                 Button {
                     action()
                 } label: {
-                    Text("Retry") // Button text can be adjusted here if needed
+                    Text(buttonText)
                         .font(.subheadlineSemibold)
                 }
                 .buttonStyle(EXSmallPrimaryButtonStyle())
@@ -99,6 +101,7 @@ public struct EXLargeEmptyState: View {
         EXLargeEmptyState(
             title: "No Budget",
             text: "You haven't set up a budget yet. Create one to start tracking your expenses.",
+            buttonText: "Add budget",
             icon: .image(.init(systemName: "globe")),
             isActive: true,
             action: {}
@@ -106,6 +109,7 @@ public struct EXLargeEmptyState: View {
         EXLargeEmptyState(
             title: "No Expenses",
             text: "You currently have no expenses recorded. Start adding your expenses to see insights.",
+            buttonText: "Add expenses",
             icon: .imageName("📊"),
             isActive: false,
             action: {}
