@@ -7,40 +7,53 @@
 
 import SwiftUI
 
-/// A customizable information card with an optional icon, title, description, and an action button.
-///
-/// `EXInfoCard` is a flexible UI component for displaying informative content, such as titles and descriptions,
-/// accompanied by an optional icon and an action button. This card is styled to fit various contexts, such as presenting
-/// promotional messages, tips, or feature highlights.
+/// A versatile card component that displays information with optional icon and customizable action button.
 ///
 /// ### Usage Example
 /// ```swift
-/// // Example with button
+/// // Basic info card
 /// EXInfoCard(
-///     title: "Monthly Plan",
-///     text: "Learn more about our month-to-month plan.",
-///     icon: .imageName("📦"),
-///     isButton: true,
-///     buttonIcon: .init(systemName: "info.circle"),
-///     buttonAction: {
-///         print("Button tapped")
-///     }
+///     title: "Free Delivery",
+///     text: "Orders above $50 qualify for free delivery",
+///     icon: .image(Image(systemName: "truck.fill"))
 /// )
 ///
-/// // Example without button
+/// // Interactive info card with custom button
 /// EXInfoCard(
-///     title: "Annual Plan",
-///     text: "Explore benefits of the annual subscription.",
-///     icon: .imageName("📅"),
-///     isButton: false
+///     title: "Earn Rewards",
+///     text: "Learn how our points system works",
+///     icon: .imageName("⭐"),
+///     isButton: true,
+///     buttonIcon: Image(systemName: "arrow.right"),
+///     buttonText: "Learn More",
+///     buttonAction: {
+///         showRewardsInfo()
+///     }
 /// )
 /// ```
+///
+/// ### Parameters
+/// - `title`: Main heading text
+/// - `text`: Supporting description text
+/// - `icon`: Optional icon (.image or .imageName) displayed above title
+/// - `isButton`: Whether to show action button
+/// - `buttonIcon`: Icon displayed in action button when isButton is true
+/// - `buttonText`: Custom text displayed in action button
+/// - `buttonAction`: Callback triggered when button is tapped
+///
+/// ### Use Cases
+/// - Feature explanations
+/// - Promotional messages
+/// - Help/FAQ sections
+/// - Tutorial cards
+/// - Service highlights
 public struct EXInfoCard: View {
     var title: String
     var text: String
     var icon: IconType?
     var isButton: Bool
     var buttonIcon: Image?
+    var buttonText: String? = nil
     var buttonAction: (() -> Void)?
     
     public init(
@@ -49,6 +62,7 @@ public struct EXInfoCard: View {
         icon: IconType? = nil,
         isButton: Bool = false,
         buttonIcon: Image? = nil,
+        buttonText: String? = nil,
         buttonAction: (() -> Void)? = nil
     ) {
         self.title = title
@@ -56,11 +70,12 @@ public struct EXInfoCard: View {
         self.icon = icon
         self.isButton = isButton
         self.buttonIcon = buttonIcon
+        self.buttonText = buttonText
         self.buttonAction = buttonAction
     }
     
     public var body: some View {
-        EXBaseCard {
+        EXBase {
             VStack {
                 VStack(alignment: .leading, spacing: 5) {
                     if let icon = icon {
@@ -82,14 +97,14 @@ public struct EXInfoCard: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                if isButton, let buttonIcon = buttonIcon, let buttonAction = buttonAction {
+                if isButton, let buttonIcon = buttonIcon, let buttonText = buttonText, let buttonAction = buttonAction {
                     Button(action: {
                         buttonAction()
                     }) {
                         HStack {
-                            buttonIcon
-                            Text("How it works")
+                            Text(buttonText)
                                 .font(.system(.subheadline, weight: .semibold))
+                            buttonIcon
                         }
                         .frame(maxWidth: .infinity)
                     }
@@ -106,24 +121,22 @@ public struct EXInfoCard: View {
     VStack(spacing: 16) {
         // Example with button
         EXInfoCard(
-            title: "Monthly Plan",
-            text: "Learn more about our month-to-month plan.",
-            icon: .imageName("📦"),
+            title: "Earn Rewards",
+            text: "Learn how our points system works",
+            icon: .imageName("⭐"),
             isButton: true,
-            buttonIcon: .init(systemName: "info.circle"),
-            buttonAction: {
-                print("Button tapped")
-            }
+            buttonIcon: Image(systemName: "arrow.right"),
+            buttonText: "Learn More",
+            buttonAction: {}
         )
-        .padding([.leading, .trailing], 16)
         
         // Example without button
         EXInfoCard(
             title: "Annual Plan",
-            text: "Explore benefits of the annual subscription.",
+            text: "Explore benefits of the annual subscription",
             icon: .imageName("📅"),
             isButton: false
         )
-        .padding([.leading, .trailing], 16)
     }
+    .padding(.horizontal, 16)
 }

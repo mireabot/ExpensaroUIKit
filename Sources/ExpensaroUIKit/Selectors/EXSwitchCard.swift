@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-/// A customizable toggle card component with a title and descriptive text.
+/// A customizable switch card component with a title and descriptive text.
 ///
-/// `EXToggleCard` provides a reusable UI component for toggling a setting or feature with a descriptive label.
+/// `EXSwitchCard` provides a reusable UI component for toggling a setting or feature with a descriptive label.
 ///
 /// ### Usage Example
 /// ```swift
 /// VStack {
-///     EXToggleCard(title: "Notifications", text: "Enable push notifications for updates", isOn: .constant(true))
-///     EXToggleCard(title: "Dark Mode", text: "Switch to dark theme", isOn: .constant(false))
+///     EXSwitchCard(title: "Notifications", text: "Enable push notifications for updates", isOn: .constant(true))
+///     EXSwitchCard(title: "Dark Mode", text: "Switch to dark theme", isOn: .constant(false))
 /// }
 /// .padding(16)
 /// ```
@@ -24,7 +24,7 @@ import SwiftUI
 /// - `title`: A `String` representing the main title of the toggle card.
 /// - `text`: A `String` providing a description or label for the toggle.
 /// - `isOn`: A `Binding<Bool>` representing the toggle state.
-public struct EXToggleCard: View {
+public struct EXSwitchCard: View {
     @Binding var isOn: Bool
     var title: String
     var text: String
@@ -36,7 +36,7 @@ public struct EXToggleCard: View {
     }
     
     public var body: some View {
-        EXBaseCard {
+        EXBase {
             HStack {
                 VStack(alignment: .leading, spacing: 0) {
                     Text(title)
@@ -57,9 +57,9 @@ public struct EXToggleCard: View {
 // MARK: Examples
 #Preview {
     VStack {
-        EXToggleCard(title: "Notifications", text: "Enable push notifications for updates", isOn: .constant(true))
-        EXToggleCard(title: "Dark Mode", text: "Switch to dark theme", isOn: .constant(false))
-        EXToggleCard(title: "Auto Updates", text: "Allow automatic updates", isOn: .constant(true))
+        EXSwitchCard(title: "Notifications", text: "Enable push notifications for updates", isOn: .constant(true))
+        EXSwitchCard(title: "Dark Mode", text: "Switch to dark theme", isOn: .constant(false))
+        EXSwitchCard(title: "Auto Updates", text: "Allow automatic updates", isOn: .constant(true))
     }
     .padding([.leading, .trailing], 16)
 }

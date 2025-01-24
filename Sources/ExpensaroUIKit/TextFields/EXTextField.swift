@@ -57,7 +57,7 @@ public struct EXTextField: View {
   }
   
   public var body: some View {
-    EXBaseCard {
+    EXBase {
       VStack(alignment: .leading, spacing: 5) {
         Text(header)
           .font(.footnoteRegular)

@@ -1,5 +1,5 @@
 //
-//  EXBaseCard.swift
+//  EXBase.swift
 //
 //
 //  Created by Mikhail Kolkov on 12/8/23.
@@ -9,12 +9,12 @@ import SwiftUI
 
 /// A reusable base card component for consistent styling across the application.
 ///
-/// `EXBaseCard` serves as a wrapper for content, providing padding, a background color, and rounded corners.
+/// `EXBase` serves as a wrapper for content, providing padding, a background color, and rounded corners.
 /// It simplifies creating consistently styled card-like containers throughout the UI.
 ///
 /// ### Usage Example
 /// ```swift
-/// EXBaseCard {
+/// EXBase {
 ///     VStack(alignment: .leading) {
 ///         Text("$400")
 ///             .font(.title3Semibold)
@@ -37,14 +37,14 @@ import SwiftUI
 /// - **Rounded Corners**: Applies a corner radius of 12 points for a modern and clean appearance.
 ///
 /// ### Notes
-/// - `EXBaseCard` is designed to be highly reusable. It acts as a container for any content and standardizes
+/// - `EXBase` is designed to be highly reusable. It acts as a container for any content and standardizes
 ///   the visual appearance of cards in the application.
 /// - Use this component for cards, panels, or any UI elements that require a consistent style.
 ///
 /// ### Customization
-/// While `EXBaseCard` provides default styling, you can wrap it with additional modifiers for further customization,
+/// While `EXBase` provides default styling, you can wrap it with additional modifiers for further customization,
 /// such as shadows, borders, or animations.
-public struct EXBaseCard<Content: View>: View {
+public struct EXBase<Content: View>: View {
   let content: () -> Content
   public init(@ViewBuilder content: @escaping () -> Content) {
     self.content = content
@@ -53,12 +53,12 @@ public struct EXBaseCard<Content: View>: View {
     content()
       .padding(12)
       .background(Color.backgroundGrey)
-      .cornerRadius(12)
+      .cornerRadius(8)
   }
 }
 
 #Preview {
-  EXBaseCard {
+  EXBase {
     VStack(alignment: .leading) {
       Text("$400")
         .font(.title3Semibold)

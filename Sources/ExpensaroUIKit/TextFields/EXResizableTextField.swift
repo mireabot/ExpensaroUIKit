@@ -49,29 +49,26 @@ public struct EXResizableTextField: View {
     self.characterLimit = characterLimit
   }
   public var body: some View {
-    VStack() {
-      HStack(spacing: 8) {
-        withAnimation(.easeInOut) {
-          TextEditor(text: $message)
-            .keyboardType(.alphabet)
-            .autocorrectionDisabled(true)
-            .tint(.primaryGreen)
-            .font(.headlineRegular)
-            .frame(minHeight: 100)
-            .colorMultiply(.backgroundGrey)
-            .expanding()
-            .onChange(of: message) { newValue in
-              if newValue.count > characterLimit {
-                message = String(newValue.prefix(characterLimit))
+      VStack(spacing: 10) {
+        EXBase(content: {
+            HStack(spacing: 8) {
+              withAnimation(.easeInOut) {
+                TextEditor(text: $message)
+                  .keyboardType(.alphabet)
+                  .autocorrectionDisabled(true)
+                  .tint(.primaryGreen)
+                  .font(.headlineRegular)
+                  .frame(minHeight: 100)
+                  .colorMultiply(.backgroundGrey)
+                  .expanding()
+                  .onChange(of: message) { newValue in
+                    if newValue.count > characterLimit {
+                      message = String(newValue.prefix(characterLimit))
+                    }
+                  }
               }
             }
-        }
-      }
-      .padding(.vertical, 15)
-      .padding(.horizontal, 12)
-      .background(Color.backgroundGrey)
-      .cornerRadius(16)
-      .padding(.top, 15)
+        })
       
       HStack {
         Text("\(characterLimit - message.count) characters left")

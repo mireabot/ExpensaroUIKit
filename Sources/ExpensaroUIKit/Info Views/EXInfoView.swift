@@ -1,5 +1,5 @@
 //
-//  EXBottomInfoView.swift
+//  EXInfoView.swift
 //
 //
 //  Created by Mikhail Kolkov on 9/25/23.
@@ -47,14 +47,6 @@ public struct EXInfoView<ContentView: View>: View {
     let action: (() -> Void)?
     let contentView: ContentView?
     
-    /// Initializes the `EXInfoView`.
-    /// - Parameters:
-    ///   - title: The main title text to display at the top.
-    ///   - text: The description or informative text to display below the title.
-    ///   - isButton: A Boolean indicating whether to display a button.
-    ///   - buttonText: The text for the button. Required if `isButton` is `true`.
-    ///   - action: A closure executed when the button is tapped. Optional if `isButton` is `false`.
-    ///   - contentView: A closure returning a custom SwiftUI view displayed at the top of the layout.
     public init(
         title: String,
         text: String,
@@ -117,13 +109,6 @@ public struct EXInfoView<ContentView: View>: View {
                     .frame(height: 120)
                     .background(Color.backgroundGrey)
             }
-            
-            // Example without button and content
-            EXInfoView<EmptyView>(
-                title: "Notice",
-                text: "This is a read-only message.",
-                isButton: false
-            )
             
             // Example without button
             EXInfoView(

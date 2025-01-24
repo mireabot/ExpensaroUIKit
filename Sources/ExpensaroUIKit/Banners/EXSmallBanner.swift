@@ -1,5 +1,5 @@
 //
-//  EXSmallEmptyState.swift
+//  EXSmallBanner.swift
 //  
 //
 //  Created by Mikhail Kolkov on 9/13/23.
@@ -7,43 +7,48 @@
 
 import SwiftUI
 
-/// A reusable view for displaying a compact empty state with a title, description, and an optional action button.
-///
-/// `EXSmallEmptyState` is designed for smaller empty state views, providing a concise title, description, and an action button.
+/// A compact banner component for displaying action prompts or empty states.
 ///
 /// ### Usage Example
 /// ```swift
-/// EXSmallEmptyState(
-///     title: "No Recurrent Payments",
-///     text: "You don't have any recurrent payments set up.",
-///     buttonText: "Add Now",
-///     isActive: false,
-///     action: {
-///         print("Action button tapped")
-///     }
-/// )
+/// // Call-to-action
+/// EXSmallBanner(
+///     title: "Enable Location",
+///     text: "For better service discovery",
+///     buttonText: "Enable",
+///     isActive: true
+/// ) {
+///     requestLocation()
+/// }
+///
+/// // Empty state
+/// EXSmallBanner(
+///     title: "No History",
+///     text: "Start making transactions",
+///     buttonText: "New Payment"
+/// ) {
+///     showPayment()
+/// }
 /// ```
 ///
 /// ### Parameters
-/// - `title`: A `String` representing the title of the empty state.
-/// - `text`: A `String` providing a description of the empty state.
-/// - `buttonText`: A `String` for the label of the action button.
-/// - `isActive`: A `Bool` indicating whether the button is enabled (`false`) or disabled (`true`).
-/// - `action`: A closure executed when the action button is tapped.
-public struct EXSmallEmptyState: View {
+/// - `title`: Header text
+/// - `text`: Description text
+/// - `buttonText`: Action button label
+/// - `isActive`: Button state
+/// - `action`: Button callback
+///
+/// ###  Use Cases
+/// - Compact CTAs
+/// - Section empty states
+/// - Quick actions
+public struct EXSmallBanner: View {
     var title: String
     var text: String
     var buttonText: String
     var isActive: Bool
     var action: () -> Void
 
-    /// Initializes the `EXSmallEmptyState` view.
-    /// - Parameters:
-    ///   - title: The title text of the empty state.
-    ///   - text: A descriptive message for the empty state.
-    ///   - buttonText: The label text for the action button.
-    ///   - isActive: Indicates whether the action button is enabled (`false`) or disabled (`true`).
-    ///   - action: A closure executed when the action button is tapped.
     public init(title: String, text: String, buttonText: String, isActive: Bool, action: @escaping () -> Void) {
         self.title = title
         self.text = text
@@ -53,7 +58,7 @@ public struct EXSmallEmptyState: View {
     }
 
     public var body: some View {
-        EXBaseCard {
+        EXBase {
             HStack {
                 VStack(alignment: .leading, spacing: 3) {
                     Text(title)
@@ -77,7 +82,7 @@ public struct EXSmallEmptyState: View {
 }
 
 #Preview {
-    EXSmallEmptyState(
+    EXSmallBanner(
         title: "No Recurrent Payments",
         text: "You don't have any recurrent payments set up.",
         buttonText: "Add Now",

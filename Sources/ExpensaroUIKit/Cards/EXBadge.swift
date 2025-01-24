@@ -38,7 +38,7 @@ public struct EXBadge: View {
       .padding(.horizontal, 10)
       .padding(.vertical, 5)
       .background(Color.primaryGreen)
-      .cornerRadius(12)
+      .cornerRadius(8)
   }
 }
 

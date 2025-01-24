@@ -29,17 +29,13 @@ public struct EXSmallSelector: View {
     @Binding var activeText: String
     var icon: IconType
 
-    /// Initializes the `EXSmallSelector`.
-    /// - Parameters:
-    ///   - activeText: A binding to the text displayed in the selector.
-    ///   - icon: The leading icon for the selector (`IconType`).
     public init(activeText: Binding<String>, icon: IconType) {
         self._activeText = activeText
         self.icon = icon
     }
 
     public var body: some View {
-        EXBaseCard {
+        EXBase {
             HStack(spacing: 10) {
                 switch icon {
                 case .imageName(let imageName):

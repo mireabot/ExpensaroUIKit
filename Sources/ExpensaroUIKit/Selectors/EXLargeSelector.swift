@@ -40,7 +40,7 @@ public struct EXLargeSelector: View {
     }
 
     public var body: some View {
-        EXBaseCard {
+        EXBase {
             HStack {
                 HStack(spacing: 10) {
                     switch $icon.wrappedValue {
