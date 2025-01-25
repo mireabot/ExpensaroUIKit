@@ -23,7 +23,7 @@ Visit our documentation [website](https://expensaro-ui.vercel.app/) for more inf
 ## Sample Usage
 Here's how to use an Expensaro UI component in your project:
 ```swift
-import ExpensaroUI
+import ExpensaroUIKit
 
 struct ContentView: View {
     var body: some View {
