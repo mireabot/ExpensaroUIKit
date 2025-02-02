@@ -18,7 +18,7 @@ Expensaro UI provides comprehensive documentation to help you get started:
 - **Component Documentation**: Each component has its own dedicated page with visual presentation and implementation code
 - **Example Screens**: Browse complete UI examples featuring Expensaro components with copy-ready source code
 
-Visit our documentation [website](https://expensaro-ui.vercel.app/) for more information
+Visit our documentation [website](https://expensaro-ui.naivesolution.me/) for more information
 
 ## Sample Usage
 Here's how to use an Expensaro UI component in your project:
